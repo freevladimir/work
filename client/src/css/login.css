@@ -1,0 +1,284 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+}
+
+.loginpage #videoBG {
+	position: fixed;
+	z-index: -1;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+
+.loginpage header {
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px 0 70px;
+	height: 800px;
+}
+
+.loginpage .container {
+	width: 1056px;
+	margin: 0 auto;
+}
+
+.loginpage .personal {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	width: 255px;
+	height: 56px;
+	padding-left: 14px;
+	box-sizing: border-box;
+	color: #E1E1E1;
+	font-size: 16px;
+	float: right;
+	margin-top: -140px;
+	opacity: 0.8;
+}
+
+.loginpage .men {
+	width: 19px;
+	height: 26px;
+	margin-right: 35px;
+}
+
+.loginpage .content {
+	margin: 140px auto 73px;
+	justify-content: center;
+	width: 639px;
+	height: 446px;
+	background: #262626;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	padding: 44px 0 49px;
+	box-sizing: border-box;
+}
+
+.loginpage .logo2 {
+	width: 128px;
+	height: 97px;
+	margin: 0 auto 21px;
+	padding: 0px;
+	display: flex;
+}
+
+.loginpage .logo-mob {
+	display: none;
+}
+
+
+.loginpage .input-container {
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginpage .icon1 {
+	/*background: #E1E1E1;*/
+	color: white;
+	min-width: 40px;
+	text-align: center;
+}
+
+.loginpage .input-field {
+	width: 335px!important;
+	height: 56px!important;
+	margin-right: 40px!important;
+	outline: none!important;
+	background: #262626!important;
+	border-radius: 4px!important;
+	box-sizing: border-box!important;
+	font-family: 'Inter', sans-serif!important;
+	font-size: 16px!important;
+	padding: 20px 21px!important;
+	color: #fff!important;
+	border: 1px solid!important;
+}
+
+.loginpage .input-field:focus {
+	border: 2px solid #fff;
+}
+
+/* Set a style for the submit button */
+.loginpage .btn {
+	display: flex;
+	justify-content: center;
+	background: linear-gradient(90deg, #04D9FF 0%, #9E5DFF 95.54%);
+	border-radius: 4px;
+	color: white;
+	padding: 18px 15px;
+	border: none;
+	cursor: pointer;
+	width: 335px;
+	height: 56px;
+	font-family: 'Inter', sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 16px;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 4px auto 15px;
+}
+
+.loginpage .btn:hover {
+	opacity: 1;
+}
+
+.loginpage .register {
+	display: flex;
+	justify-content: center;
+}
+
+.loginpage .register>a {
+	color: #565656;
+	font-size: 14px;
+	padding: 0 25px;
+}
+
+.loginpage .forget {
+	border-right: 1px solid #979797;
+}
+
+
+.loginpage .buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 70px;
+}
+
+.loginpage .entrance {
+	width: 255px;
+	height: 56px;
+	border: 1px solid #fff;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	color: #E1E1E1;
+	align-items: center;
+	margin-right: 60px;
+	border-radius: 4px;
+	padding: 18px 0;
+	box-sizing: border-box;
+	opacity: 0.8;
+}
+
+.loginpage .login {
+	width: 255px;
+	height: 56px;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	color: #fff;
+	align-items: center;
+	border-radius: 4px;
+	padding: 18px 0;
+	box-sizing: border-box;
+	background: #18A0FB;
+	opacity: 0.8;
+}
+
+/* 992-1200px */
+@media screen and (max-width: 1200px){
+	.loginpage .container {
+		width: 960px;
+	}
+}
+
+/* 768-992px */
+@media screen and (max-width: 992px){
+	.loginpage .container {
+		width: 720px;
+	}
+
+	.loginpage .content {
+		width: 540px;
+	}
+}
+
+/* 576-768px */
+@media screen and (max-width: 768px){
+	.loginpage .container {
+		width: 540px;
+	}
+
+	.loginpage .header {
+		padding-bottom: 0;
+	}
+
+	.loginpage .personal {
+		width: 220px;
+	}
+
+	.loginpage .content {
+		width: 520px;
+		height: 435px;
+	}
+
+	.loginpage .entrance, .loginpage .login {
+		width: 220px;
+	}
+}
+
+/* 320-576px */
+@media screen and (max-width: 576px){
+	.loginpage .container {
+		width: 320px;
+	}
+
+	.loginpage .header {
+		height: 100%;
+	}
+
+	.loginpage .personal {
+		display: none;
+	}
+
+	.loginpage .logo-mob {
+		display: block;
+		margin: 105px auto 135px;
+	}
+
+	.loginpage .logo2 {
+		display: none;
+	}
+
+	.loginpage .buttons {
+		display: none;
+	}
+
+	.loginpage .content {
+		height: 285px;
+		width: 100%;
+		padding: 25px 0 0;
+		box-shadow: 0px -8px 14px rgba(0, 0, 0, 0.15);
+		border-radius: 8px 8px 0px 0px;
+		margin: 0 auto;
+	}
+
+	.loginpage .input-field {
+		margin: 0 auto!important;
+		width: 275px!important;
+	}
+
+	.loginpage .input-container>i {
+		display: none;
+	}
+
+	.loginpage .btn {
+		width: 275px;
+		background: #18A0FB;
+	}
+
+	.loginpage .register>a {
+		padding: 3px 19px;
+	}
+}
+

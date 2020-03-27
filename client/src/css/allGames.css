@@ -1,0 +1,494 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 45px 0 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+
+.allgames #videoBG {
+    position: fixed;
+    z-index: -1;
+    margin-top: -83px;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .allgames #videoBG {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.allgames .container {
+    width: 860px;
+    margin: 0 auto;
+}
+
+.allgames .account {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.allgames .elipse {
+    width: 151px;
+    height: 151px;
+    border-radius: 50%;
+    background: #C4C4C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.allgames .elipse2 {
+    height: 133px;
+    width: 133px;
+    border-radius: 50%;
+    border: 1px solid #3F3F3F;
+    background: #C4C4C4;
+}
+
+.allgames .elipse3 {
+    height: 133px;
+    width: 133px;
+    border-radius: 50%;
+    border: 1px solid #3F3F3F;
+    background: #C4C4C4;
+}
+
+
+.allgames i {
+    color: #C4C4C4;
+    float: right;
+}
+
+.allgames .p1	{
+    font-weight: 500;
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-right: 415px;
+    margin-top: 52px;
+}
+
+.allgames .info {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+
+.allgames .info>a {
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.allgames .comp1 {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    background: #262626;
+    border-radius: 20px;
+    width: 863px;
+    height: 184px;
+    border-radius: 20px;
+    padding: 30px 60px 30px 60px;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.allgames .p2 {
+    font-weight: 600;
+    font-size: 35px;
+    color: #3897F1;
+    text-align: center;
+    margin: 0;
+}
+
+.allgames .p2>span {
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.allgames a {
+    text-decoration: none;
+}
+
+.allgames .btn {
+    width: 321px;
+    height: 113px;
+    background: linear-gradient(90deg, #00D8FD 0%, #A25AFF 100%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 61px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.allgames .p4	{
+    font-weight: 600;
+    font-size: 35px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.allgames .title2> .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.allgames .title2> .top>img {
+    width: 24px;
+    height: 32px;
+    margin-right: 9px;
+}
+
+.allgames .p5 {
+    font-size: 25px;
+    color: #555555;
+    margin: 0;
+}
+
+
+.allgames .comp2 {
+    display: flex;
+    justify-content: space-between;
+    background: #262626;
+    border-radius: 20px;
+    width: 863px;
+    height: 215px;
+    border-radius: 20px;
+    padding: 30px 60px 30px 30px;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.allgames .comp3 {
+    padding: 30px 50px;
+}
+
+.allgames .timer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    box-sizing: border-box;
+    width: 200px;
+    height: 133px;
+}
+
+.allgames ul {
+    padding: 0px;
+    height: 120px;
+    /*width: 43%;*/
+    margin: 0;
+}
+
+.allgames hr {
+    width: 100%;
+}
+
+.allgames li {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    list-style: none;
+}
+
+.allgames .blok2 {
+    margin-right: 37px;
+}
+
+.allgames .title3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.allgames .title3>img {
+
+    margin-right: 6px;
+}
+
+.allgames .blok3 {
+    width: 520px;
+}
+
+.allgames .title_ {
+    margin-left: 10px;
+}
+
+.allgames .men_ {
+    width: 24px;
+    height: 32px;
+    margin-right: 9px;
+}
+
+.allgames .btn-2 {
+    width: 100%;
+}
+
+.allgames .p5_ {
+    margin-right: 15px;
+}
+
+.allgames .p6 {
+    font-size: 21px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-right: 28px;
+}
+
+.allgames .top {
+    display: flex;
+}
+
+.allgames iframe {
+    width: 100%;
+    height: 366px;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+
+/* 992-1200px */
+@media screen and (max-width: 1200px){
+    .allgames .container {
+        width: 860px;
+    }
+}
+
+/* 768-992px */
+@media screen and (max-width: 992px){
+    .allgames .container {
+        width: 720px;
+    }
+
+    .allgames .p1 {
+        margin-right: 265px;
+    }
+
+    .allgames .comp1, .allgames .comp2 {
+        width: 100%;
+    }
+}
+
+/* 576-768px */
+@media screen and (max-width: 768px){
+    .allgames .container {
+        width: 540px;
+    }
+
+    .allgames .comp1 {
+        padding: 30px 15px;
+    }
+
+    .allgames .elipse {
+        width: 133px;
+        height: 133px;
+    }
+
+    .allgames .elipse3 {
+        height: 120px;
+        width: 120px;
+    }
+
+    .allgames .p1 {
+        margin-right: 130px;
+        font-size: 32px;
+    }
+
+    .allgames .info>a {
+        font-size: 23px;
+    }
+
+    .allgames .p2 {
+        font-size: 32px;
+    }
+
+    .allgames .p2>span {
+        font-size: 23px;
+    }
+
+    .allgames .title>img {
+        width: 100px;
+        height: 23.2px;
+    }
+
+    .allgames .btn {
+        width: 265px;
+        font-size: 45px;
+    }
+
+    .allgames .p4 {
+        font-size: 32px;
+    }
+
+    .allgames .p5 {
+        font-size: 23px;
+    }
+
+    .allgames .comp2 {
+        padding: 30px 15px;
+    }
+
+    .allgames li {
+        font-size: 23px;
+    }
+
+    .allgames .blok2 {
+        margin-right: 12px;
+    }
+
+    .allgames .btn-2 {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* 320-576px */
+@media screen and (max-width: 576px){
+    .allgames .container {
+        width: 310px;
+    }
+
+    .allgames .elipse {
+        width: 100px;
+        height: 100px;
+    }
+
+    .allgames .elipse3 {
+        height: 85px;
+        width: 85px;
+    }
+
+    .allgames .p1 {
+        margin-right: 21px;
+        font-size: 25px;
+        margin-top: 40px;
+    }
+
+    .allgames .info {
+        display: block;
+        margin: 0 auto;
+        width: 216px;
+        line-height: 2em;
+    }
+
+    .allgames .info>a {
+        font-size: 20px;
+        margin: 0 5px;
+    }
+
+    .allgames .comp1 {
+        display: block;
+        padding: 0 15px;
+        height: 238px;
+    }
+
+    .allgames .comp2 {
+        display: block;
+        height: 400px;
+    }
+
+    .allgames .timer {
+        margin: 0 auto;
+        width: 225px;
+    }
+
+    .allgames .title2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .allgames .top {
+        margin-right: 10px;
+    }
+
+    .allgames .btn {
+        margin: 10px auto 10px;
+        height: 100px;
+        font-size: 39px;
+    }
+
+    .allgames .title3 {
+        margin-left: 17px;
+    }
+
+    .allgames .blok2 {
+        margin: 0 auto;
+    }
+
+    .allgames .title3 {
+        margin-left: 17px;
+    }
+
+    .allgames .title3>img {
+        width: 37px;
+    }
+
+    .allgames .p6 {
+        font-size: 20px;
+    }
+
+    .allgames .p5_ {
+        font-size: 21px;
+    }
+
+    .allgames .blok3 {
+        width: 100%;
+    }
+
+    .allgames .info {
+        margin-bottom: 15px;
+    }
+
+
+    .allgames .title2> .top>img {
+        width: 22px;
+        height: 30px;
+    }
+
+    .allgames .p4 {
+        font-size: 30px;
+    }
+
+    .allgames .title>img {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+

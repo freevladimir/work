@@ -1,0 +1,248 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #121212;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+
+.register #videoBG {
+    position: fixed;
+    z-index: -1;
+}
+
+.register header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0 70px;
+    height: 800px;
+}
+
+.register .container {
+    width: 1056px;
+    margin: 0 auto;
+}
+
+.register .personal {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    width: 255px;
+    height: 56px;
+    padding-left: 14px;
+    box-sizing: border-box;
+    color: #E1E1E1;
+    font-size: 16px;
+    float: right;
+    margin-top: -100px;
+    opacity: 0.8;
+}
+
+.register .men {
+    width: 19px;
+    height: 26px;
+    margin-right: 35px;
+}
+
+.register .content {
+    margin: 100px auto 73px;
+    justify-content: center;
+    width: 639px;
+    height: 710px;
+    background: #262626;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 44px 0 49px;
+    box-sizing: border-box;
+}
+
+.register .logo2 {
+    width: 128px;
+    height: 97px;
+    margin: 0 auto 21px;
+    padding: 0px;
+    display: flex;
+}
+
+.register .logo-mob {
+    display: none;
+}
+
+.register .input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register .icon1 {
+    color: white;
+    min-width: 40px;
+    text-align: center;
+}
+
+.register .input-field {
+    width: 335px!important;
+    height: 56px!important;
+    margin-right: 40px!important;
+    outline: none!important;
+    background: #262626!important;
+    border-radius: 4px!important;
+    box-sizing: border-box!important;
+    font-family: 'Inter', sans-serif!important;
+    font-size: 16px!important;
+    padding: 20px 21px!important;
+    color: #fff!important;
+    border: 1px solid!important;
+    margin-bottom: 0px!important;
+}
+
+.register .input-field:focus {
+    border: 2px solid #fff;
+}
+
+/* Set a style for the submit button */
+.register .btn {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #04D9FF 0%, #9E5DFF 95.54%);
+    border-radius: 4px;
+    color: white;
+    padding: 18px 15px;
+    border: none;
+    cursor: pointer;
+    width: 335px;
+    height: 56px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 4px auto 15px;
+}
+
+.register .btn:hover {
+    opacity: 1;
+}
+
+.register .register {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.register .register>a {
+    color: #565656;
+    font-size: 14px;
+    padding: 0 25px;
+}
+
+.register .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+
+/* 992-1200px */
+@media screen and (max-width: 1200px){
+    .register .container {
+        width: 960px;
+    }
+}
+
+/* 768-992px */
+@media screen and (max-width: 992px){
+    .register .container {
+        width: 720px;
+    }
+
+    .register .content {
+        width: 540px;
+    }
+}
+
+/* 576-768px */
+@media screen and (max-width: 768px){
+    .register .container {
+        width: 540px;
+    }
+
+    .register .header {
+        padding-bottom: 0;
+    }
+
+    .register .personal {
+        width: 220px;
+    }
+
+    .register .content {
+        width: 520px;
+    }
+
+    .register .entrance, .register .login {
+        width: 220px;
+    }
+}
+
+/* 320-576px */
+@media screen and (max-width: 576px){
+    .register .container {
+        width: 320px;
+    }
+
+    .register .header {
+        height: 100%;
+    }
+
+    .register .personal {
+        display: none;
+    }
+
+    .register .logo-mob {
+        display: block;
+        margin: 105px auto 135px;
+    }
+
+    .register .logo2 {
+        display: none;
+    }
+
+    .register .buttons {
+        display: none;
+    }
+
+    .register .content {
+        height: 565px;
+        width: 100%;
+        padding: 25px 0 0;
+        box-shadow: 0px -8px 14px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+
+    .register .input-field {
+        margin: 0 auto!important;
+        width: 275px!important;
+    }
+
+    .register .input-container>i {
+        display: none;
+    }
+
+    .register .btn {
+        width: 275px;
+        background: #18A0FB;
+    }
+
+    .register .register>a {
+        padding: 3px 19px;
+    }
+}

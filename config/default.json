@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb+srv://vladimir:LOJdWpvJwB33mQnu@cluster0-kjq7q.mongodb.net/app",
+  "jwtSecret": "code is law",
+  "baseUrl": "http://localhost:5000"
+}

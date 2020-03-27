@@ -1,0 +1,349 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 45px 0 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+
+.friends #videoBG {
+    position: fixed;
+    z-index: -1;
+    margin-top: -83px;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .friends #videoBG {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.friends .container {
+    width: 860px;
+    margin: 0 auto;
+}
+
+.friends .account {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.friends .elipse {
+    width: 151px;
+    height: 151px;
+    border-radius: 50%;
+    background: #C4C4C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.friends .elipse3 {
+    height: 133px;
+    width: 133px;
+    border-radius: 50%;
+    border: 1px solid #3F3F3F;
+    background: #C4C4C4;
+}
+
+.friends .elipse_ {
+    width: 151px;
+    height: 151px;
+    border-radius: 50%;
+    background: #C4C4C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.friends .elipse3_ {
+    height: 133px;
+    width: 133px;
+    border-radius: 50%;
+    border: 1px solid #3F3F3F;
+    background: #C4C4C4;
+}
+
+
+.friends i {
+    color: #C4C4C4;
+    float: right;
+}
+
+.friends .p1	{
+    font-weight: 500;
+    font-size: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-right: 380px;
+    margin-top: 52px;
+}
+
+.friends .info {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.friends .info>a {
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.friends .selected {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 3px;
+}
+
+.friends #myInput {
+    background-image: url('../img/search.png');
+    background-position: 8px 7px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    line-height: 24px;
+    color: #555555;
+    width: 287px;
+    height: 46px;
+    border: none;
+    background-color: #262626;
+    border-radius: 9px;
+    box-shadow: inherit;
+    box-sizing: inherit;
+    transition: inherit;
+    font-family: inherit;
+}
+
+.friends .comp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.friends .text {
+    margin-right: 70px;
+}
+
+.friends .p3	{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.friends .p4 {
+    font-size: 25px;
+    line-height: 30px;
+    color: #555555;
+    margin: 0;
+}
+
+.friends .btn {
+    background: #000000;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    width: 321px;
+    height: 60px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    color: #FFFFFF;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: inherit;
+    padding: inherit;
+    text-transform: inherit;
+}
+
+
+
+/* 992-1200px */
+@media screen and (max-width: 1200px){
+    .friends .container {
+        width: 860px;
+    }
+}
+
+/* 768-992px */
+@media screen and (max-width: 992px){
+    .friends .container {
+        width: 720px;
+    }
+
+    .friends .text {
+        margin-right: 0;
+    }
+
+    .friends .btn {
+        width: 300px;
+    }
+
+    .friends .p1 {
+        margin-right: 265px;
+    }
+}
+
+/* 576-768px */
+@media screen and (max-width: 768px){
+    body {
+        padding: 45px 0 35px;
+    }
+
+    .friends .container {
+        width: 540px;
+    }
+
+    .friends .comp1 {
+        padding: 30px 15px;
+    }
+
+    .friends .elipse {
+        width: 133px;
+        height: 133px;
+    }
+
+    .friends .elipse3 {
+        height: 120px;
+        width: 120px;
+    }
+
+    .friends .elipse_ {
+        width: 100px;
+        height: 100px;
+    }
+
+    .friends .elipse3_ {
+        width: 85px;
+        height: 85px;
+    }
+
+    .friends .p1 {
+        margin-right: 130px;
+        font-size: 32px;
+    }
+
+    .friends .info>a {
+        font-size: 23px;
+    }
+
+    .friends #myInput {
+        width: 235px;
+        margin-bottom: 0;
+    }
+
+    .friends .p3 {
+        font-size: 25px;
+    }
+
+    .friends .p4 {
+        font-size: 20px;
+    }
+
+    .friends .btn {
+        width: 235px;
+        font-size: 23px;
+    }
+}
+
+/* 320-576px */
+@media screen and (max-width: 576px){
+    .friends .container {
+        width: 310px;
+    }
+
+    .friends .elipse {
+        width: 90px;
+        height: 90px;
+    }
+
+    .friends .elipse3 {
+        height: 75px;
+        width: 75px;
+    }
+
+    .friends .elipse_ {
+        width: 75px;
+        height: 75px;
+    }
+
+    .friends .elipse3_ {
+        width: 60px;
+        height: 60px;
+    }
+
+    .friends .account {
+        margin-bottom: 15px;
+    }
+
+    .friends .p1 {
+        margin-right: 21px;
+        font-size: 21px;
+        margin-top: 40px;
+    }
+
+    .friends .left {
+        width: 40px;
+        height: 40px;
+    }
+
+    .friends .text {
+        width: 30%;
+    }
+
+    .friends .p3 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .friends .p4 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .friends .btn {
+        width: 123px;
+        font-size: 20px;
+    }
+
+    .friends .info {
+        display: block;
+        padding: 0 37px;
+        margin-bottom: 25px;
+    }
+
+    .friends .info>a {
+        font-size: 20px;
+        margin: 0 5px;
+        line-height: 45px;
+    }
+
+    .friends .p5 {
+        text-align: center;
+    }
+}
