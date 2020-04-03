@@ -58,6 +58,11 @@ body {
     border-radius: 50%;
     border: 1px solid #3F3F3F;
     background: #C4C4C4;
+    background-size: contain;
+}
+
+.allgames .avatar-exist{
+    background-image: url('../img/user.jpg');
 }
 
 
@@ -267,7 +272,7 @@ body {
 }
 
 .allgames iframe {
-    width: 100%;
+    width: 70%;
     height: 366px;
     margin: 0 auto;
     display: -webkit-flex;
@@ -275,6 +280,21 @@ body {
     display: -ms-flex;
     display: -o-flex;
     display: flex;
+}
+.allgames #file{
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.allgames #file:hover{
+    cursor: pointer;
+}
+.allgames #userimg{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 

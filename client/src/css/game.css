@@ -8,7 +8,10 @@ body {
     padding: 83px 0;
 
 }
-
+.game .slider{
+    height: 120px;
+    margin-bottom: 40px;
+}
 .game #videoBG {
     position: fixed;
     z-index: -1;
@@ -205,16 +208,7 @@ body {
     align-items: center;
 }
 
-.game .slider {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    position: inherit;
-    height: inherit;
-    margin-top: 30px;
-}
+
 
 .game .item {
     width: 257px;
@@ -237,8 +231,12 @@ body {
 }
 
 .game .slick-slide {
-    margin: 30px 15px;
+    padding: 30px 15px;
 }
+
+/*.game .slick-next, .game .slick-prev {*/
+/*    top: 26%*/
+/*}*/
 
 .game .section22 {
     display: flex;
@@ -603,8 +601,18 @@ body {
 
 /* 576-768px */
 @media screen and (max-width: 768px){
+    .game .slick-slide {
+        padding: 30px 5px;
+    }
+    .game .item{
+        line-height: inherit;
+    }
     .game .container {
         width: 540px;
+    }
+
+    .game .slick-title{
+        width: 1000px;
     }
 
     body {
@@ -666,7 +674,7 @@ body {
     }
 
     .game .slider {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     .game .item {
@@ -698,6 +706,10 @@ body {
 @media screen and (max-width: 576px){
     .game .container {
         width: 310px;
+    }
+
+    .game .slick-title{
+        width: 1000px;
     }
 
     body {

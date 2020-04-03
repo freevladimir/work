@@ -4,7 +4,7 @@ import {useMessage} from "../hooks/message.hook"
 import {AuthContext} from "../context/AuthContext"
 import '../css/login.css'
 
-export let data;
+
 export const LoginPage = () =>{
     const auth = useContext(AuthContext)
     const message = useMessage()
@@ -13,7 +13,6 @@ export const LoginPage = () =>{
     const [form, setForm] = useState({
         name: '', password: ''
     })
-
     useEffect(()=>{
         message(error)
         clearError()
@@ -29,7 +28,7 @@ export const LoginPage = () =>{
 
     const loginHandler = async () =>{
         try{
-            data = await request('/api/auth/login', 'POST', {...form})
+            const data = await request('/api/auth/login', 'POST', {...form})
             message(data.message)
             auth.login(data.token, data.userId, data.name)
             console.log('Data', data)

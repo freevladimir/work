@@ -1,11 +1,64 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useCallback, useContext, useEffect, useState} from 'react'
 // import Iframe from '../../react-iframe'
 import '../css/allGames.css'
-import {data} from './LoginPage'
 import {NavLink, useHistory} from 'react-router-dom'
-console.log("data on allgames: ", data)
-export const AllGamesPage = ()=>{
+import {useHttp} from "../hooks/http.hook";
+import {AuthContext} from "../context/AuthContext";
+import Timer from 'react-compound-timer'
+import path from 'path'
 
+export const AllGamesPage = ()=>{
+    const [name, setName] = useState([])
+    const [id, setId] = useState([])
+    const [fileImg, setImg] = useState([])
+    const {token} = useContext(AuthContext)
+    const {loading, request} = useHttp()
+
+    // let test = "Name"
+    console.log(token)
+    const getUserData = useCallback(async () =>{
+        console.log("start1")
+        try{
+            console.log("start2")
+            const fetched = await request('/api/auth/allgames', 'GET', null, {
+                Authorization: `Bearer ${token}`
+            })
+            console.log("start3")
+            setName(fetched[0].name)
+            setId(fetched[0]._id)
+            setImg(fetched[0].userImg)
+            console.log("data on allgames: ", fetched)
+        } catch (e) {}
+    }, [token, request])
+
+    const uploadAvatar = useCallback(async(req, res)=>{
+        await request('/api/auth/upload', 'POST', fileImg)
+
+    })
+
+    useEffect(()=>{
+        getUserData()
+    }, [getUserData])
+
+    const changeHandler = async event => {
+        setImg(event.target.value)
+        await request('/api/auth/upload', 'POST', fileImg)
+        console.log(fileImg)
+
+    }
+
+    // const updateAvatarHandler = async () =>{
+    //     try{
+    //         const data = await request('/api/auth/avatar', 'POST', {...form})
+    //         message(data.message)
+    //         console.log('Data', data)
+    //         await loginHandler()
+    //     } catch (e) {}
+    // }
+
+    if(loading){
+        return (<div>Loading</div>)
+    }
     return (
         <div className="allgames">
             <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
@@ -15,17 +68,19 @@ export const AllGamesPage = ()=>{
                 <div className="container">
                     <div className="account">
                         <div className="elipse">
-                            <div className="elipse3"></div>
+
+                            <div className="elipse3">
+                                <input type="file" name="file" id="file" onChange={changeHandler}/>
+
+                            </div>
                         </div>
                         <p className="p1">
-                            {/*{data}*/}
+                            {name}
                         </p>
                         <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
                     </div>
                     <div className="info">
-                        <a href="#">
-                            5 мин
-                        </a>
+
                         <a href="#">
                             100 My friends
                         </a>
@@ -33,7 +88,7 @@ export const AllGamesPage = ()=>{
                             1000 All
                         </a>
                         <a href="#">
-                            My ID: 12344
+                            My ID: {id}
                         </a>
                     </div>
                 </div>
@@ -51,7 +106,7 @@ export const AllGamesPage = ()=>{
                             <NavLink to="/game">
                                 <div className="btn">
                                     <p className="p3">
-                                        45 $
+                                        PLAY 45$
                                     </p>
                                 </div>
                             </NavLink>
@@ -69,47 +124,57 @@ export const AllGamesPage = ()=>{
                         </div>
                         <div className="comp2">
                             <div className="timer">
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        04
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        05 мин
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        06
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        08
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        09 сек
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        10
-                                    </li>
-                                </ul>
+                                <Timer
+                                    initialTime={65000}
+                                    direction="backward"
+                                >
+                                    {() => (
+                                        <React.Fragment>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.m - 1>=0 ? <Timer />._owner.stateNode.state.m - 1 : 60+<Timer />._owner.stateNode.state.m - 1}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Minutes /> min
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.m + 1<=59 ? <Timer />._owner.stateNode.state.m + 1 : Math.abs(60-<Timer />._owner.stateNode.state.m - 1)}
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.s - 1>=0 ? <Timer />._owner.stateNode.state.s - 1 : 60+<Timer />._owner.stateNode.state.s - 1}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Seconds /> sec
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.s + 1<=59 ? <Timer />._owner.stateNode.state.s + 1 : Math.abs(60-<Timer />._owner.stateNode.state.s - 1)}
+                                                </li>
+                                            </ul>
+                                        </React.Fragment>
+                                    )}
+                                </Timer>
+
                             </div>
                             <div className="blok2">
                                 <div className="title3">
                                     <img src={require("../img/minute2.png")} alt="minute"/>
                                     <p className="p6">
-                                        Every 5 minutesr
+                                        Every 5 minutes
                                     </p>
                                 </div>
-                                <a href="#">
+                                <NavLink to="/game">
                                     <div className="btn">
                                         <p className="p3">
-                                            5 $
+                                            PLAY 45$
                                         </p>
                                     </div>
-                                </a>
+                                </NavLink>
                             </div>
                             <div className="title2">
                                 <div className="top">
@@ -125,32 +190,42 @@ export const AllGamesPage = ()=>{
                         </div>
                         <div className="comp2">
                             <div className="timer">
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        04
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        05 мин
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        06
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        08
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        09 сек
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        10
-                                    </li>
-                                </ul>
+                                <Timer
+                                    initialTime={1800000}
+                                    direction="backward"
+                                >
+                                    {() => (
+                                        <React.Fragment>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.m - 1>=0 ? <Timer />._owner.stateNode.state.m - 1 : 60+<Timer />._owner.stateNode.state.m - 1}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Minutes /> min
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.m + 1<=59 ? <Timer />._owner.stateNode.state.m + 1 : Math.abs(60-<Timer />._owner.stateNode.state.m - 1)}
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.s - 1>=0 ? <Timer />._owner.stateNode.state.s - 1 : 60+<Timer />._owner.stateNode.state.s - 1}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Seconds /> sec
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.s + 1<=59 ? <Timer />._owner.stateNode.state.s + 1 : Math.abs(60-<Timer />._owner.stateNode.state.s - 1)}
+                                                </li>
+                                            </ul>
+                                        </React.Fragment>
+                                    )}
+                                </Timer>
+
                             </div>
                             <div className="blok2">
                                 <div className="title3">
@@ -159,13 +234,13 @@ export const AllGamesPage = ()=>{
                                         Each hour
                                     </p>
                                 </div>
-                                <a href="#">
+                                <NavLink to="/game">
                                     <div className="btn">
                                         <p className="p3">
-                                            5 $
+                                            PLAY 45$
                                         </p>
                                     </div>
-                                </a>
+                                </NavLink>
                             </div>
                             <div className="title2">
                                 <div className="top">
@@ -182,32 +257,42 @@ export const AllGamesPage = ()=>{
                     </div>
                     <div className="comp2">
                         <div className="timer">
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    04
-                                </li>
-                                <hr/>
-                                <li>
-                                    05 мин
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    06
-                                </li>
-                            </ul>
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    08
-                                </li>
-                                <hr/>
-                                <li>
-                                    09 сек
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    10
-                                </li>
-                            </ul>
+                            <Timer
+                                initialTime={3605000}
+                                direction="backward"
+                            >
+                                {() => (
+                                    <React.Fragment>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h - 1>=0 ? <Timer />._owner.stateNode.state.h - 1 : 24+<Timer />._owner.stateNode.state.h - 1}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Hours /> day
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h + 1<=23 ? <Timer />._owner.stateNode.state.h + 1 : Math.abs(24-<Timer />._owner.stateNode.state.h - 1)}
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.m - 1>=0 ? <Timer />._owner.stateNode.state.m - 1 : 60+<Timer />._owner.stateNode.state.m - 1}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Minutes /> min
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.m + 1<=59 ? <Timer />._owner.stateNode.state.m + 1 : Math.abs(60-<Timer />._owner.stateNode.state.m - 1)}
+                                            </li>
+                                        </ul>
+                                    </React.Fragment>
+                                )}
+                            </Timer>
+
                         </div>
                         <div className="blok2">
                             <div className="title3">
@@ -216,13 +301,13 @@ export const AllGamesPage = ()=>{
                                     Every day
                                 </p>
                             </div>
-                            <a href="#">
+                            <NavLink to="/game">
                                 <div className="btn">
                                     <p className="p3">
-                                        5 $
+                                        PLAY 45$
                                     </p>
                                 </div>
-                            </a>
+                            </NavLink>
                         </div>
                         <div className="title2">
                             <div className="top">
@@ -238,32 +323,42 @@ export const AllGamesPage = ()=>{
                     </div>
                     <div className="comp2">
                         <div className="timer">
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    05
-                                </li>
-                                <hr/>
-                                <li>
-                                    06 day
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    07
-                                </li>
-                            </ul>
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    22
-                                </li>
-                                <hr/>
-                                <li>
-                                    23 hour
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    24
-                                </li>
-                            </ul>
+                            <Timer
+                                initialTime={86405000}
+                                direction="backward"
+                            >
+                                {() => (
+                                    <React.Fragment>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.d - 1>=0 ? <Timer />._owner.stateNode.state.d - 1 : 0}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Days /> day
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.d + 1}
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h - 1>=0 ? <Timer />._owner.stateNode.state.h - 1 : 24+<Timer />._owner.stateNode.state.h - 1}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Hours /> hour
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h + 1<=23 ? <Timer />._owner.stateNode.state.h + 1 : Math.abs(60-<Timer />._owner.stateNode.state.h - 1)}
+                                            </li>
+                                        </ul>
+                                    </React.Fragment>
+                                )}
+                            </Timer>
+
                         </div>
                         <div className="blok2">
                             <div className="title3">
@@ -272,13 +367,13 @@ export const AllGamesPage = ()=>{
                                     Every week
                                 </p>
                             </div>
-                            <a href="#">
+                            <NavLink to="/game">
                                 <div className="btn">
                                     <p className="p3">
-                                        5 $
+                                        PLAY 45$
                                     </p>
                                 </div>
-                            </a>
+                            </NavLink>
                         </div>
                         <div className="title2">
                             <div className="top">
@@ -294,32 +389,42 @@ export const AllGamesPage = ()=>{
                     </div>
                     <div className="comp2">
                         <div className="timer">
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    10
-                                </li>
-                                <hr/>
-                                <li>
-                                    11 month
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    12
-                                </li>
-                            </ul>
-                            <ul>
-                                <li style={{color: "#979797"}}>
-                                    22
-                                </li>
-                                <hr/>
-                                <li>
-                                    23 hour
-                                </li>
-                                <hr/>
-                                <li style={{color: "#979797"}}>
-                                    24
-                                </li>
-                            </ul>
+                            <Timer
+                                initialTime={86405000}
+                                direction="backward"
+                            >
+                                {() => (
+                                    <React.Fragment>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.d - 1>=0 ? <Timer />._owner.stateNode.state.d - 1 : 0}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Days /> day
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.d + 1}
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h - 1>=0 ? <Timer />._owner.stateNode.state.h - 1 : 24+<Timer />._owner.stateNode.state.h - 1}
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <Timer.Hours /> hour
+                                            </li>
+                                            <hr/>
+                                            <li style={{color: "#979797"}}>
+                                                {<Timer />._owner.stateNode.state.h + 1<=23 ? <Timer />._owner.stateNode.state.h + 1 : Math.abs(60-<Timer />._owner.stateNode.state.h - 1)}
+                                            </li>
+                                        </ul>
+                                    </React.Fragment>
+                                )}
+                            </Timer>
+
                         </div>
                         <div className="blok2">
                             <div className="title3">
@@ -328,13 +433,13 @@ export const AllGamesPage = ()=>{
                                     Every month
                                 </p>
                             </div>
-                            <a href="#">
+                            <NavLink to="/game">
                                 <div className="btn">
                                     <p className="p3">
-                                        5 $
+                                        PLAY 45$
                                     </p>
                                 </div>
-                            </a>
+                            </NavLink>
                         </div>
                         <div className="title2">
                             <div className="top">
@@ -353,36 +458,46 @@ export const AllGamesPage = ()=>{
                             <div className="title3 title_">
                                 <img src={require("../img/calendar2.png")} alt="minute"/>
                                 <p className="p6">
-                                    Every month
+                                    Every year
                                 </p>
                             </div>
                             <div className="timer">
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        05
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        06 day
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        07
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li style={{color: "#979797"}}>
-                                        22
-                                    </li>
-                                    <hr/>
-                                    <li>
-                                        23 hour
-                                    </li>
-                                    <hr/>
-                                    <li style={{color: "#979797"}}>
-                                        24
-                                    </li>
-                                </ul>
+                                <Timer
+                                    initialTime={86405000}
+                                    direction="backward"
+                                >
+                                    {() => (
+                                        <React.Fragment>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.d - 1>=0 ? <Timer />._owner.stateNode.state.d - 1 : 0}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Days /> day
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.d + 1}
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.h - 1>=0 ? <Timer />._owner.stateNode.state.h - 1 : 24+<Timer />._owner.stateNode.state.h - 1}
+                                                </li>
+                                                <hr/>
+                                                <li>
+                                                    <Timer.Hours /> hour
+                                                </li>
+                                                <hr/>
+                                                <li style={{color: "#979797"}}>
+                                                    {<Timer />._owner.stateNode.state.h + 1<=23 ? <Timer />._owner.stateNode.state.h + 1 : Math.abs(60-<Timer />._owner.stateNode.state.h - 1)}
+                                                </li>
+                                            </ul>
+                                        </React.Fragment>
+                                    )}
+                                </Timer>
+
                             </div>
                         </div>
                         <div className="blok3">
@@ -401,16 +516,20 @@ export const AllGamesPage = ()=>{
                                     </p>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div className="btn btn-2">
+                            <NavLink to="/game">
+                                <div className="btn">
                                     <p className="p3">
-                                        5 $
+                                        PLAY 45$
                                     </p>
                                 </div>
-                            </a>
+                            </NavLink>
                         </div>
                     </div>
-
+                    <div className="video">
+                        <iframe
+                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+                    </div>
 
                 </div>
             </section>
