@@ -6,6 +6,122 @@ import {useHttp} from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContext";
 import Timer from 'react-compound-timer'
 import path from 'path'
+import config from "../config/default";
+import Web3 from "web3";
+
+let TEST_RINKEBY = 'https://rinkeby.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176',
+    TEST_MAIN = 'https://mainnet.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176'
+export let metamask, web3, addressLottery, abi, LotteryLimit, userAddress
+
+
+    const countOfTickets = async () => {
+        if (web3 && userAddress) {
+            await LotteryLimit.methods.getTicketsLength().call({}, (err, res)=>{
+                if(res){
+                    let count = parseInt(res)
+                    console.log("web3", web3)
+                    console.log('LotteryLimit', LotteryLimit)
+                    console.log('data', res)
+                    console.log("Count Of Tickets:")
+                    console.log(count)
+                    // let tokens = React.createElement('span', null, _tokens)
+                    // //
+                    // console.log('span', tokens)
+                    // console.log('ReactDOM', ReactDOM)
+                    // console.log(document.getElementById('lalla'))
+                    // ReactDOM.render(tokens, document.getElementById('lalla'))
+                } else if(err){
+                    console.log("This is error: ", err)
+                }
+            })
+        }
+    }
+
+    const getAllValues = async () => {
+    console.log(config.limitLottery10$.address)
+        console.log(config.limitLottery10$.abi)
+        addressLottery = config.limitLottery10$.address
+        abi = config.limitLottery10$.abi
+
+        LotteryLimit = new web3.eth.Contract(abi, addressLottery);
+        console.log('blockchain is connected')
+        await countOfTickets()
+
+    }
+
+    const connectBlockChain = async () => {
+        // console.log(wallet);
+        console.log("start metamask");
+        window.addEventListener('load', async () => {
+
+            if (window.ethereum) {
+                metamask = await new Web3(window.ethereum);
+                console.log("connect MetaMask");
+                window.ethereum.on('accountsChanged', function (accounts) {
+                    userAddress = accounts[0];
+                    // Time to reload your interface with accounts[0]!
+                    console.log("change account: ", userAddress);
+
+                })
+                try {
+                    window.ethereum.enable().then(async function () {
+                        // User has allowed account access to DApp...
+                        console.log("step2")
+                        if (metamask) {
+                            if (window.ethereum.selectedAddress !== undefined) {
+                                userAddress = (window.ethereum.selectedAddress)
+                            } else if (web3.givenProvider.MetamaskInpageProvider !== undefined) {
+                                userAddress = (web3.givenProvider.MetamaskInpageProvider)
+                            } else if (metamask.givenProvider.selectedAddress !== undefined) {
+                                userAddress = (metamask.givenProvider.selectedAddress)
+                            }
+                            web3 = await new Web3(new Web3.providers.HttpProvider(TEST_RINKEBY));
+                            await console.log('web3', web3)
+                            getAllValues()
+                            console.log('userAddress: ', userAddress)
+                        }
+                    });
+                } catch (e) {
+                    // User has denied account access to DApp...
+                    console.log(e)
+                }
+            }
+            // Legacy DApp Browsers
+            else if (window.web3) {
+                metamask = await new Web3(web3.currentProvider);
+                console.log(metamask);
+                console.log("connect MetaMask");
+                if (metamask) {
+                    if (window.ethereum.selectedAddress !== undefined) {
+                        userAddress = (window.ethereum.selectedAddress)
+                    } else if (web3.givenProvider.MetamaskInpageProvider !== undefined) {
+                        userAddress = (web3.givenProvider.MetamaskInpageProvider)
+                    } else if (metamask.givenProvider.selectedAddress !== undefined) {
+                        userAddress = (metamask.givenProvider.selectedAddress)
+                    }
+                    web3 = await new Web3(new Web3.providers.HttpProvider(TEST_RINKEBY));
+                    await console.log('web3', web3)
+                    getAllValues()
+                    console.log('userAddress: ', userAddress)
+                }
+                window.ethereum.on('accountsChanged', function (accounts) {
+                    // Time to reload your interface with accounts[0]!
+                    userAddress = (accounts[0])
+                    console.log("change account: ", userAddress)
+                })
+            }
+            // Non-DApp Browsers
+            else {
+                console.log('You have to install MetaMask !')
+                web3 = await new Web3(new Web3.providers.HttpProvider(TEST_RINKEBY))
+                getAllValues()
+                await console.log('web3', web3)
+            }
+        })
+        await console.log('web3', web3)
+        await console.log("end metamask")
+    }
+    connectBlockChain()
 
 export const AllGamesPage = ()=>{
     const [name, setName] = useState([])
