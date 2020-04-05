@@ -170,14 +170,15 @@ body {
 
 .game .total-info>img {
     margin-left: 88px;
+    position: absolute;
 }
 
 .game .p4 {
-    padding: 0 170px;
     font-size: 25px;
     line-height: 30px;
     text-align: center;
     color: #555555;
+    margin: auto;
 }
 
 .game .p4>span {

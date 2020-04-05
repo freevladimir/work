@@ -37,7 +37,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/create" exact>
           <CreatePage />
         </Route>
-        {/*<Redirect to="/allgames" />*/}
+        <Redirect to="/allgames" />
       </Switch>
     );
   }
@@ -52,7 +52,7 @@ export const useRoutes = (isAuthenticated) => {
       <Route path="/register" exact>
         <AuthPage />
       </Route>
-      {/*<Redirect to="/" />*/}
+      <Redirect to="/" />
     </Switch>
   );
 };

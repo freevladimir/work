@@ -5,6 +5,10 @@ import { connectBlockChain } from "../utils/connectBlockchain";
 class AppStore {
   // initial state of app
   ticketsCount = "";
+  balanceOfContract = 0;
+  myTickets = [];
+  addressName = '';
+  members =[];
   currentLotteryName = 'limitLottery'
   contractIndex = 0;
 
@@ -36,8 +40,34 @@ class AppStore {
   intervalCheckTickets() {
     // Чекер проверяет значения window data и если условие соблюдено, то поменяет локальное значение ticketCount, и вызовет ре-рендер зависящих от этого значения компонентов
     setInterval(() => {
-      if (window.data !== null && this.ticketsCount !== window.data) {
-        this.ticketsCount = window.data;
+      if (window.data !== null) {
+        let obj = new Object(window.data)
+        if(obj.hasOwnProperty('tickets')){
+          this.ticketsCount = window.data.tickets;
+        } else {
+          this.ticketsCount = 0
+        }
+        if(obj.hasOwnProperty('balanceOfContract')){
+          this.balanceOfContract = window.data.balanceOfContract;
+        } else{
+          this.balanceOfContract = 0
+        }
+        if(obj.hasOwnProperty('myTickets')){
+          this.myTickets = window.data.myTickets;
+        } else{
+          this.myTickets = []
+        }
+        if(obj.hasOwnProperty('addressName')){
+          this.addressName = window.data.addressName;
+        } else{
+          this.addressName = ''
+        }
+        if(obj.hasOwnProperty('members')){
+          this.members = window.data.members;
+
+        } else{
+          this.members = []
+        }
       }
     }, 500);
   }
@@ -46,7 +76,11 @@ class AppStore {
 AppStore = decorate(AppStore, {
   currentLotteryName: observable,
   ticketsCount: observable,
+  balanceOfContract: observable,
+  myTickets: observable,
   contractIndex: observable,
+  members: observable,
+  addressName: observable,
   init: action,
   contractChange: action,
 });

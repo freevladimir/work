@@ -1,6 +1,12 @@
 import Web3 from "web3";
 import config from "../config/default";
 import countOfTickets from "./countOfTickets";
+import getBalanceOfContract from "./getBalanceOfContract";
+import getMyTickets from "./myTickets";
+import getMembers from "./members";
+import {useCallback, useEffect, useState} from "react";
+import {useHttp} from "../hooks/http.hook";
+
 
 let TEST_RINKEBY =
     "https://rinkeby.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176",
@@ -8,6 +14,7 @@ let TEST_RINKEBY =
 export let metamask, web3, abi, LotteryLimit, userAddress, addressLottery;
 
 export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
+
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
     console.log(config[lotteryKey].addresses[addressIndex].addressValue);
@@ -18,13 +25,18 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     LotteryLimit = new web3.eth.Contract(abi, addressLottery);
     console.log("blockchain is connected");
     const tickets = await countOfTickets();
-    return tickets;
+    const balanceOfContract = await getBalanceOfContract();
+    const myTickets = await getMyTickets()
+    const addressName = currentAddress.addressName
+    const members = await getMembers()
+    return {tickets, balanceOfContract, myTickets, addressName, members};
   }
 };
 
 export default getAllValues;
 
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
+
   console.log("start metamask");
   let tickets;
   if (window.ethereum) {
@@ -53,6 +65,7 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
           getAllValues(lotteryKey, addressIndex).then((data) => {
             window.data = data;
           });
+
         }
       });
     } catch (e) {

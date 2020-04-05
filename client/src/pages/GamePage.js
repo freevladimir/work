@@ -19,9 +19,11 @@ import {
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
+import getMembers from "../utils/members";
 const GamePage = () => {
   const store = useContext(AppStoreContext)
   const [userAddress, setUserAddress] = useState([]);
+  const [membersName, setMembers] = useState([]);
   const [name, setName] = useState([]);
   const [id, setId] = useState([]);
   const { token } = useContext(AuthContext);
@@ -30,9 +32,10 @@ const GamePage = () => {
   console.log(token);
 
   const buyTicket = async () => {
+    console.log(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
     metamask.eth.sendTransaction(
       {
-        to: config.limitLottery10$.address,
+        to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
         from: metamask.givenProvider.selectedAddress,
         value: web3.utils.toWei("0.1", "ether"),
       },
@@ -43,6 +46,10 @@ const GamePage = () => {
     );
   };
 
+  function shortAddress(address) {
+    return address.substr(0, 6) + "..." + address.substr(38, 4)
+  }
+
   const getUserData = useCallback(async () => {
     console.log("start1");
     try {
@@ -50,15 +57,35 @@ const GamePage = () => {
       const fetched = await request("/api/auth/allgames", "GET", null, {
         Authorization: `Bearer ${token}`,
       });
-      console.log("start3");
       setName(fetched[0].name);
       setId(fetched[0]._id);
       console.log("data on allgames: ", fetched);
     } catch (e) {}
   }, [token, request]);
+
+  const getMembersName = useCallback(async () => {
+
+    try {
+      const members = store.members
+      await console.log(members)
+      //const members = ["0x2778c6f33a0c9a20866cce84beb3e78b9dd26ae5", "0xa61427fc8cc3bed4b6c73e19abff44397f79b0e5"]
+      const result = await request('/api/auth/members', 'POST', {members})
+      console.log("START3");
+      // setName(fetched[0].name);
+      // setId(fetched[0]._id);
+      console.log("MEMBERSNAMES: ", result);
+      setMembers(result)
+      console.log(window.data.members)
+    } catch (e) {}
+  }, [request]);
+
   useEffect(() => {
     getUserData();
   }, [getUserData]);
+
+  useEffect(() => {
+    getMembersName()
+  }, [getMembersName]);
 
   if (loading) {
     return <div>Loading</div>;
@@ -83,136 +110,136 @@ const GamePage = () => {
             <a href="#">My ID: {id}</a>
           </div>
           <p className="p2"></p>
-          <div className="timer">
-            <Timer initialTime={86405000} direction="backward">
-              {() => (
-                <React.Fragment>
-                  <ul>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.h - 2 >= 0
-                        ? (<Timer />)._owner.stateNode.state.h - 2
-                        : 24 + (<Timer />)._owner.stateNode.state.h - 2}
-                    </li>
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.h - 1 >= 0
-                        ? (<Timer />)._owner.stateNode.state.h - 1
-                        : 24 + (<Timer />)._owner.stateNode.state.h - 1}
-                    </li>
-                    <hr />
-                    <li>
-                      <Timer.Hours /> h
-                    </li>
-                    <hr />
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.h + 1 <= 23
-                        ? (<Timer />)._owner.stateNode.state.h + 1
-                        : Math.abs(
-                            24 - (<Timer />)._owner.stateNode.state.h - 1
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.h + 2 <= 23
-                        ? (<Timer />)._owner.stateNode.state.h + 2
-                        : Math.abs(
-                            24 - (<Timer />)._owner.stateNode.state.h - 2
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.1 }}>
-                      {(<Timer />)._owner.stateNode.state.h + 3 <= 23
-                        ? (<Timer />)._owner.stateNode.state.h + 3
-                        : Math.abs(
-                            24 - (<Timer />)._owner.stateNode.state.h - 3
-                          )}
-                    </li>
-                  </ul>
-                  <ul>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.m - 2 >= 0
-                        ? (<Timer />)._owner.stateNode.state.m - 2
-                        : 60 + (<Timer />)._owner.stateNode.state.m - 2}
-                    </li>
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.m - 1 >= 0
-                        ? (<Timer />)._owner.stateNode.state.m - 1
-                        : 60 + (<Timer />)._owner.stateNode.state.m - 1}
-                    </li>
-                    <hr />
-                    <li>
-                      <Timer.Minutes /> min
-                    </li>
-                    <hr />
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.m + 1 <= 59
-                        ? (<Timer />)._owner.stateNode.state.m + 1
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.m - 1
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.m + 2 <= 59
-                        ? (<Timer />)._owner.stateNode.state.m + 2
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.m - 2
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.1 }}>
-                      {(<Timer />)._owner.stateNode.state.m + 3 <= 59
-                        ? (<Timer />)._owner.stateNode.state.m + 3
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.m - 3
-                          )}
-                    </li>
-                  </ul>
+          {/*<div className="timer">*/}
+          {/*  <Timer initialTime={86405000} direction="backward">*/}
+          {/*    {() => (*/}
+          {/*      <React.Fragment>*/}
+          {/*        <ul>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.h - 2 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.h - 2*/}
+          {/*              : 24 + (<Timer />)._owner.stateNode.state.h - 2}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.h - 1 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.h - 1*/}
+          {/*              : 24 + (<Timer />)._owner.stateNode.state.h - 1}*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li>*/}
+          {/*            <Timer.Hours /> h*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.h + 1 <= 23*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.h + 1*/}
+          {/*              : Math.abs(*/}
+          {/*                  24 - (<Timer />)._owner.stateNode.state.h - 1*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.h + 2 <= 23*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.h + 2*/}
+          {/*              : Math.abs(*/}
+          {/*                  24 - (<Timer />)._owner.stateNode.state.h - 2*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.1 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.h + 3 <= 23*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.h + 3*/}
+          {/*              : Math.abs(*/}
+          {/*                  24 - (<Timer />)._owner.stateNode.state.h - 3*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*        </ul>*/}
+          {/*        <ul>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.m - 2 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.m - 2*/}
+          {/*              : 60 + (<Timer />)._owner.stateNode.state.m - 2}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.m - 1 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.m - 1*/}
+          {/*              : 60 + (<Timer />)._owner.stateNode.state.m - 1}*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li>*/}
+          {/*            <Timer.Minutes /> min*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.m + 1 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.m + 1*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.m - 1*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.m + 2 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.m + 2*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.m - 2*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.1 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.m + 3 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.m + 3*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.m - 3*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*        </ul>*/}
 
-                  <ul>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.s - 2 >= 0
-                        ? (<Timer />)._owner.stateNode.state.s - 2
-                        : 60 + (<Timer />)._owner.stateNode.state.s - 2}
-                    </li>
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.s - 1 >= 0
-                        ? (<Timer />)._owner.stateNode.state.s - 1
-                        : 60 + (<Timer />)._owner.stateNode.state.s - 1}
-                    </li>
-                    <hr />
-                    <li>
-                      <Timer.Seconds /> sec
-                    </li>
-                    <hr />
-                    <li style={{ color: "#979797" }}>
-                      {(<Timer />)._owner.stateNode.state.s + 1 <= 59
-                        ? (<Timer />)._owner.stateNode.state.s + 1
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.s - 1
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.2 }}>
-                      {(<Timer />)._owner.stateNode.state.s + 2 <= 59
-                        ? (<Timer />)._owner.stateNode.state.s + 2
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.s - 2
-                          )}
-                    </li>
-                    <li style={{ opacity: 0.1 }}>
-                      {(<Timer />)._owner.stateNode.state.s + 3 <= 59
-                        ? (<Timer />)._owner.stateNode.state.s + 3
-                        : Math.abs(
-                            60 - (<Timer />)._owner.stateNode.state.s - 3
-                          )}
-                    </li>
-                  </ul>
-                </React.Fragment>
-              )}
-            </Timer>
-          </div>
+          {/*        <ul>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.s - 2 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.s - 2*/}
+          {/*              : 60 + (<Timer />)._owner.stateNode.state.s - 2}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.s - 1 >= 0*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.s - 1*/}
+          {/*              : 60 + (<Timer />)._owner.stateNode.state.s - 1}*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li>*/}
+          {/*            <Timer.Seconds /> sec*/}
+          {/*          </li>*/}
+          {/*          <hr />*/}
+          {/*          <li style={{ color: "#979797" }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.s + 1 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.s + 1*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.s - 1*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.2 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.s + 2 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.s + 2*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.s - 2*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*          <li style={{ opacity: 0.1 }}>*/}
+          {/*            {(<Timer />)._owner.stateNode.state.s + 3 <= 59*/}
+          {/*              ? (<Timer />)._owner.stateNode.state.s + 3*/}
+          {/*              : Math.abs(*/}
+          {/*                  60 - (<Timer />)._owner.stateNode.state.s - 3*/}
+          {/*                )}*/}
+          {/*          </li>*/}
+          {/*        </ul>*/}
+          {/*      </React.Fragment>*/}
+          {/*    )}*/}
+          {/*  </Timer>*/}
+          {/*</div>*/}
           <div className="total">
             <p className="p3">Sum total</p>
             <div className="sum-total">
               <div className="total-info">
                 <img src={require("../img/money.png")} alt="money" />
                 <p className="p4" id="lalla">
-                  <span>100000$</span>
+                  <span>{store.balanceOfContract} $</span>
                   <br /> Bank
                 </p>
               </div>
@@ -223,8 +250,7 @@ const GamePage = () => {
             <p className="p5">Every 10 people</p>
           </div>
           <SimpleSlider />
-          <div className="slider">
-          </div>
+
         </div>
       </section>
       <section className="section" id="section2">
@@ -235,82 +261,23 @@ const GamePage = () => {
                 <img src={require("../img/men2.png")} alt="men" />
                 <p>
                   Total participants
-                  <br /> <span>1000000</span>
+                  <br /> <span>{store.ticketsCount}</span>
                 </p>
               </div>
               <div className="accounts">
-                <div>
-                  <p className="p6">1</p>
-                  <div className="avatar">
-                    <div className="elipse2">
-                      <img src={require("../img/user.jpg")} />
+                {store.members.map((item, index) =>(
+                    <div>
+                      <p className="p6">{index+1}</p>
+                      <div className="avatar">
+                        <div className="elipse2"></div>
+                      </div>
+                      <div className="name">
+                        <p className="name">{shortAddress(item)}</p>
+                        {/*<p className="status">Status</p>*/}
+                      </div>
                     </div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">2</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">3</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">4</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">5</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">6</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="p6">7</p>
-                  <div className="avatar">
-                    <div className="elipse2"></div>
-                  </div>
-                  <div className="name">
-                    <p className="name">Account name</p>
-                    <p className="status">Status</p>
-                  </div>
-                </div>
+
+                ))}
               </div>
             </div>
             <div className="tickets">
@@ -322,36 +289,17 @@ const GamePage = () => {
                 <p className="p7">My tickets</p>
               </div>
               <div className="tickets_">
-                <div>
-                  <p className="p8">№ 1</p>
-                  <p className="p9">
-                    3 $ <span>My bids</span>
-                  </p>
-                </div>
-                <div>
-                  <p className="p8">№ 6</p>
-                  <p className="p9">
-                    4 $ <span>My bids</span>
-                  </p>
-                </div>
-                <div>
-                  <p className="p8">№ 6</p>
-                  <p className="p9">
-                    4 $ <span>My bids</span>
-                  </p>
-                </div>
-                <div>
-                  <p className="p8">№ 7</p>
-                  <p className="p9">
-                    5 $ <span>My bids</span>
-                  </p>
-                </div>
-                <div>
-                  <p className="p8">№ 8</p>
-                  <p className="p9">
-                    5 $ <span>My bids</span>
-                  </p>
-                </div>
+
+
+                {store.myTickets.map((item, index) =>(
+                    <div>
+                      <p className="p8">№ {item}</p>
+                      <p className="p9">
+                        {store.addressName.substr(7,3)} <span> My bids</span>
+                      </p>
+                    </div>
+                ))}
+
               </div>
               <hr />
               <div className="winners">
