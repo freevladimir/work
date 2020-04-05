@@ -87,7 +87,7 @@ router.post('/register',
         if(macthPassword!==password){
             return res.status(400).json({message: 'Passwords do not match'})
         }
-        await User.updateOne({name: name}, {userImg: img})
+
         if(friendId!=''){
             let friend = await User.findOne({wallet: friendId})
             if(!friend){
@@ -107,6 +107,7 @@ router.post('/register',
         res.status(201).json({message: "User created!"})
 
     }catch (e) {
+        console.log(e)
         res.status(500).json({message: 'Something go wrong, try again'})
     }
 })
@@ -286,5 +287,33 @@ router.get('/game', auth,
         }
     })
 
+
+router.post('/members',
+
+    async (req, res)=>{
+        try{
+            const {members} = req.body
+            console.log(members)
+
+            let users = []
+            for(let i=0; i<members.length; i++){
+                let user = await User.findOne({wallet: members[i]})
+                console.log(user)
+                users.push(user.name)
+            }
+
+            // console.log(users)
+            if(!users){
+                return res.status(400).json({message: "User is not exist"})
+            }
+
+            res.json(users)
+
+        } catch (e) {
+            res.status(500).json({message: 'Something go wrong, try again'})
+            console.log(e)
+        }
+
+    })
 
 module.exports = router
