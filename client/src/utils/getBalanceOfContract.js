@@ -1,9 +1,9 @@
-import { web3, userAddress, LotteryLimit } from "./connectBlockchain";
+import { web3, userAddress } from "./connectBlockchain";
 
-const getBalanceOfContract = async () => {
+const getBalanceOfContract = async (lottery) => {
     let result;
-    if (web3 && userAddress) {
-        await LotteryLimit.methods.getSumOnContract().call({}, (err, res) => {
+    if (web3) {
+        await lottery.methods.getSumOnContract().call({}, (err, res) => {
             if (res) {
                 let sum = parseInt(res);
                 // console.log("web3", web3);

@@ -11,6 +11,8 @@ class AppStore {
   members =[];
   currentLotteryName = 'limitLottery'
   contractIndex = 0;
+  winners = []
+  bankForLimit = 0
 
   constructor() {
     this.init();
@@ -68,6 +70,18 @@ class AppStore {
         } else{
           this.members = []
         }
+        if(obj.hasOwnProperty('winners')){
+          this.winners = window.data.winners;
+
+        } else{
+          this.winners = []
+        }
+        if(obj.hasOwnProperty('bankForLimit')){
+          this.bankForLimit = window.data.bankForLimit;
+
+        } else{
+          this.bankForLimit = []
+        }
       }
     }, 500);
   }
@@ -81,6 +95,8 @@ AppStore = decorate(AppStore, {
   contractIndex: observable,
   members: observable,
   addressName: observable,
+  winners: observable,
+  bankForLimit: observable,
   init: action,
   contractChange: action,
 });

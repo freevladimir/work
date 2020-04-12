@@ -9,45 +9,74 @@ import SimpleSlider from "./Slider";
 import Web3 from "web3";
 import config from "../config/default";
 import ReactDOM from "react-dom";
-import {
+import getAllValues, {
   metamask,
   web3,
   addressLottery,
   abi,
-  LotteryLimit,
-  userAddress,
+  Lottery,
+  SevenTOP,
+  userAddress, connectBlockChain,
+  changeUser
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import getMembers from "../utils/members";
 const GamePage = () => {
   const store = useContext(AppStoreContext)
-  const [userAddress, setUserAddress] = useState([]);
+
   const [membersName, setMembers] = useState([]);
   const [name, setName] = useState([]);
   const [id, setId] = useState([]);
   const { token } = useContext(AuthContext);
   const { loading, request } = useHttp();
-  // let test = "Name"
-  console.log(token);
+if(userAddress){
+  window.ethereum.on("accountsChanged", function (accounts) {
+    changeUser(accounts[0])
+    // Time to reload your interface with accounts[0]!
+    console.log("change account: ", userAddress);
+    getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
+      window.data = data;
+    });
+  });
+}
+
+
+  const getEtherPrice = async () => {
+    if (web3) {
+      let result
+      await SevenTOP.methods.ethPrice().call({}, (err, res) => {
+        if (res) {
+          result = res;
+        } else if (err) {
+          console.log("This is error: ", err);
+          result = null;
+        }
+      })
+      return result
+    }
+  }
 
   const buyTicket = async () => {
     console.log(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
+    console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
+    const ethPrice  = await getEtherPrice()
+    const value = config[store.currentLotteryName].addresses[store.contractIndex].amount/ethPrice
     metamask.eth.sendTransaction(
       {
         to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
         from: metamask.givenProvider.selectedAddress,
-        value: web3.utils.toWei("0.1", "ether"),
+        value: web3.utils.toWei(String(value), "ether")
       },
       function (error, res) {
-        console.log(error);
-        console.log(res);
+        console.log(error)
+        console.log(res)
       }
-    );
+    )
   };
 
   function shortAddress(address) {
-    return address.substr(0, 6) + "..." + address.substr(38, 4)
+    if (address) return address.substr(0, 6) + "..." + address.substr(38, 4)
   }
 
   const getUserData = useCallback(async () => {
@@ -265,7 +294,7 @@ const GamePage = () => {
                 </p>
               </div>
               <div className="accounts">
-                {store.members.map((item, index) =>(
+                {web3 ? store.members.map((item, index) =>(
                     <div>
                       <p className="p6">{index+1}</p>
                       <div className="avatar">
@@ -277,7 +306,7 @@ const GamePage = () => {
                       </div>
                     </div>
 
-                ))}
+                )): ''}
               </div>
             </div>
             <div className="tickets">
@@ -291,14 +320,14 @@ const GamePage = () => {
               <div className="tickets_">
 
 
-                {store.myTickets.map((item, index) =>(
+                {store.myTickets ? store.myTickets.map((item, index) =>(
                     <div>
                       <p className="p8">№ {item}</p>
                       <p className="p9">
                         {store.addressName.substr(7,3)} <span> My bids</span>
                       </p>
                     </div>
-                ))}
+                )) : ''}
 
               </div>
               <hr />
@@ -306,12 +335,14 @@ const GamePage = () => {
                 <img src={require("../img/win.png")} alt="winner" />
                 <p className="p10">List of winners</p>
               </div>
+
+              {store.winners ?
               <div className="winners_">
                 <div className="avatar-win">
                   <div className="elipse4"></div>
                 </div>
                 <div className="avatar-title">
-                  <p className="p11">Account name №6</p>
+                  <p className="p11">{shortAddress(store.winners[0])}</p>
                   <div className="place">
                     <img
                       className="place1"
@@ -319,34 +350,38 @@ const GamePage = () => {
                       alt="place1"
                     />
                     <p className="p12">
-                      1 Place <span>1000 $</span>
+                      1 Place <span>{store.winners ? store.winners[1] : ''} $</span>
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="winners_">
-                <div className="avatar-win">
-                  <div className="elipse4"></div>
-                </div>
-                <div className="avatar-title">
-                  <p className="p11">Account name №1</p>
-                  <div className="place">
-                    <img
-                      className="place2"
-                      src={require("../img/place2.png")}
-                      alt="place1"
-                    />
-                    <img
-                      className="place2"
-                      src={require("../img/place2.png")}
-                      alt="place1"
-                    />
-                    <p className="p12">
-                      1 Place <span>1000 $</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+                  : ''}
+
+              {/*<div className="winners_">*/}
+              {/*  <div className="avatar-win">*/}
+              {/*    <div className="elipse4"></div>*/}
+              {/*  </div>*/}
+              {/*  <div className="avatar-title">*/}
+              {/*    <p className="p11">Account name №1</p>*/}
+              {/*    <div className="place">*/}
+              {/*      <img*/}
+              {/*        className="place2"*/}
+              {/*        src={require("../img/place2.png")}*/}
+              {/*        alt="place1"*/}
+              {/*      />*/}
+              {/*      <img*/}
+              {/*        className="place2"*/}
+              {/*        src={require("../img/place2.png")}*/}
+              {/*        alt="place1"*/}
+              {/*      />*/}
+              {/*      <p className="p12">*/}
+              {/*        1 Place <span>1000 $</span>*/}
+              {/*      </p>*/}
+              {/*    </div>*/}
+              {/*  </div>*/}
+              {/*</div>*/}
+
+
             </div>
           </div>
         </div>

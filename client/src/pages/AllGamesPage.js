@@ -7,8 +7,10 @@ import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import Timer from "react-compound-timer";
 import countOfTickets from "../utils/countOfTickets";
-import { connectBlockChain, getAllValues } from "../utils/connectBlockchain";
+import {connectBlockChain, getAllValues, userAddress} from "../utils/connectBlockchain";
 import path from "path";
+
+
 
 const AllGamesPage = () => {
   const store = useContext(AppStoreContext);
@@ -100,13 +102,13 @@ const AllGamesPage = () => {
               </div>
               <NavLink to="/game">
                 <div className="btn">
-                  <p className="p3">PLAY 45$</p>
+                  <p className="p3">PLAY {store.bankForLimit/1e18 }$</p>
                 </div>
               </NavLink>
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.ticketsCount}</p>
+                  <p className="p4">{store.ticketsCount }</p>
                 </div>
                 <p className="p5">Human</p>
               </div>

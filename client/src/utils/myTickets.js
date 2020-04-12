@@ -1,9 +1,9 @@
-import { web3, userAddress, LotteryLimit } from "./connectBlockchain";
+import { web3, userAddress } from "./connectBlockchain";
 
-const getMyTickets = async () => {
+const getMyTickets = async (lottery) => {
     let result;
     if (web3 && userAddress) {
-        await LotteryLimit.methods.getMyTickets(userAddress).call({from: userAddress}, (err, res) => {
+        await lottery.methods.getMyTickets(userAddress).call({from: userAddress}, (err, res) => {
             if (res) {
                 let myTickets = res;
                 // console.log("web3", web3);

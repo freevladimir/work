@@ -2,11 +2,11 @@ import { web3, userAddress, LotteryLimit } from "./connectBlockchain";
 import {useCallback} from "react";
 import {useHttp} from "../hooks/http.hook";
 
-const getMembers = async () => {
+const getMembers = async (lottery) => {
 
     let result = [];
-    if (web3 && userAddress) {
-        await LotteryLimit.methods.ownersOfTickets().call({}, async (err, res) => {
+    if (web3) {
+        await lottery.methods.ownersOfTickets().call({}, async (err, res) => {
             if (res) {
                 let members = res, flag;
                 console.log("GETTING MEMBERS")

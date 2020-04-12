@@ -6,35 +6,45 @@ import getMyTickets from "./myTickets";
 import getMembers from "./members";
 import {useCallback, useEffect, useState} from "react";
 import {useHttp} from "../hooks/http.hook";
+import getWinners from "./getWinners";
+import getAllBankOfLimitGame from "./getAllBankForLimit";
 
 
 let TEST_RINKEBY =
     "https://rinkeby.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176",
   TEST_MAIN = "https://mainnet.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176";
-export let metamask, web3, abi, LotteryLimit, userAddress, addressLottery;
+export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery;
 
 export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
 
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
-    console.log(config[lotteryKey].addresses[addressIndex].addressValue);
-    console.log(config[lotteryKey].abi);
+//    console.log(config[lotteryKey].addresses[addressIndex].addressValue);
+    // console.log(config[lotteryKey].abi);
     addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
     abi = config[lotteryKey].abi;
 
-    LotteryLimit = new web3.eth.Contract(abi, addressLottery);
+    Lottery = new web3.eth.Contract(abi, addressLottery);
+    SevenTOP = new web3.eth.Contract(config.SevenTOP.abi, config.SevenTOP.address)
+    StorageLimitLottery = new web3.eth.Contract(config.StorageLimitLottery.abi, config.StorageLimitLottery.address)
+
     console.log("blockchain is connected");
-    const tickets = await countOfTickets();
-    const balanceOfContract = await getBalanceOfContract();
-    const myTickets = await getMyTickets()
+    const tickets = await countOfTickets(Lottery);
+    const balanceOfContract = await getBalanceOfContract(Lottery);
+    const myTickets = await getMyTickets(Lottery)
     const addressName = currentAddress.addressName
-    const members = await getMembers()
-    return {tickets, balanceOfContract, myTickets, addressName, members};
+    const members = await getMembers(Lottery)
+    const winners = await getWinners(Lottery)
+    const bankForLimit = await getAllBankOfLimitGame()
+    await console.log(winners)
+    return {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit};
   }
 };
 
 export default getAllValues;
-
+export const changeUser = (_address)=>{
+  userAddress = _address
+}
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
 
   console.log("start metamask");
@@ -42,11 +52,7 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
   if (window.ethereum) {
     metamask = await new Web3(window.ethereum);
     console.log("connect MetaMask");
-    window.ethereum.on("accountsChanged", function (accounts) {
-      userAddress = accounts[0];
-      // Time to reload your interface with accounts[0]!
-      console.log("change account: ", userAddress);
-    });
+
     try {
       window.ethereum.enable().then(async function () {
         // User has allowed account access to DApp...
