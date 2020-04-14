@@ -8,6 +8,7 @@ import {useCallback, useEffect, useState} from "react";
 import {useHttp} from "../hooks/http.hook";
 import getWinners from "./getWinners";
 import getAllBankOfLimitGame from "./getAllBankForLimit";
+import getTimeEndGame from "./getTimeEndGame";
 
 
 let TEST_RINKEBY =
@@ -16,11 +17,8 @@ let TEST_RINKEBY =
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery;
 
 export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
-
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
-//    console.log(config[lotteryKey].addresses[addressIndex].addressValue);
-    // console.log(config[lotteryKey].abi);
     addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
     abi = config[lotteryKey].abi;
 
@@ -36,8 +34,18 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     const members = await getMembers(Lottery)
     const winners = await getWinners(Lottery)
     const bankForLimit = await getAllBankOfLimitGame()
+    const timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
     await console.log(winners)
-    return {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit};
+    return {
+      tickets,
+      balanceOfContract,
+      myTickets,
+      addressName,
+      members,
+      winners,
+      bankForLimit,
+      timeEndGame
+    };
   }
 };
 

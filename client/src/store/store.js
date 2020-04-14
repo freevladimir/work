@@ -4,15 +4,16 @@ import { connectBlockChain } from "../utils/connectBlockchain";
 
 class AppStore {
   // initial state of app
-  ticketsCount = "";
-  balanceOfContract = 0;
-  myTickets = [];
-  addressName = '';
-  members =[];
-  currentLotteryName = 'limitLottery'
+  ticketsCount = ""
+  balanceOfContract = 0
+  myTickets = []
+  addressName = ''
+  members =[]
+  currentLotteryName = ''
   contractIndex = 0;
   winners = []
   bankForLimit = 0
+  timeEndGame = 0
 
   constructor() {
     this.init();
@@ -23,7 +24,7 @@ class AppStore {
     window.data = null;
     //window data получит значение по ходу выполнения функции connectBlockChain
     //ничего лучше я не придумал, поэтому так, но делать так не стоит. Помогла бы полная переработка структуры проекта
-    connectBlockChain(this.currentLotteryName, this.contractIndex);
+    //connectBlockChain(this.currentLotteryName, this.contractIndex);
     //запускаем функцию чекер, которая будет следить за изменениями window.data
     this.intervalCheckTickets();
   }
@@ -36,6 +37,11 @@ class AppStore {
   contractChange(newInd) {
     //Функция, которая вызывается пока что только из слайдера. При смене слайда, мы получаем его индекс и меняем соответствующее значение в store. Затем вызываекм апдейт данных блокчейна с новыми значениями
     this.contractIndex = newInd;
+    this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+  }
+
+  changeGame(lotteryName) {
+    this.currentLotteryName = lotteryName
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
   }
 
@@ -82,6 +88,12 @@ class AppStore {
         } else{
           this.bankForLimit = []
         }
+        if(obj.hasOwnProperty('timeEndGame')){
+          this.timeEndGame = window.data.timeEndGame;
+
+        } else{
+          this.timeEndGame = 0
+        }
       }
     }, 500);
   }
@@ -97,8 +109,10 @@ AppStore = decorate(AppStore, {
   addressName: observable,
   winners: observable,
   bankForLimit: observable,
+  timeEndGame: observable,
   init: action,
   contractChange: action,
+  changeGame: action
 });
 
 export const store = new AppStore();

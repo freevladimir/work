@@ -4,7 +4,8 @@ import { AuthPage } from "./pages/AuthPage";
 import { LoginPage } from "./pages/LoginPage";
 import { StartPage } from "./pages/StartPage";
 import load from "little-loader";
-import  GamePage from "./pages/GamePage";
+import LimitGame from "./pages/LimitGame";
+import OneHour from "./pages/OneHour";
 import AllGamesPage from "./pages/AllGamesPage";
 import { UsersPage } from "./pages/UsersPage";
 import { CreatePage } from "./pages/CreatePage";
@@ -22,9 +23,12 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/friends" exact>
           <FriendsPage />
         </Route>
-        <Route path="/game" exact>
-          <GamePage />
+        <Route path="/limitGame" exact>
+          <LimitGame/>
         </Route>
+          <Route path="/oneHour" exact>
+              <OneHour/>
+          </Route>
         <Route path="/allgames:id" exact>
           <AllGamesPage />
         </Route>
