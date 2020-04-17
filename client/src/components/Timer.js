@@ -1,134 +1,178 @@
 import Timer from "react-compound-timer";
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import {AppStoreContext} from "../App";
-
+import SimpleSlider from "../pages/Slider";
 import {observer} from "mobx-react";
+
+let flag = true
+
+export const changeFlag = ()=>{
+    flag = !flag
+}
+
 const TimerGame = (time)=>{
+
     const store = useContext(AppStoreContext)
     if(time>0){
         return(
         <div className="timer">
-            <Timer initialTime={time} direction="backward">
-                {() => (
-                    <React.Fragment>
-                        <ul>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.h - 2 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.h - 2
-                                    : 24 + (<Timer />)._owner.stateNode.state.h - 2}
-                            </li>
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.h - 1 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.h - 1
-                                    : 24 + (<Timer />)._owner.stateNode.state.h - 1}
-                            </li>
-                            <hr />
-                            <li>
-                                <Timer.Hours /> h
-                            </li>
-                            <hr />
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.h + 1 <= 23
-                                    ? (<Timer />)._owner.stateNode.state.h + 1
-                                    : Math.abs(
-                                        24 - (<Timer />)._owner.stateNode.state.h - 1
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.h + 2 <= 23
-                                    ? (<Timer />)._owner.stateNode.state.h + 2
-                                    : Math.abs(
-                                        24 - (<Timer />)._owner.stateNode.state.h - 2
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.1 }}>
-                                {(<Timer />)._owner.stateNode.state.h + 3 <= 23
-                                    ? (<Timer />)._owner.stateNode.state.h + 3
-                                    : Math.abs(
-                                        24 - (<Timer />)._owner.stateNode.state.h - 3
-                                    )}
-                            </li>
-                        </ul>
-                        <ul>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.m - 2 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.m - 2
-                                    : 60 + (<Timer />)._owner.stateNode.state.m - 2}
-                            </li>
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.m - 1 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.m - 1
-                                    : 60 + (<Timer />)._owner.stateNode.state.m - 1}
-                            </li>
-                            <hr />
-                            <li>
-                                <Timer.Minutes /> min
-                            </li>
-                            <hr />
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.m + 1 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.m + 1
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.m - 1
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.m + 2 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.m + 2
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.m - 2
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.1 }}>
-                                {(<Timer />)._owner.stateNode.state.m + 3 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.m + 3
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.m - 3
-                                    )}
-                            </li>
-                        </ul>
+            <Timer
+            initialTime={time}
+            direction="backward"
+            onReset={()=>{console.log("onReset hook")}}
+            onStop={() => {console.log('onStop hook')}}
+            // onStart={() => {console.log('onStart hook'); console.log('initialTime: ', <Timer/>._owner.stateNode.props.initialTime)}}
+        >
+            {({reset, start, resume, stop, timerState, pause, initialTime, setTime}) => (
+                <React.Fragment>
+                    {flag?setTime(store.timeEndGame):''}
+                    {flag?changeFlag():''}
 
-                        <ul>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.s - 2 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.s - 2
-                                    : 60 + (<Timer />)._owner.stateNode.state.s - 2}
-                            </li>
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.s - 1 >= 0
-                                    ? (<Timer />)._owner.stateNode.state.s - 1
-                                    : 60 + (<Timer />)._owner.stateNode.state.s - 1}
-                            </li>
-                            <hr />
-                            <li>
-                                <Timer.Seconds /> sec
-                            </li>
-                            <hr />
-                            <li style={{ color: "#979797" }}>
-                                {(<Timer />)._owner.stateNode.state.s + 1 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.s + 1
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.s - 1
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.2 }}>
-                                {(<Timer />)._owner.stateNode.state.s + 2 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.s + 2
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.s - 2
-                                    )}
-                            </li>
-                            <li style={{ opacity: 0.1 }}>
-                                {(<Timer />)._owner.stateNode.state.s + 3 <= 59
-                                    ? (<Timer />)._owner.stateNode.state.s + 3
-                                    : Math.abs(
-                                        60 - (<Timer />)._owner.stateNode.state.s - 3
-                                    )}
-                            </li>
-                        </ul>
-                    </React.Fragment>
-                )}
-            </Timer>
+                    {(<Timer />)._owner.stateNode.state.d>0? <ul>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.d - 2 >= 0
+                                ? (<Timer />)._owner.stateNode.state.d - 2
+                                : 0}
+                        </li>
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.d - 1 >= 0
+                                ? (<Timer />)._owner.stateNode.state.d - 1
+                                : 0}
+                        </li>
+                        <hr />
+                        <li>
+                            <Timer.Days /> d
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.d + 1}
+                        </li>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.d + 2}
+                        </li>
+                        <li style={{ opacity: 0.1 }}>
+                            {(<Timer />)._owner.stateNode.state.d + 3}
+                        </li>
+                    </ul>:''}
+
+                    <ul>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.h - 2 >= 0
+                                ? (<Timer />)._owner.stateNode.state.h - 2
+                                : 24 + (<Timer />)._owner.stateNode.state.h - 2}
+                        </li>
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.h - 1 >= 0
+                                ? (<Timer />)._owner.stateNode.state.h - 1
+                                : 24 + (<Timer />)._owner.stateNode.state.h - 1}
+                        </li>
+                        <hr />
+                        <li>
+                            <Timer.Hours /> h
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.h + 1 <= 23
+                                ? (<Timer />)._owner.stateNode.state.h + 1
+                                : Math.abs(
+                                    24 - (<Timer />)._owner.stateNode.state.h - 1
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.h + 2 <= 23
+                                ? (<Timer />)._owner.stateNode.state.h + 2
+                                : Math.abs(
+                                    24 - (<Timer />)._owner.stateNode.state.h - 2
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.1 }}>
+                            {(<Timer />)._owner.stateNode.state.h + 3 <= 23
+                                ? (<Timer />)._owner.stateNode.state.h + 3
+                                : Math.abs(
+                                    24 - (<Timer />)._owner.stateNode.state.h - 3
+                                )}
+                        </li>
+                    </ul>
+                    <ul>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.m - 2 >= 0
+                                ? (<Timer />)._owner.stateNode.state.m - 2
+                                : 60 + (<Timer />)._owner.stateNode.state.m - 2}
+                        </li>
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.m - 1 >= 0
+                                ? (<Timer />)._owner.stateNode.state.m - 1
+                                : 60 + (<Timer />)._owner.stateNode.state.m - 1}
+                        </li>
+                        <hr />
+                        <li>
+                            <Timer.Minutes /> min
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.m + 1 <= 59
+                                ? (<Timer />)._owner.stateNode.state.m + 1
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.m - 1
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.m + 2 <= 59
+                                ? (<Timer />)._owner.stateNode.state.m + 2
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.m - 2
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.1 }}>
+                            {(<Timer />)._owner.stateNode.state.m + 3 <= 59
+                                ? (<Timer />)._owner.stateNode.state.m + 3
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.m - 3
+                                )}
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.s - 2 >= 0
+                                ? (<Timer />)._owner.stateNode.state.s - 2
+                                : 60 + (<Timer />)._owner.stateNode.state.s - 2}
+                        </li>
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.s - 1 >= 0
+                                ? (<Timer />)._owner.stateNode.state.s - 1
+                                : 60 + (<Timer />)._owner.stateNode.state.s - 1}
+                        </li>
+                        <hr />
+                        <li>
+                            <Timer.Seconds /> sec
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                            {(<Timer />)._owner.stateNode.state.s + 1 <= 59
+                                ? (<Timer />)._owner.stateNode.state.s + 1
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.s - 1
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.2 }}>
+                            {(<Timer />)._owner.stateNode.state.s + 2 <= 59
+                                ? (<Timer />)._owner.stateNode.state.s + 2
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.s - 2
+                                )}
+                        </li>
+                        <li style={{ opacity: 0.1 }}>
+                            {(<Timer />)._owner.stateNode.state.s + 3 <= 59
+                                ? (<Timer />)._owner.stateNode.state.s + 3
+                                : Math.abs(
+                                    60 - (<Timer />)._owner.stateNode.state.s - 3
+                                )}
+                        </li>
+                    </ul>
+                </React.Fragment>
+            )}
+        </Timer>
         </div>
         )
     } else {

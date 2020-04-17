@@ -16,7 +16,7 @@ import getAllValues, {
   abi,
   Lottery,
   SevenTOP,
-  userAddress, connectBlockChain,
+  userAddress,
   changeUser
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
@@ -346,13 +346,13 @@ if(userAddress){
                 <p className="p10">List of winners</p>
               </div>
 
-              {store.winners ?
+              {store.winners[0] ?
               <div className="winners_">
                 <div className="avatar-win">
                   <div className="elipse4"></div>
                 </div>
                 <div className="avatar-title">
-                  <p className="p11">{shortAddress(store.winners[0])}</p>
+                  <p className="p11">{shortAddress(store.winners[0][0])}</p>
                   <div className="place">
                     <img
                       className="place1"
@@ -360,7 +360,7 @@ if(userAddress){
                       alt="place1"
                     />
                     <p className="p12">
-                      1 Place <span>{store.winners ? store.winners[1] : ''} $</span>
+                      1 Place <span>{store.winners ? store.winners[0][2] : ''} $</span>
                     </p>
                   </div>
                 </div>

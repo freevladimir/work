@@ -14,7 +14,7 @@ import getAllValues, {
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import TimerGame from "../components/Timer";
-const OneHour = () => {
+const OneWeek = () => {
     const store = useContext(AppStoreContext)
 
     const [membersName, setMembers] = useState([]);
@@ -33,7 +33,7 @@ const OneHour = () => {
         });
     }
     const getLotteryName = useCallback(async ()=>{
-        store.changeGame('hour')
+        store.changeGame('week')
     }, [store])
 
     useEffect(() => {
@@ -157,7 +157,7 @@ const OneHour = () => {
                     </div>
                     <div className="slider-title">
                         <img src={require("../img/chelovek.png")} alt="chelovek" />
-                        <p className="p5">Every hour</p>
+                        <p className="p5">Every week</p>
                     </div>
                     <SimpleSlider />
 
@@ -261,7 +261,7 @@ const OneHour = () => {
                                         </div>
                                     </div>
                                 </div>
-                            : ''}
+                                : ''}
 
 
 
@@ -273,4 +273,4 @@ const OneHour = () => {
     );
 };
 
-export default observer(OneHour)
+export default observer(OneWeek)

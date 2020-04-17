@@ -8,20 +8,7 @@ const getMembers = async (lottery) => {
     if (web3) {
         await lottery.methods.ownersOfTickets().call({}, async (err, res) => {
             if (res) {
-                let members = res, flag;
-                console.log("GETTING MEMBERS")
-                result.push(members[0])
-                for(let i=0; i<members.length; i++){
-                    for(let j=0; j<result.length; j++){
-                        if(result[j]===members[i]){
-                            flag = true
-                        }
-                    }
-                    if(!flag){
-                        result.push(members[i])
-                    }
-                    flag=false
-                }
+                result = res
 
             } else if (err) {
                 console.log("This is error: ", err);

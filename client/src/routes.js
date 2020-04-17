@@ -11,6 +11,11 @@ import { UsersPage } from "./pages/UsersPage";
 import { CreatePage } from "./pages/CreatePage";
 import { FriendsPage } from "./pages/FriendsPage";
 import { PeoplePage } from "./pages/PeoplePage";
+import FiveMinutes from "./pages/5minutes";
+import OneDay from "./pages/OneDay";
+import OneWeek from "./pages/OneWeek";
+import OneMonth from "./pages/OneMonth";
+import OneYear from "./pages/OneYear";
 load("https://use.fontawesome.com/b4135a5a57.js", function (err) {});
 
 export const useRoutes = (isAuthenticated) => {
@@ -26,8 +31,23 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/limitGame" exact>
           <LimitGame/>
         </Route>
+          <Route path="/oneYear" exact>
+              <OneYear/>
+          </Route>
+          <Route path="/oneMonth" exact>
+              <OneMonth/>
+          </Route>
+          <Route path="/oneWeek" exact>
+              <OneWeek/>
+          </Route>
+          <Route path="/oneDay" exact>
+              <OneDay/>
+          </Route>
           <Route path="/oneHour" exact>
               <OneHour/>
+          </Route>
+          <Route path="/5minutes" exact>
+              <FiveMinutes/>
           </Route>
         <Route path="/allgames:id" exact>
           <AllGamesPage />

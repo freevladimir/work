@@ -1,9 +1,9 @@
 import {web3, userAddress, StorageLimitLottery, SevenTOP} from "./connectBlockchain";
 
-const getAllBankOfLimitGame = async () => {
+const getAllCountOfTickets = async () => {
     let result =[];
     if (web3) {
-        await StorageLimitLottery.methods.getAllBankOfLimitGame(10).call({}, (err, res) => {
+        await StorageLimitLottery.methods.getAllCountOfTickets(10).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -11,7 +11,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         });
-        await SevenTOP.methods.getAllBankOfTimeGame(5).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(5).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -19,7 +19,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         })
-        await SevenTOP.methods.getAllBankOfTimeGame(60).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(60).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -27,7 +27,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         })
-        await SevenTOP.methods.getAllBankOfTimeGame(1440).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(1440).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -35,7 +35,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         })
-        await SevenTOP.methods.getAllBankOfTimeGame(10080).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(10080).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -43,7 +43,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         })
-        await SevenTOP.methods.getAllBankOfTimeGame(43200).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(43200).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -51,7 +51,7 @@ const getAllBankOfLimitGame = async () => {
                 result.push(0);
             }
         })
-        await SevenTOP.methods.getAllBankOfTimeGame(525600).call({}, (err, res) => {
+        await SevenTOP.methods.getAllCountOfTickets(525600).call({}, (err, res) => {
             if (res) {
                 result.push(res);
             } else if (err) {
@@ -63,4 +63,4 @@ const getAllBankOfLimitGame = async () => {
     }
 };
 
-export default getAllBankOfLimitGame;
+export default getAllCountOfTickets;

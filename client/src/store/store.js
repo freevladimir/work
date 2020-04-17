@@ -1,6 +1,7 @@
 import { observable, action, decorate } from "mobx";
 import { createContext } from "react";
 import { connectBlockChain } from "../utils/connectBlockchain";
+import {changeFlag} from '../components/Timer'
 
 class AppStore {
   // initial state of app
@@ -12,8 +13,9 @@ class AppStore {
   currentLotteryName = ''
   contractIndex = 0;
   winners = []
-  bankForLimit = 0
+  bankForLimit = []
   timeEndGame = 0
+  allTickets = []
 
   constructor() {
     this.init();
@@ -32,17 +34,20 @@ class AppStore {
   refreshBlockChainData(key, index) {
     //Вызываем функцию каждый раз, когда нужен запрос к другому контракту из default.json
     connectBlockChain(key, index);
+    console.log("REFRESH")
   }
 
   contractChange(newInd) {
     //Функция, которая вызывается пока что только из слайдера. При смене слайда, мы получаем его индекс и меняем соответствующее значение в store. Затем вызываекм апдейт данных блокчейна с новыми значениями
     this.contractIndex = newInd;
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+    console.log("CONTRACT CHANGE")
   }
 
   changeGame(lotteryName) {
     this.currentLotteryName = lotteryName
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+    console.log("GAME CHANGE")
   }
 
   intervalCheckTickets() {
@@ -89,10 +94,15 @@ class AppStore {
           this.bankForLimit = []
         }
         if(obj.hasOwnProperty('timeEndGame')){
+          if(this.timeEndGame!=window.data.timeEndGame) changeFlag()
           this.timeEndGame = window.data.timeEndGame;
-
         } else{
           this.timeEndGame = 0
+        }
+        if(obj.hasOwnProperty('timeEndGame')){
+          this.allTickets = window.data.allTickets;
+        } else{
+          this.allTickets = 0
         }
       }
     }, 500);
@@ -110,6 +120,7 @@ AppStore = decorate(AppStore, {
   winners: observable,
   bankForLimit: observable,
   timeEndGame: observable,
+  allTickets: observable,
   init: action,
   contractChange: action,
   changeGame: action

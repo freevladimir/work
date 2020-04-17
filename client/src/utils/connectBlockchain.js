@@ -9,6 +9,7 @@ import {useHttp} from "../hooks/http.hook";
 import getWinners from "./getWinners";
 import getAllBankOfLimitGame from "./getAllBankForLimit";
 import getTimeEndGame from "./getTimeEndGame";
+import getAllCountOfTickets from "./getAllCountOfTickets";
 
 
 let TEST_RINKEBY =
@@ -33,8 +34,9 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     const addressName = currentAddress.addressName
     const members = await getMembers(Lottery)
     const winners = await getWinners(Lottery)
-    const bankForLimit = await getAllBankOfLimitGame()
     const timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
+    const bankForLimit = await getAllBankOfLimitGame()
+    const allTickets = await getAllCountOfTickets()
     await console.log(winners)
     return {
       tickets,
@@ -44,7 +46,8 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
       members,
       winners,
       bankForLimit,
-      timeEndGame
+      timeEndGame,
+      allTickets
     };
   }
 };

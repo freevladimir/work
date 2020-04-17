@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../css/game.css";
 import { AppStoreContext } from "../App";
 
+
 const SimpleSlider = () => {
   const store = useContext(AppStoreContext)
 
