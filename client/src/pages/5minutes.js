@@ -14,24 +14,14 @@ import getAllValues, {
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import TimerGame from "../components/Timer";
+import {useHistory} from "react-router-dom";
+import Slider from "react-slick";
+
 const FiveMinutes = () => {
     const store = useContext(AppStoreContext)
+    const auth = useContext(AuthContext)
+    const history = useHistory()
 
-    const [membersName, setMembers] = useState([]);
-    const [name, setName] = useState([]);
-    const [id, setId] = useState([]);
-    const { token } = useContext(AuthContext);
-    const { loading, request } = useHttp();
-    if(userAddress){
-        window.ethereum.on("accountsChanged", function (accounts) {
-            changeUser(accounts[0])
-            // Time to reload your interface with accounts[0]!
-            console.log("change account: ", userAddress);
-            getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
-                window.data = data;
-            });
-        });
-    }
     const getLotteryName = useCallback(async ()=>{
         store.changeGame('5Minutes')
     }, [store])
@@ -39,6 +29,49 @@ const FiveMinutes = () => {
     useEffect(() => {
         getLotteryName()
     }, [getLotteryName])
+
+
+    const arrayOfSlides = [
+        { value: "5 $" },
+        { value: "15 $" },
+        { value: "50 $" }
+    ];
+    const logoutHandler = event =>{
+        event.preventDefault()
+        auth.logout()
+        history.push('/')
+    }
+    const setting = {
+        centerMode: true,
+        slidesToShow: 1,
+        dots: false,
+        autoplay: false,
+        beforeChange: (oldInd, newInd) => {
+            store.contractChange(newInd)
+            console.group('slider current value')
+            console.log(store.contractIndex, arrayOfSlides[store.contractIndex].value)
+            console.groupEnd()
+        },
+    }
+
+    const [membersName, setMembers] = useState([]);
+    const [name, setName] = useState([]);
+    const [id, setId] = useState([]);
+    const { token } = useContext(AuthContext);
+    const { loading, request } = useHttp();
+    // if(userAddress){
+    //     window.ethereum.on("accountsChanged", function (accounts) {
+    //         changeUser(accounts[0])
+    //         // Time to reload your interface with accounts[0]!
+    //         console.log("change account: ", userAddress);
+    //         getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
+    //             window.data = data;
+    //         });
+    //     });
+    // }
+
+
+
 
     const getEtherPrice = async () => {
         if (web3) {
@@ -60,17 +93,22 @@ const FiveMinutes = () => {
         console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
         const ethPrice  = await getEtherPrice()
         const value = config[store.currentLotteryName].addresses[store.contractIndex].amount/ethPrice
-        metamask.eth.sendTransaction(
-            {
-                to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
-                from: metamask.givenProvider.selectedAddress,
-                value: web3.utils.toWei(String(value), "ether")
-            },
-            function (error, res) {
-                console.log(error)
-                console.log(res)
-            }
-        )
+        if(metamask){
+            metamask.eth.sendTransaction(
+                {
+                    to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
+                    from: metamask.givenProvider.selectedAddress,
+                    value: web3.utils.toWei(String(value), "ether")
+                },
+                function (error, res) {
+                    console.log(error)
+                    console.log(res)
+                }
+            )
+        } else {
+            alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}`)
+        }
+
     };
 
     function shortAddress(address) {
@@ -132,7 +170,7 @@ const FiveMinutes = () => {
                             <div className="elipse3"></div>
                         </div>
                         <p className="p1">{name}</p>
-                        <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+                        <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
                     </div>
                     <div className="info">
                         <a href="#">100 My friends</a>
@@ -159,7 +197,13 @@ const FiveMinutes = () => {
                         <img src={require("../img/chelovek.png")} alt="chelovek" />
                         <p className="p5">Every 5 minutes</p>
                     </div>
-                    <SimpleSlider />
+                    <Slider {...setting}>
+                        {arrayOfSlides.map((item, index) => (
+                            <a href="#" className="item">
+                                <p>{item.value}</p>
+                            </a>
+                        ))}
+                    </Slider>
 
                 </div>
             </section>

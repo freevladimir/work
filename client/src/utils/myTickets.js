@@ -7,6 +7,7 @@ const getMyTickets = async (lottery) => {
             if (res) {
                 let myTickets = res;
                 result = myTickets;
+                console.log(result)
             } else if (err) {
                 console.log("This is error: ", err);
                 result = null;

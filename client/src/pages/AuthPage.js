@@ -1,11 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import {useMessage} from "../hooks/message.hook"
+import {useHistory} from 'react-router-dom'
 import {AuthContext} from "../context/AuthContext"
 import '../css/register.css'
 
 
 export const AuthPage = () =>{
+    const history = useHistory()
     const auth = useContext(AuthContext)
     const message = useMessage()
     const {loading, request, error, clearError} = useHttp()
@@ -39,8 +41,11 @@ export const AuthPage = () =>{
         try{
             const data = await request('/api/auth/login', 'POST', {...form})
             message(data.message)
+            console.log(history.push('/allgames'))
             auth.login(data.token, data.userId)
+            history.push('/allgames')
             console.log('Data', data)
+
         } catch (e) {}
     }
 

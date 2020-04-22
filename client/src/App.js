@@ -26,7 +26,7 @@ function App() {
     >
       <AppStoreContext.Provider value={store}>
         <Router>
-          {isAuthenticated && <Navbar />}
+          {isAuthenticated}
           {routes}
         </Router>
       </AppStoreContext.Provider>

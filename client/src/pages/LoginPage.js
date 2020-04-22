@@ -3,9 +3,10 @@ import {useHttp} from "../hooks/http.hook"
 import {useMessage} from "../hooks/message.hook"
 import {AuthContext} from "../context/AuthContext"
 import '../css/login.css'
-
+import {useHistory} from 'react-router-dom'
 
 export const LoginPage = () =>{
+    const history = useHistory()
     const auth = useContext(AuthContext)
     const message = useMessage()
 
@@ -32,6 +33,7 @@ export const LoginPage = () =>{
             message(data.message)
             auth.login(data.token, data.userId, data.name)
             console.log('Data', data)
+            history.push('/allgames')
         } catch (e) {}
     }
 

@@ -14,8 +14,33 @@ import getAllValues, {
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import TimerGame from "../components/Timer";
+import Slider from "react-slick";
+import {useHistory} from "react-router-dom";
+
 const OneYear = () => {
     const store = useContext(AppStoreContext)
+    const auth = useContext(AuthContext)
+    const history = useHistory()
+    const arrayOfSlides = [
+        { value: "5 $" }
+    ];
+    const logoutHandler = event =>{
+        event.preventDefault()
+        auth.logout()
+        history.push('/')
+    }
+    const setting = {
+        centerMode: true,
+        slidesToShow: 1,
+        dots: false,
+        autoplay: false,
+        beforeChange: (oldInd, newInd) => {
+            store.contractChange(newInd)
+            console.group('slider current value')
+            console.log(store.contractIndex, arrayOfSlides[store.contractIndex].value)
+            console.groupEnd()
+        },
+    }
 
     const [membersName, setMembers] = useState([]);
     const [name, setName] = useState([]);
@@ -115,8 +140,6 @@ const OneYear = () => {
     }, [getMembersName]);
 
 
-
-
     if (loading) {
         return <div>Loading</div>;
     }
@@ -132,7 +155,7 @@ const OneYear = () => {
                             <div className="elipse3"></div>
                         </div>
                         <p className="p1">{name}</p>
-                        <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+                        <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
                     </div>
                     <div className="info">
                         <a href="#">100 My friends</a>
@@ -159,7 +182,15 @@ const OneYear = () => {
                         <img src={require("../img/chelovek.png")} alt="chelovek" />
                         <p className="p5">Every year</p>
                     </div>
-                    <SimpleSlider />
+                    <div className="slider">
+                        <Slider {...setting}>
+                            {arrayOfSlides.map((item, index) => (
+                                <a href="#" className="item">
+                                    <p>{item.value}</p>
+                                </a>
+                            ))}
+                        </Slider>
+                    </div>
 
                 </div>
             </section>

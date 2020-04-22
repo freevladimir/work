@@ -764,6 +764,7 @@ body {
         width: 50px;
         height: 60px;
         margin-left: 30px;
+        position: relative;
     }
 
     .game .p4 {

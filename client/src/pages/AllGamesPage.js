@@ -14,7 +14,8 @@ import path from "path";
 
 const AllGamesPage = () => {
   const store = useContext(AppStoreContext);
-
+  const auth = useContext(AuthContext)
+  const history = useHistory()
   const [name, setName] = useState([]);
   const [id, setId] = useState([]);
   const [fileImg, setImg] = useState([]);
@@ -22,9 +23,7 @@ const AllGamesPage = () => {
   const { loading, request } = useHttp();
   const getUserData = useCallback(async () => {
     store.changeGame('limitLottery')
-    console.log("start1");
     try {
-      console.log("start2");
       const fetched = await request("/api/auth/allgames", "GET", null, {
         Authorization: `Bearer ${token}`,
       });
@@ -39,7 +38,11 @@ const AllGamesPage = () => {
   const uploadAvatar = useCallback(async (req, res) => {
     await request("/api/auth/upload", "POST", fileImg);
   });
-
+  const logoutHandler = event =>{
+    event.preventDefault()
+    auth.logout()
+    history.push('/')
+  }
   useEffect(() => {
     getUserData();
   }, [getUserData]);
@@ -80,7 +83,7 @@ const AllGamesPage = () => {
                 </div>
               </div>
               <p className="p1">{name}</p>
-              <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+              <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
             </div>
             <div className="info">
               <a href="#">100 My friends</a>
@@ -373,6 +376,7 @@ const AllGamesPage = () => {
                 <p className="p5">Human</p>
               </div>
             </div>
+
             <div className="comp2">
               <div className="timer">
                 <Timer initialTime={86405000} direction="backward">
@@ -435,8 +439,10 @@ const AllGamesPage = () => {
                 <p className="p5">Human</p>
               </div>
             </div>
+
+
             <div className="comp2 comp3">
-              <div className="blok2">
+              <div className="blok1">
                 <div className="title3 title_">
                   <img src={require("../img/calendar2.png")} alt="minute" />
                   <p className="p6">Every year</p>
@@ -484,19 +490,10 @@ const AllGamesPage = () => {
                   </Timer>
                 </div>
               </div>
-              <div className="blok3">
+              <div className="blok2">
                 <div className="title3">
-                  <img src={require("../img/gavat.png")} alt="gavat" />
-                  <p className="p6">Super game</p>
-                  <p className="p5 p5_">Human</p>
-                  <div className="top">
-                    <img
-                        className="men_"
-                        src={require("../img/men2.png")}
-                        alt="men"
-                    />
-                    <p className="p4">{store.allTickets[6]?store.allTickets[6]:''}</p>
-                  </div>
+                <img src={require("../img/gavat.png")} alt="gavat" />
+                <p className="p6">Super game</p>
                 </div>
                 <NavLink to="/oneYear">
                   <div className="btn">
@@ -504,7 +501,20 @@ const AllGamesPage = () => {
                   </div>
                 </NavLink>
               </div>
+              <div className="title2">
+
+                <div className="top">
+                  <img
+                      className="men_"
+                      src={require("../img/men2.png")}
+                      alt="men"
+                  />
+                  <p className="p4">{store.allTickets[6]?store.allTickets[6]:''}</p>
+                </div>
+                <p className="p5 p5_">Human</p>
+              </div>
             </div>
+
             <div className="video">
               <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
             </div>
