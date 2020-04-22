@@ -2,6 +2,7 @@ const {Router} = require('express')
 const Link = require('../models/Link')
 const auth = require('../middleware/auth.middleware')
 const router = Router()
+const User = require('../models/User')
 
 router.post('/generate', async(req, res)=>{
     try{
@@ -11,10 +12,10 @@ router.post('/generate', async(req, res)=>{
     }
 })
 
-router.get('/', async (req, res)=>{
+router.get('/allusers', async (req, res)=>{
     try{
-        const links = await Link.find({owner: null})
-        res.json(links)
+        const users = await User.find()
+        res.json(users)
     }catch (e) {
         res.status(500).json({message: 'Something go wrong, try again'})
     }
