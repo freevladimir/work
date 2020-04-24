@@ -622,7 +622,7 @@ h2 {
 /* 320-576px */
 @media screen and (max-width: 576px){
 	.startpage .container {
-		width: 310px;
+		width: 100%;
 	}
 
 	header>a {
@@ -642,7 +642,6 @@ h2 {
 	.startpage .logo>img {
 		width: 90%;
 		height: inherit;
-		object-fit: cover;
 	}
 
 	.startpage .entrance {
