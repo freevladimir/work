@@ -48,9 +48,9 @@ export const PeoplePage = ()=>{
             <header className="header" id="header">
                 <div className="container">
                     <div className="account">
-                        <a href="#">
+                        <NavLink to="/allgames">
                             <img className="left" src={require("../img/left.png")} alt="left"/>
-                        </a>
+                        </NavLink>
                         <div className="elipse">
                             <div className="elipse3"></div>
                         </div>

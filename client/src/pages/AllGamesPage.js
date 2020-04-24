@@ -86,9 +86,9 @@ const AllGamesPage = () => {
               <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
             </div>
             <div className="info">
-              <a href="#">100 My friends</a>
-              <a href="#">1000 All</a>
-              <a href="#">My ID: {id}</a>
+              <NavLink to="/friends">100 My friends</NavLink>
+              <NavLink to="/people">1000 All</NavLink>
+              <a href="">My ID: {id}</a>
             </div>
           </div>
         </header>

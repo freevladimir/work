@@ -7,7 +7,7 @@ export const FriendsPage = ()=>{
     const { token } = useContext(AuthContext);
     const { loading, request } = useHttp();
     const [name, setName] = useState([]);
-    const [users, setUsers] = useState([]);
+    const [friends, setFriends] = useState([]);
     const getUserData = useCallback(async () => {
         try {
             const fetched = await request("/api/auth/allgames", "GET", null, {
@@ -22,24 +22,24 @@ export const FriendsPage = ()=>{
         getUserData();
     }, [getUserData]);
 
-    const getAllUsers = useCallback(async () => {
+    const getAllFriends = useCallback(async () => {
         try {
-            const fetched = await request("/api/link/allusers", "GET", null, {
+            const fetched = await request("/api/auth/friends", "GET", null, {
                 Authorization: `Bearer ${token}`,
             });
-            console.log("data on all Users: ", fetched);
+            console.log("data on all Friends: ", fetched);
             // const listItems = fetched.map((number) =>
             //     <li>{number}</li>
             // );
 
 
-            setUsers(fetched)
+            setFriends(fetched)
         } catch (e) {}
     }, [token, request]);
 
     useEffect(() => {
-        getAllUsers();
-    }, [getAllUsers]);
+        getAllFriends();
+    }, [getAllFriends]);
 
     return (
         <div className="friends">
@@ -49,9 +49,9 @@ export const FriendsPage = ()=>{
             <header className="hedaer" id="header">
                 <div className="container">
                     <div className="account">
-                        <a href="#">
+                        <NavLink to="/allgames">
                             <img className="left" src={require("../img/left.png")} alt="left"/>
-                        </a>
+                        </NavLink>
                         <div className="elipse">
                             <div className="elipse3"></div>
                         </div>
@@ -74,7 +74,7 @@ export const FriendsPage = ()=>{
 
             <section>
                 <div className="container">
-                    {users.map((item, index) => (
+                    {friends.map((item, index) => (
                         <div className="comp">
                             <div className="elipse_">
                                 <div className="elipse3_"></div>
