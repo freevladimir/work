@@ -507,7 +507,7 @@ h2 {
 	}
 
 	.startpage .logo>img {
-		width: 415px;
+		width: 90%;
 	}
 
 	.startpage .entrance, .startpage .login {
@@ -641,6 +641,8 @@ h2 {
 
 	.startpage .logo>img {
 		width: 90%;
+		height: inherit;
+		object-fit: cover;
 	}
 
 	.startpage .entrance {
