@@ -12,6 +12,8 @@ const multer = require('multer')
 const GridFsStorage = require('multer-gridfs-storage')
 const Grid = require('gridfs-stream')
 const mongoose = require('mongoose')
+const Web3 = require('web3')
+const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176'));
 
 
 const conn = mongoose.createConnection(config.get('mongoUrl'))
@@ -88,9 +90,15 @@ router.post('/register',
             return res.status(400).json({message: 'Passwords do not match'})
         }
 
+        if(!web3.utils.isAddress(wallet)) {
+            return res.status(400).json({message: 'Address is not valid'})
+        }
+
         if(friendId!=''){
             let friend = await User.findOne({wallet: friendId})
-            if(!friend){
+            let friend2 = await User.findOne({name: friendId})
+            console.log('friend2', friend2)
+            if(!friend && !friend2){
                 return res.status(400).json({message: `This friend is not exist in system`})
             } else{
                 if(wallet===friendId || name===friendId) {
@@ -280,6 +288,21 @@ router.get('/game', auth,
             const userData = await User.find({_id: req.user.userId})
             res.json(userData)
             console.log("allGames is ok")
+            console.log(userData)
+        } catch (e) {
+            res.status(500).json({message: 'Something go wrong, try again'})
+            console.log(e)
+        }
+    })
+
+router.get('/friends', auth,
+    async (req, res)=>{
+        try{
+            const userAddress = await User.find({_id: req.user.userId})
+            console.log("userAddress: ", userAddress[0].wallet)
+            const userData = await User.find({friendId: userAddress[0].wallet})
+            res.json(userData)
+            console.log("Friends")
             console.log(userData)
         } catch (e) {
             res.status(500).json({message: 'Something go wrong, try again'})
