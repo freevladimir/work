@@ -1,5 +1,5 @@
 
-
+const rp = require('request-promise')
 const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
@@ -7,14 +7,18 @@ const gridFS = require('mongo-gridfs')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const contractAdresses = require('./client/src/config/default')
+const fileUpload = require('express-fileupload')
+const path = require('path')
+const multer = require('multer')
+const cors = require('cors');
 
 const Web3 = require('web3')
 const Tx = require('ethereumjs-tx');
 const RPC_URL = 'https://rinkeby.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176'
 //https://mainnet.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176
 const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176'));
-let address = "0x6a2a6cB905957f6cD41AF76EFA883D65B3DbBbfD"
-let privateKey = "7A05E661FA5C422FE4547CBD4CCC134DCC628974CBCC88AE7E53F3140E643A6C"
+let address = "0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5"
+let privateKey = "6FFD8A36CDC137AE3A0153201C33BC4CC334DF09F7C6ACA0C0B09308A3790F71"
 let timerId
 
 let contracts = {
@@ -80,10 +84,44 @@ let contracts = {
 const app = express()
 app.use(express.json({extended: true}))
 app.use(bodyParser.json());
+app.use(fileUpload())
+app.use(cors())
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
+
+
+let storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+      cb(null, 'public')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + '-' +file.originalname )
+    }
+})
+
+let upload = multer({ storage: storage }).single('file')
+
+
+app.post('/upload', function(req, res) {
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let file = req.files.file;
+  console.log('req.body: ', req.body.userId)
+  // Use the mv() method to place the fixle somewhere on your server
+  console.log(path.join(__dirname, '/client/src/avatars'))
+  console.log(file)
+  file.mv(path.join(__dirname, '/client/src/avatars/')+req.body.userId+'.jpg', function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.send('File uploaded!');
+  });
+});
 
 const PORT = config.get('port') || 5000
 
@@ -185,6 +223,68 @@ const drawing = async (lotteryTime, lottery)=>{
     })
 }
 
+const updateETH = async()=>{
+    let priv = new Buffer(privateKey, 'hex')
+    let Contract = new web3.eth.Contract(contractAdresses["SevenTOP"]["abi"], contractAdresses["SevenTOP"]["addressValue"])
+    let ethPrice
+    const requestOptions = {
+      method: 'GET',
+      uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=3&convert=USD',
+      qs: {
+        'start': '1',
+        'limit': '3',
+        'convert': 'USD'
+      },
+      headers: {
+        'X-CMC_PRO_API_KEY': '3946949b-d0a0-433c-86ca-4fa8c16feb0e'
+      },
+      json: true,
+      gzip: true
+    };
+
+    await rp(requestOptions).then(response => {
+      console.log('API call response:', parseInt(response.data[2].quote.USD.price*1000));
+      ethPrice = parseInt(response.data[2].quote.USD.price*1000)
+    }).catch((err) => {
+      console.log('API call error:', err.message);
+    })
+
+
+
+    web3.eth.getTransactionCount(address, 'pending', (err, res) => {
+        let nonce,
+            txData = Contract.methods.updateEtherPrice(ethPrice).encodeABI()
+        if(!err) {nonce = res}
+        console.log("nonce: ", nonce)
+        let rawTransaction = {
+            "from": address,
+            "nonce": web3.utils.toHex(nonce),
+            "gasPrice": web3.utils.toHex(2 * 1e9),
+            "gasLimit": web3.utils.toHex(3000000),
+            "to": contractAdresses["SevenTOP"]["address"],
+            "data": txData
+        }
+
+        const tx = new Tx(rawTransaction)
+        console.log("tx: ", tx)
+        tx.sign(priv)
+
+        let serializedTx = tx.serialize()
+        console.log('serializedTx : ', serializedTx)
+
+        web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
+            if (!err)
+            {
+                console.log('Txn Sent and hash is '+hash)
+            }
+            else
+            {
+                console.error(err)
+            }
+        })
+    })
+}
+
 async function start(){
     try{
         await mongoose.connect(config.get('mongoUrl'), {
@@ -192,15 +292,6 @@ async function start(){
             useUnifiedTopology: true,
             useCreateIndex: true
         })
-        // await gridFS.MongoGridFS(mongoose, "attachments")
-        // gridFS.downloadFile("59e085f272882d728e2fa4c2", {
-        //     filename: "user.jpg",
-        //     targetDir: "/client/src/img"
-        // }).then((downloadedFilePath) => {
-        //     console.log(downloadedFilePath);
-        // }).catch((err) => {
-        //     console.error(err);
-        // });
         app.listen(PORT, ()=>console.log(`App has been started ${PORT}...`))
         await getTimeValues()
         await setListeners()
@@ -218,6 +309,10 @@ async function start(){
                 }
             }
         }, 1000)
+        
+        timerUpdate = setInterval(()=>{
+            updateETH()
+        }, 86400000)
    } catch (e) {
        console.log('Server Error', e.message)
        process.exit(1)

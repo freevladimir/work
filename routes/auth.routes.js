@@ -14,7 +14,8 @@ const Grid = require('gridfs-stream')
 const mongoose = require('mongoose')
 const Web3 = require('web3')
 const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176'));
-
+const fs = require('fs');
+const imgGen = require('js-image-generator');
 
 const conn = mongoose.createConnection(config.get('mongoUrl'))
 let gfs
@@ -69,7 +70,7 @@ router.post('/register',
     try{
         console.log('Body', req.body)
         const errors = validationResult(req)
-
+        let _friendId = ''
         if(!errors.isEmpty()){
             return res.status(400).json({
                 errors: errors.array(),
@@ -105,13 +106,27 @@ router.post('/register',
                     return res.status(400).json({message: `You can't put your data in Friend ID`})
                 }
             }
+            _friendId = friend?friend.wallet:friend2.wallet
         }
-
+        function generateHash(string) {
+            var hash = 0;
+            if (string.length == 0)
+                return hash;
+            for (let i = 0; i < string.length; i++) {
+                var charCode = string.charCodeAt(i);
+                hash = ((hash << 7) - hash) + charCode;
+                hash = hash & hash;
+            }
+            return hash;
+        }
         const hashedPassword = await bcrypt.hash(password, 12)
-        const user = new User({name, email, password: hashedPassword, wallet, friendId})
+        const user = new User({name, email, password: hashedPassword, wallet, friendId: _friendId})
 
         await user.save()
-
+        console.log('user: ', user)
+        imgGen.generateImage(800, 800, 80, function(err, image) {
+            fs.writeFileSync(path.join(__dirname, '../client/src/avatars/')+user._id+'.jpg', image.data);
+        });
         res.status(201).json({message: "User created!"})
 
     }catch (e) {
@@ -310,26 +325,45 @@ router.get('/friends', auth,
         }
     })
 
+router.get('/allusers', auth,
+    async (req, res)=>{
+        try{
+            const user = await User.find({_id: req.user.userId})
+            const _friends = await User.find({friendId: user[0].wallet})
+            const _allUsers = await User.find()
+            res.json({friends: _friends.length, allUsers: _allUsers.length})
+            console.log("Friends")
+            console.log(userData)
+        } catch (e) {
+            res.status(500).json({message: 'Something go wrong, try again'})
+            console.log(e)
+        }
+    })
+
 
 router.post('/members',
 
     async (req, res)=>{
         try{
             const {members} = req.body
-            console.log(members)
+            console.log('req.body: ', members)
 
             let users = []
             for(let i=0; i<members.length; i++){
                 let user = await User.findOne({wallet: members[i]})
                 console.log(user)
-                users.push(user.name)
+                if(!user){
+                    users.push({id: 'undefined', name: members[i].substr(0, 6) + "..." + members[i].substr(38, 4)})
+                } else{
+                    users.push({id: user._id, name: user.name})
+                }
             }
 
             // console.log(users)
             if(!users){
                 return res.status(400).json({message: "User is not exist"})
             }
-
+            console.log("MembersStruct: ", users)
             res.json(users)
 
         } catch (e) {
