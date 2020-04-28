@@ -17,15 +17,19 @@ import getAllValues, {
   Lottery,
   SevenTOP,
   userAddress,
-  changeUser
+  changeUser,
+  loadingBlockchain
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import getMembers from "../utils/members";
 import Slider from "react-slick";
+import {ImageUpload} from "../components/Upload";
+
+  
+
 const LimitGame = () => {
   const store = useContext(AppStoreContext)
-  store.changeGame('limitLottery')
 
   const auth = useContext(AuthContext)
   const history = useHistory()
@@ -53,11 +57,17 @@ const LimitGame = () => {
   }
 
 
-  const [membersName, setMembers] = useState([]);
+  const [membersStruct, setMembers] = useState([]);
   const [name, setName] = useState([]);
   const [id, setId] = useState([]);
   const { token } = useContext(AuthContext);
   const { loading, request } = useHttp();
+  const [referal, setReferal] = useState([]);
+  const [img, setImg] = useState([])
+  const [avatars, setAvatars] = useState([])
+  const [countOfFriends, setFriends] = useState([]);
+  const [countOfUsers, setUsers] = useState([]);
+  
 if(userAddress){
   window.ethereum.on("accountsChanged", function (accounts) {
     changeUser(accounts[0])
@@ -68,6 +78,9 @@ if(userAddress){
     });
   });
 }
+
+
+
   const getLotteryName = useCallback(async ()=>{
     store.changeGame('limitLottery')
   }, [store])
@@ -100,7 +113,8 @@ if(userAddress){
       {
         to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
         from: metamask.givenProvider.selectedAddress,
-        value: web3.utils.toWei(String(value), "ether")
+        value: web3.utils.toWei(String(value), "ether"),
+        data: referal?referal:''
       },
       function (error, res) {
         console.log(error)
@@ -113,6 +127,18 @@ if(userAddress){
     if (address) return address.substr(0, 6) + "..." + address.substr(38, 4)
   }
 
+  const generateHash = (string)=> {
+    let hash = 0;
+    if (string.length == 0)
+        return hash;
+    for (let i = 0; i < string.length; i++) {
+        var charCode = string.charCodeAt(i);
+        hash = ((hash << 7) - hash) + charCode;
+        hash = hash & hash;
+    }
+    return Math.abs(hash);
+  }
+  
   const getUserData = useCallback(async () => {
     console.log("start1");
     try {
@@ -121,40 +147,69 @@ if(userAddress){
         Authorization: `Bearer ${token}`,
       });
       setName(fetched[0].name);
-      setId(fetched[0]._id);
+      setId(generateHash(fetched[0]._id));
+      setReferal(fetched[0].friendId)
+      let _img = require(`../avatars/${fetched[0]._id}.jpg`)
+      setImg(_img)
       console.log("data on allgames: ", fetched);
+
     } catch (e) {}
   }, [token, request]);
 
   const getMembersName = useCallback(async () => {
+    let members = store.members
+    if(members==false){
+      members = store.members
+      console.log("try again")
+      setTimeout(getMembersName, 1000)
+    } else{
+      try {
+        console.log(members==false)
+        console.log(members)
+        const result = await request('/api/auth/members', 'POST', {members})
+        console.log("START3");
+        console.log("result: ", result)
 
-    try {
-      const members = store.members
-      await console.log(members)
-      //const members = ["0x2778c6f33a0c9a20866cce84beb3e78b9dd26ae5", "0xa61427fc8cc3bed4b6c73e19abff44397f79b0e5"]
-      const result = await request('/api/auth/members', 'POST', {members})
-      console.log("START3");
-      // setName(fetched[0].name);
-      // setId(fetched[0]._id);
-      console.log("MEMBERSNAMES: ", result);
-      setMembers(result)
-      console.log(window.data.members)
-    } catch (e) {}
+        for(let i = 0; i<result.length; i++){
+          membersStruct.push(result[i]);
+          setMembers(membersStruct)
+
+        }
+        console.log('membersStruct: ', membersStruct)
+      } catch (e) {}
+    }
+
   }, [request]);
+
+  const getAllUsersAndFriends = useCallback(async () =>{
+    const result = await request("/api/auth/allusers", "GET", null, {
+      Authorization: `Bearer ${token}`,
+    });
+    console.log('allUsers: ', result)
+    setUsers(result.allUsers)
+    setFriends(result.friends)
+  }, [request])
+
+
+  useEffect(() => {
+    getMembersName();
+  }, [getMembersName]);
 
   useEffect(() => {
     getUserData();
   }, [getUserData]);
 
   useEffect(() => {
-    getMembersName()
-  }, [getMembersName]);
+    getAllUsersAndFriends();
+  }, [getAllUsersAndFriends]);
 
 
 
 
-  if (loading) {
-    return <div>Loading</div>;
+  if (!store.addressName) {
+    return <div className="holder">
+      <div className="preloader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>;
   }
   return (
     <div className="row game">
@@ -164,15 +219,27 @@ if(userAddress){
       <section>
         <div className="container">
           <div className="account">
+            <NavLink to="/allgames">
+                            <img className="left" src={require("../img/left.png")} alt="left"/>
+                        </NavLink>
             <div className="elipse">
-              <div className="elipse3"></div>
+              {img.length>0?
+                <div className="elipse3">
+                <input className="fileInput" name="avatar" id="fileInput"
+                  />
+                  <div className="imgPreview">
+                    <img src={img} />
+                  </div>
+               </div>:
+               <ImageUpload/>
+              }
             </div>
             <p className="p1">{name}</p>
             <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
           </div>
           <div className="info">
-            <a href="#">100 My friends</a>
-            <a href="#">1000 All</a>
+            <NavLink to="/friends">{countOfFriends} My friends</NavLink>
+            <NavLink to="/people">{countOfUsers} All</NavLink>
             <a href="#">My ID: {id}</a>
           </div>
           <p className="p2"></p>
@@ -202,8 +269,17 @@ if(userAddress){
 
         </div>
       </section>
-      <section className="section" id="section2">
-        <div className="container">
+      {loadingBlockchain?
+        <div className="holder">
+          <div className="preloader" style={{
+            left: '50%',
+            bottom: '8%',
+            top: 'initial'
+          }}>
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>:
+        <section className="section" id="section2">
+          <div className="container">
           <div className="section22">
             <div className="participants">
               <div className="title">
@@ -214,14 +290,16 @@ if(userAddress){
                 </p>
               </div>
               <div className="accounts">
-                {web3 ? store.members.map((item, index) =>(
+                {membersStruct ? membersStruct.map((item, index) =>(
                     <div>
                       <p className="p6">{index+1}</p>
                       <div className="avatar">
-                        <div className="elipse2"></div>
+                        <div className="elipse2">
+                          <img src={require(`../avatars/${membersStruct[index].id}.jpg`)}/>
+                        </div>
                       </div>
                       <div className="name">
-                        <p className="name">{shortAddress(item)}</p>
+                        <p className="name">{item.name}</p>
                         {/*<p className="status">Status</p>*/}
                       </div>
                     </div>
@@ -304,8 +382,10 @@ if(userAddress){
 
             </div>
           </div>
-        </div>
+          </div>
       </section>
+      }
+      
     </div>
   );
 };

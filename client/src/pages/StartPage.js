@@ -25,9 +25,6 @@ export const StartPage = ()=> {
                     </div>
 
                     <div className="buttons">
-                        <a className="entrance" href="#">
-                            Entrance
-                        </a>
                         <a className="login" href="/login">
                             Login
                         </a>

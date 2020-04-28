@@ -3,11 +3,18 @@ import '../css/friends.css'
 import {NavLink, useHistory} from 'react-router-dom'
 import {AuthContext} from "../context/AuthContext";
 import {useHttp} from "../hooks/http.hook";
+import {ImageUpload} from "../components/Upload";
+
+
 export const FriendsPage = ()=>{
     const { token } = useContext(AuthContext);
     const { loading, request } = useHttp();
     const [name, setName] = useState([]);
     const [friends, setFriends] = useState([]);
+    const [img, setImg] = useState([])
+    const [countOfFriends, setAllFriends] = useState([]);
+    const [countOfUsers, setUsers] = useState([]);
+
     const getUserData = useCallback(async () => {
         try {
             const fetched = await request("/api/auth/allgames", "GET", null, {
@@ -15,6 +22,8 @@ export const FriendsPage = ()=>{
             });
             setName(fetched[0].name);
             console.log("data on allgames: ", fetched);
+            let _img = require(`../avatars/${fetched[0]._id}.jpg`)
+            setImg(_img)
         } catch (e) {}
     }, [token, request]);
 
@@ -31,15 +40,26 @@ export const FriendsPage = ()=>{
             // const listItems = fetched.map((number) =>
             //     <li>{number}</li>
             // );
-
-
             setFriends(fetched)
         } catch (e) {}
     }, [token, request]);
 
+    const getAllUsersAndFriends = useCallback(async () =>{
+        const result = await request("/api/auth/allusers", "GET", null, {
+          Authorization: `Bearer ${token}`,
+        });
+        console.log('allUsers: ', result)
+        setUsers(result.allUsers)
+        setAllFriends(result.friends)
+    }, [request])
+
     useEffect(() => {
         getAllFriends();
     }, [getAllFriends]);
+
+    useEffect(() => {
+        getAllUsersAndFriends();
+    }, [getAllUsersAndFriends]);  
 
     return (
         <div className="friends">
@@ -53,7 +73,16 @@ export const FriendsPage = ()=>{
                             <img className="left" src={require("../img/left.png")} alt="left"/>
                         </NavLink>
                         <div className="elipse">
-                            <div className="elipse3"></div>
+                            {img.length>0?
+                              <div className="elipse3">
+                              <input className="fileInput" name="avatar" id="fileInput"
+                                />
+                                <div className="imgPreview">
+                                  <img src={img} />
+                                </div>
+                             </div>:
+                             <ImageUpload/>
+                            }
                         </div>
                         <p className="p1">
                             {name}
@@ -61,12 +90,8 @@ export const FriendsPage = ()=>{
                         <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
                     </div>
                     <div className="info">
-                        <a className="selected" href="#">
-                            100 My friends
-                        </a>
-                        <a href="#">
-                            1000 All
-                        </a>
+                        <NavLink to="/friends">{countOfFriends} My friends</NavLink>
+                        <NavLink to="/people">{countOfUsers} All</NavLink>
                         <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name"/>
                     </div>
                 </div>

@@ -180,24 +180,24 @@ const TimerGame = (time)=>{
             <div className="timer">
                 <ul>
                     <li style={{opacity: 0.2}}>
-                        23
+                        22
                     </li>
                     <li style={{color: "#979797"}}>
-                        0
+                        23
                     </li>
                     <hr/>
                     <li>
-                        1 h
+                        0 h
                     </li>
                     <hr/>
                     <li style={{color: "#979797"}}>
-                        2
+                        1
                     </li>
                     <li style={{opacity: 0.2}}>
-                        3
+                        2
                     </li>
                     <li style={{opacity: 0.1}}>
-                        4
+                        3
                     </li>
                 </ul>
                 <ul>

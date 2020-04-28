@@ -49,8 +49,11 @@ export const useRoutes = (isAuthenticated) => {
           <Route path="/5minutes" exact>
               <FiveMinutes/>
           </Route>
-        <Route path="/allgames" exact>
+        <Route path="/" exact>
           <AllGamesPage />
+        </Route>
+        <Route path="/allgames" exact>
+          <Redirect to="/" />
         </Route>
         <Route path="/detail/:id" exact>
           <UsersPage />

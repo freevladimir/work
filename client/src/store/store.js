@@ -16,6 +16,7 @@ class AppStore {
   bankForLimit = []
   timeEndGame = 0
   allTickets = []
+  allTimesEnd = []
 
   constructor() {
     this.init();
@@ -104,6 +105,11 @@ class AppStore {
         } else{
           this.allTickets = 0
         }
+        if(obj.hasOwnProperty('allTimesEnd')){
+          this.allTimesEnd = window.data.allTimesEnd;
+        } else{
+          this.allTimesEnd = []
+        }
       }
     }, 500);
   }
@@ -121,6 +127,7 @@ AppStore = decorate(AppStore, {
   bankForLimit: observable,
   timeEndGame: observable,
   allTickets: observable,
+  allTimesEnd: observable,
   init: action,
   contractChange: action,
   changeGame: action

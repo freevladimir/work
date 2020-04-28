@@ -7,10 +7,10 @@ import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import Timer from "react-compound-timer";
 import countOfTickets from "../utils/countOfTickets";
-import {getAllValues, userAddress} from "../utils/connectBlockchain";
+import {getAllValues, userAddress, loadingBlockchain} from "../utils/connectBlockchain";
 import path from "path";
-
-
+import {ImageUpload} from "../components/Upload";
+export let userId
 
 const AllGamesPage = () => {
   const store = useContext(AppStoreContext);
@@ -18,9 +18,23 @@ const AllGamesPage = () => {
   const history = useHistory()
   const [name, setName] = useState([]);
   const [id, setId] = useState([]);
-  const [fileImg, setImg] = useState([]);
+  const [img, setImg] = useState([]);
   const { token } = useContext(AuthContext);
   const { loading, request } = useHttp();
+  const [countOfFriends, setFriends] = useState([]);
+  const [countOfUsers, setUsers] = useState([]);
+
+  const generateHash = (string)=> {
+    let hash = 0;
+    if (string.length == 0)
+        return hash;
+    for (let i = 0; i < string.length; i++) {
+        var charCode = string.charCodeAt(i);
+        hash = ((hash << 7) - hash) + charCode;
+        hash = hash & hash;
+    }
+    return Math.abs(hash);
+  }
   const getUserData = useCallback(async () => {
     store.changeGame('limitLottery')
     try {
@@ -28,42 +42,45 @@ const AllGamesPage = () => {
         Authorization: `Bearer ${token}`,
       });
       console.log("start3");
+      userId = fetched[0]._id
       setName(fetched[0].name);
-      setId(fetched[0]._id);
-      setImg(fetched[0].userImg);
-      console.log("data on allgames: ", fetched);
+      setId(generateHash(fetched[0]._id));
+      let _img = require(`../avatars/${fetched[0]._id}.jpg`)
+      setImg(_img)
     } catch (e) {}
-  }, [token, request, store]);
+  }, [token, request]);
 
-  const uploadAvatar = useCallback(async (req, res) => {
-    await request("/api/auth/upload", "POST", fileImg);
-  });
+
+
   const logoutHandler = event =>{
     event.preventDefault()
     auth.logout()
     history.push('/')
   }
+
+  const getAllUsersAndFriends = useCallback(async () =>{
+    const result = await request("/api/auth/allusers", "GET", null, {
+      Authorization: `Bearer ${token}`,
+    });
+    console.log('allUsers: ', result)
+    setUsers(result.allUsers)
+    setFriends(result.friends)
+  }, [request])
+
   useEffect(() => {
     getUserData();
-  }, [getUserData]);
+  }, [getUserData]);  
 
-  const changeHandler = async (event) => {
-    setImg(event.target.value);
-    await request("/api/auth/upload", "POST", fileImg);
-    console.log(fileImg);
-  };
-  // const updateAvatarHandler = async () =>{
-  //     try{
-  //         const data = await request('/api/auth/avatar', 'POST', {...form})
-  //         message(data.message)
-  //         console.log('Data', data)
-  //         await loginHandler()
-  //     } catch (e) {}
-  // }
+  useEffect(() => {
+    getAllUsersAndFriends();
+  }, [getAllUsersAndFriends]);  
 
-  if (loading) {
-    return <div>Loading</div>;
-  }
+
+  if (store.allTimesEnd[1]===undefined) {
+    return <div className="holder">
+    <div className="preloader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>;
+  } else{
   return (
       <div className="allgames">
         <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
@@ -73,21 +90,18 @@ const AllGamesPage = () => {
           <div className="container">
             <div className="account">
               <div className="elipse">
-                <div className="elipse3">
-                  <input
-                      type="file"
-                      name="file"
-                      id="file"
-                      onChange={changeHandler}
-                  />
-                </div>
+
+                {
+                 <ImageUpload/>
+                }
+                
               </div>
               <p className="p1">{name}</p>
               <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
             </div>
             <div className="info">
-              <NavLink to="/friends">100 My friends</NavLink>
-              <NavLink to="/people">1000 All</NavLink>
+              <NavLink to="/friends">{countOfFriends} My friends</NavLink>
+              <NavLink to="/people">{countOfUsers} All</NavLink>
               <a href="">My ID: {id}</a>
             </div>
           </div>
@@ -117,7 +131,7 @@ const AllGamesPage = () => {
               </div>
               <div className="comp2">
                 <div className="timer">
-                  <Timer initialTime={65000} direction="backward">
+                  <Timer initialTime={store.allTimesEnd[0]} direction="backward">
                     {() => (
                         <React.Fragment>
                           <ul>
@@ -176,14 +190,14 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[1]?store.allTickets[1]:''}</p>
+                    <p className="p4">{store.allTickets[1]?store.allTickets[1]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>
               </div>
               <div className="comp2">
                 <div className="timer">
-                  <Timer initialTime={1800000} direction="backward">
+                  <Timer initialTime={store.allTimesEnd[1]} direction="backward">
                     {() => (
                         <React.Fragment>
                           <ul>
@@ -242,7 +256,7 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[2]?store.allTickets[2]:''}</p>
+                    <p className="p4">{store.allTickets[2]?store.allTickets[2]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>
@@ -250,7 +264,7 @@ const AllGamesPage = () => {
             </div>
             <div className="comp2">
               <div className="timer">
-                <Timer initialTime={3605000} direction="backward">
+                <Timer initialTime={store.allTimesEnd[2]} direction="backward">
                   {() => (
                       <React.Fragment>
                         <ul>
@@ -309,14 +323,14 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[3]?store.allTickets[3]:''}</p>
+                  <p className="p4">{store.allTickets[3]?store.allTickets[3]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
             </div>
             <div className="comp2">
               <div className="timer">
-                <Timer initialTime={86405000} direction="backward">
+                <Timer initialTime={store.allTimesEnd[3]} direction="backward">
                   {() => (
                       <React.Fragment>
                         <ul>
@@ -371,7 +385,7 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[4]?store.allTickets[4]:''}</p>
+                  <p className="p4">{store.allTickets[4]?store.allTickets[4]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -379,7 +393,7 @@ const AllGamesPage = () => {
 
             <div className="comp2">
               <div className="timer">
-                <Timer initialTime={86405000} direction="backward">
+                <Timer initialTime={store.allTimesEnd[4]} direction="backward">
                   {() => (
                       <React.Fragment>
                         <ul>
@@ -434,86 +448,88 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[5]?store.allTickets[5]:''}</p>
+                  <p className="p4">{store.allTickets[5]?store.allTickets[5]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
             </div>
 
 
-            <div className="comp2 comp3">
-              <div className="blok1">
-                <div className="title3 title_">
-                  <img src={require("../img/calendar2.png")} alt="minute" />
-                  <p className="p6">Every year</p>
-                </div>
-                <div className="timer">
-                  <Timer initialTime={86405000} direction="backward">
-                    {() => (
-                        <React.Fragment>
-                          <ul>
-                            <li style={{ color: "#979797" }}>
-                              {(<Timer />)._owner.stateNode.state.d - 1 >= 0
-                                  ? (<Timer />)._owner.stateNode.state.d - 1
-                                  : 0}
-                            </li>
-                            <hr />
-                            <li>
-                              <Timer.Days /> day
-                            </li>
-                            <hr />
-                            <li style={{ color: "#979797" }}>
-                              {(<Timer />)._owner.stateNode.state.d + 1}
-                            </li>
-                          </ul>
-                          <ul>
-                            <li style={{ color: "#979797" }}>
-                              {(<Timer />)._owner.stateNode.state.h - 1 >= 0
-                                  ? (<Timer />)._owner.stateNode.state.h - 1
-                                  : 24 + (<Timer />)._owner.stateNode.state.h - 1}
-                            </li>
-                            <hr />
-                            <li>
-                              <Timer.Hours /> hour
-                            </li>
-                            <hr />
-                            <li style={{ color: "#979797" }}>
-                              {(<Timer />)._owner.stateNode.state.h + 1 <= 23
-                                  ? (<Timer />)._owner.stateNode.state.h + 1
-                                  : Math.abs(
-                                      60 - (<Timer />)._owner.stateNode.state.h - 1
-                                  )}
-                            </li>
-                          </ul>
-                        </React.Fragment>
-                    )}
-                  </Timer>
-                </div>
-              </div>
-              <div className="blok2">
-                <div className="title3">
-                <img src={require("../img/gavat.png")} alt="gavat" />
-                <p className="p6">Super game</p>
-                </div>
-                <NavLink to="/oneYear">
-                  <div className="btn">
-                    <p className="p3">PLAY {store.bankForLimit[6]?(store.bankForLimit[6]/1e18).toFixed(0):0 }$</p>
-                  </div>
-                </NavLink>
-              </div>
-              <div className="title2">
 
-                <div className="top">
-                  <img
-                      className="men_"
-                      src={require("../img/men2.png")}
-                      alt="men"
-                  />
-                  <p className="p4">{store.allTickets[6]?store.allTickets[6]:''}</p>
-                </div>
-                <p className="p5 p5_">Human</p>
+        <div className="comp2 comp3">
+          <div className="blok2">
+            <div className="title3 title_">
+              <img src={require("../img/calendar2.png")} alt="minute"/>
+              <p className="p6">
+                Every year 
+              </p>
+            </div>
+            <div className="timer">
+              <Timer initialTime={store.allTimesEnd[5]} direction="backward">
+                {() => (
+                    <React.Fragment>
+                      <ul>
+                        <li style={{ color: "#979797" }}>
+                          {(<Timer />)._owner.stateNode.state.d - 1 >= 0
+                              ? (<Timer />)._owner.stateNode.state.d - 1
+                              : 0}
+                        </li>
+                        <hr />
+                        <li>
+                          <Timer.Days /> day
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                          {(<Timer />)._owner.stateNode.state.d + 1}
+                        </li>
+                      </ul>
+                      <ul>
+                        <li style={{ color: "#979797" }}>
+                          {(<Timer />)._owner.stateNode.state.h - 1 >= 0
+                              ? (<Timer />)._owner.stateNode.state.h - 1
+                              : 24 + (<Timer />)._owner.stateNode.state.h - 1}
+                        </li>
+                        <hr />
+                        <li>
+                          <Timer.Hours /> hour
+                        </li>
+                        <hr />
+                        <li style={{ color: "#979797" }}>
+                          {(<Timer />)._owner.stateNode.state.h + 1 <= 23
+                              ? (<Timer />)._owner.stateNode.state.h + 1
+                              : Math.abs(
+                                  60 - (<Timer />)._owner.stateNode.state.h - 1
+                              )}
+                        </li>
+                      </ul>
+                    </React.Fragment>
+                )}
+              </Timer>
+            </div>
+            </div>
+          <div className="blok3">
+            <div className="title3">
+              <img src={require("../img/gavat.png")} alt="gavat"/>
+              <p className="p6">
+                Super game
+              </p>
+              <p className="p5 p5_">
+                Human
+              </p>
+              <div className="top">
+                <img className="men_" src={require("../img/men2.png")} alt="men"/>
+                <p className="p4">{store.allTickets[6]?store.allTickets[6]:0}</p>
               </div>
             </div>
+            <NavLink to="/oneYear">
+              <div className="btn btn-2">
+                <p className="p3">
+                  PLAY {store.bankForLimit[6]?(store.bankForLimit[6]/1e18).toFixed(0):0 }$
+                </p>
+              </div>
+            </NavLink>
+          </div>
+          </div>
 
             <div className="video">
               <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
@@ -521,7 +537,7 @@ const AllGamesPage = () => {
           </div>
         </section>
       </div>
-  );
+  )}
 };
 
 export default observer(AllGamesPage);

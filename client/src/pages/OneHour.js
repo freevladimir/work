@@ -14,8 +14,10 @@ import getAllValues, {
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import TimerGame from "../components/Timer";
-import {useHistory} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import Slider from "react-slick";
+import {ImageUpload} from "../components/Upload";
+
 const OneHour = () => {
     const store = useContext(AppStoreContext)
 
@@ -48,6 +50,11 @@ const OneHour = () => {
     const [id, setId] = useState([]);
     const { token } = useContext(AuthContext);
     const { loading, request } = useHttp();
+    const [referal, setReferal] = useState([]);
+    const [img, setImg] = useState([])
+    const [countOfFriends, setFriends] = useState([]);
+    const [countOfUsers, setUsers] = useState([]);
+
     if(userAddress){
         window.ethereum.on("accountsChanged", function (accounts) {
             changeUser(accounts[0])
@@ -90,7 +97,8 @@ const OneHour = () => {
             {
                 to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
                 from: metamask.givenProvider.selectedAddress,
-                value: web3.utils.toWei(String(value), "ether")
+                value: web3.utils.toWei(String(value), "ether"),
+                data: referal?referal:''
             },
             function (error, res) {
                 console.log(error)
@@ -102,7 +110,17 @@ const OneHour = () => {
     function shortAddress(address) {
         if (address) return address.substr(0, 6) + "..." + address.substr(38, 4)
     }
-
+  const generateHash = (string)=> {
+    let hash = 0;
+    if (string.length == 0)
+        return hash;
+    for (let i = 0; i < string.length; i++) {
+        var charCode = string.charCodeAt(i);
+        hash = ((hash << 7) - hash) + charCode;
+        hash = hash & hash;
+    }
+    return Math.abs(hash);
+  }
     const getUserData = useCallback(async () => {
         console.log("start1");
         try {
@@ -111,8 +129,12 @@ const OneHour = () => {
                 Authorization: `Bearer ${token}`,
             });
             setName(fetched[0].name);
-            setId(fetched[0]._id);
+            setId(generateHash(fetched[0]._id));
+            setReferal(fetched[0].friendId)
+            let _img = require(`../avatars/${fetched[0]._id}.jpg`)
+            setImg(_img)
             console.log("data on allgames: ", fetched);
+            console.log('referal: ', referal)
         } catch (e) {}
     }, [token, request]);
 
@@ -132,6 +154,15 @@ const OneHour = () => {
         } catch (e) {}
     }, [request]);
 
+    const getAllUsersAndFriends = useCallback(async () =>{
+        const result = await request("/api/auth/allusers", "GET", null, {
+          Authorization: `Bearer ${token}`,
+        });
+        console.log('allUsers: ', result)
+        setUsers(result.allUsers)
+        setFriends(result.friends)
+    }, [request])
+
     useEffect(() => {
         getUserData();
     }, [getUserData]);
@@ -140,7 +171,9 @@ const OneHour = () => {
         getMembersName()
     }, [getMembersName]);
 
-
+    useEffect(() => {
+        getAllUsersAndFriends();
+    }, [getAllUsersAndFriends]); 
 
 
     if (loading) {
@@ -154,15 +187,27 @@ const OneHour = () => {
             <section>
                 <div className="container">
                     <div className="account">
+                        <NavLink to="/allgames">
+                            <img className="left" src={require("../img/left.png")} alt="left"/>
+                        </NavLink>
                         <div className="elipse">
-                            <div className="elipse3"></div>
+                            {img.length>0?
+                              <div className="elipse3">
+                              <input className="fileInput" name="avatar" id="fileInput"
+                                />
+                                <div className="imgPreview">
+                                  <img src={img} />
+                                </div>
+                             </div>:
+                             <ImageUpload/>
+                            }
                         </div>
                         <p className="p1">{name}</p>
                         <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
                     </div>
                     <div className="info">
-                        <a href="#">100 My friends</a>
-                        <a href="#">1000 All</a>
+                        <NavLink to="/friends">{countOfFriends} My friends</NavLink>
+                        <NavLink to="/people">{countOfUsers} All</NavLink>
                         <a href="#">My ID: {id}</a>
                     </div>
                     <p className="p2"></p>

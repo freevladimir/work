@@ -5,19 +5,19 @@ import getBalanceOfContract from "./getBalanceOfContract";
 import getMyTickets from "./myTickets";
 import getMembers from "./members";
 import {useCallback, useEffect, useState} from "react";
-import {useHttp} from "../hooks/http.hook";
 import getWinners from "./getWinners";
 import getAllBankOfLimitGame from "./getAllBankForLimit";
 import getTimeEndGame from "./getTimeEndGame";
 import getAllCountOfTickets from "./getAllCountOfTickets";
-
+import getAllTimesEndGame from './getAllTimeEnds'
+// import { useHttp } from "../hooks/http.hook";
 
 let TEST_RINKEBY =
         'wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176',
   TEST_MAIN = 'wss://mainnet.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176';
-export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery;
+export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
-export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
+const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
     addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
@@ -26,8 +26,9 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     Lottery = new web3.eth.Contract(abi, addressLottery);
     SevenTOP = new web3.eth.Contract(config.SevenTOP.abi, config.SevenTOP.address)
     StorageLimitLottery = new web3.eth.Contract(config.StorageLimitLottery.abi, config.StorageLimitLottery.address)
-
+    loadingBlockchain = true
     console.log("blockchain is connected");
+    // const { loading, request } = useHttp();
     const tickets = await countOfTickets(Lottery);
     const balanceOfContract = await getBalanceOfContract(Lottery);
     const myTickets = await getMyTickets(Lottery)
@@ -37,7 +38,7 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     const timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
     const bankForLimit = await getAllBankOfLimitGame()
     const allTickets = await getAllCountOfTickets()
-
+    const allTimesEnd = await getAllTimesEndGame()
     await web3.eth.subscribe('logs', {
       address: addressLottery,
       topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']
@@ -51,6 +52,7 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
     })
 
     await console.log(winners)
+    
     return {
       tickets,
       balanceOfContract,
@@ -60,7 +62,8 @@ export const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1
       winners,
       bankForLimit,
       timeEndGame,
-      allTickets
+      allTickets,
+      allTimesEnd
     };
   }
 };
@@ -94,7 +97,9 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
           console.log("userAddress: ", userAddress);
           getAllValues(lotteryKey, addressIndex).then((data) => {
             window.data = data;
+            loadingBlockchain = false
           });
+
 
         }
       });
