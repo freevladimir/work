@@ -345,7 +345,7 @@ router.post('/members',
 
     async (req, res)=>{
         try{
-            const {members} = req.body
+            let members = req.body
             console.log('req.body: ', members)
 
             let users = []
@@ -364,6 +364,38 @@ router.post('/members',
                 return res.status(400).json({message: "User is not exist"})
             }
             console.log("MembersStruct: ", users)
+            res.json(users)
+
+        } catch (e) {
+            res.status(500).json({message: 'Something go wrong, try again'})
+            console.log(e)
+        }
+
+    })
+
+router.post('/winners',
+
+    async (req, res)=>{
+        try{
+            let members = req.body
+            console.log('req.body: ', members)
+
+            let users = []
+            for(let i=0; i<members.length; i++){
+                let user = await User.findOne({wallet: members[i][0]})
+                console.log(user)
+                if(!user){
+                    users.push({ name: members[i].substr(0, 6) + "..." + members[i].substr(38, 4), time: members[i][1], sum: members[i][2], id: 'undefined'})
+                } else{
+                    users.push({name: user.name, time: members[i][1], sum: members[i][2], id: user._id})
+                }
+            }
+
+            // console.log(users)
+            if(!users){
+                return res.status(400).json({message: "User is not exist"})
+            }
+            console.log("Winners: ", users)
             res.json(users)
 
         } catch (e) {
