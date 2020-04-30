@@ -114,7 +114,7 @@ const FiveMinutes = () => {
                 }
             )
         } else {
-            alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}`)
+            alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}\n\Ticket price: ${Math.ceil((value)*10000)/10000} ETH`)
         }
 
     };
@@ -188,7 +188,7 @@ const FiveMinutes = () => {
     }, [getAllUsersAndFriends]); 
 
 
-    if (!store.addressName) {
+    if (!store.timeEndGame) {
         return <div className="holder">
           <div className="preloader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>;

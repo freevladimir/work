@@ -23,7 +23,7 @@ export class ImageUpload extends React.Component {
     // for (var key of data.entries()) {
     //     console.log(key[0] + ', ' + key[1]);
     // }
-    axios.post("http://188.225.78.253:3000/upload", data, { 
+    axios.post("http://188.225.78.253:5000/upload", data, { 
       // receive two    parameter endpoint url ,form data
     })
     .then(res => { // then print response status

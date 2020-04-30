@@ -124,7 +124,7 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[0]?store.allTickets[0]:0}</p>
+                    <p className="p4">{store.allTickets?store.allTickets[0]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>
@@ -190,7 +190,7 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[1]?store.allTickets[1]:0}</p>
+                    <p className="p4">{store.allTickets?store.allTickets[1]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>
@@ -256,7 +256,7 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[2]?store.allTickets[2]:0}</p>
+                    <p className="p4">{store.allTickets?store.allTickets[2]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>
@@ -323,7 +323,7 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[3]?store.allTickets[3]:0}</p>
+                  <p className="p4">{store.allTickets?store.allTickets[3]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -385,7 +385,7 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[4]?store.allTickets[4]:0}</p>
+                  <p className="p4">{store.allTickets?store.allTickets[4]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -448,7 +448,7 @@ const AllGamesPage = () => {
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets[5]?store.allTickets[5]:0}</p>
+                  <p className="p4">{store.allTickets?store.allTickets[5]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -518,7 +518,7 @@ const AllGamesPage = () => {
               </p>
               <div className="top">
                 <img className="men_" src={require("../img/men2.png")} alt="men"/>
-                <p className="p4">{store.allTickets[6]?store.allTickets[6]:0}</p>
+                <p className="p4">{store.allTickets?store.allTickets[6]:0}</p>
               </div>
             </div>
             <NavLink to="/oneYear">

@@ -110,18 +110,23 @@ if(userAddress){
     console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
     const ethPrice  = await getEtherPrice()
     const value = (config[store.currentLotteryName].addresses[store.contractIndex].amount+0.1)/ethPrice
-    metamask.eth.sendTransaction(
-      {
-        to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
-        from: metamask.givenProvider.selectedAddress,
-        value: web3.utils.toWei(String(value), "ether"),
-        data: referal?referal:''
-      },
-      function (error, res) {
-        console.log(error)
-        console.log(res)
-      }
-    )
+    if(metamask){
+      // let referral = await request('/api/auth/ref', 'GET', {members})
+      metamask.eth.sendTransaction(
+          {
+              to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
+              from: metamask.givenProvider.selectedAddress,
+              value: web3.utils.toWei(String(value), "ether"),
+              data: referal?referal:''
+          },
+          function (error, res) {
+              console.log(error)
+              console.log(res)
+          }
+      )
+    } else {
+        alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}\n\Ticket price: ${Math.ceil((value)*10000)/10000} ETH`)
+    }
   };
 
   function shortAddress(address) {
@@ -320,7 +325,7 @@ if(userAddress){
 
                 {store.myTickets ? store.myTickets.map((item, index) =>(
                     <div>
-                      <p className="p8">№ {item}</p>
+                      <p className="p8">№ {parseInt(item)+1}</p>
                       <p className="p9">
                         {store.addressName.substr(7,3)} <span> My bids</span>
                       </p>

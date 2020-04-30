@@ -20,10 +20,7 @@ export const useHttp = () => {
             const data = await response.json()
 
             if (!response.ok) {
-                auth.logout()
-                history.push('/')
-                console.log(data.message)
-                // throw new Error(data.message || 'Что-то пошло не так')
+                throw new Error(data.message || 'Что-то пошло не так')
             }
 
             setLoading(false)

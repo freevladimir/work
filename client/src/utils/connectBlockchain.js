@@ -17,7 +17,7 @@ let TEST_RINKEBY =
   TEST_MAIN = 'wss://mainnet.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176';
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
-const getAllValues = async (lotteryKey = 'limitLottery', addressIndex = 1) => {
+const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
 
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
