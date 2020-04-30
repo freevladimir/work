@@ -1,8 +1,12 @@
-import {useState, useCallback} from 'react'
+import {useState, useCallback, useContext} from 'react'
+import { AuthContext } from "../context/AuthContext";
+import {useHistory} from "react-router-dom";
 
 export const useHttp = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+    const auth = useContext(AuthContext)
+    const history = useHistory()
 
     const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
         setLoading(true)
@@ -16,7 +20,10 @@ export const useHttp = () => {
             const data = await response.json()
 
             if (!response.ok) {
-                throw new Error(data.message || 'Что-то пошло не так')
+                auth.logout()
+                history.push('/')
+                console.log(data.message)
+                // throw new Error(data.message || 'Что-то пошло не так')
             }
 
             setLoading(false)

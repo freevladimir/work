@@ -1,7 +1,7 @@
 import {web3, userAddress, LotteryLimit, SevenTOP} from "./connectBlockchain";
 import {useCallback} from "react";
 import {useHttp} from "../hooks/http.hook";
-
+import axios from 'axios'
 
 
 const getWinners = async (lottery) => {
@@ -50,6 +50,16 @@ const getWinners = async (lottery) => {
                 }
             }
         )
+        await axios.post('http://188.225.78.253:3000/api/auth/winners', result, {
+
+        }).then(res => { // then print response status
+            result = []
+            console.log('axios res: ', res.data)
+            for(let i=0; i<res.data.length; i++){
+                result.push(res.data[i])    
+            }
+        })
+        console.log("Winners: ", result)
         return result
 
     }

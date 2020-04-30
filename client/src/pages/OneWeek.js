@@ -9,7 +9,8 @@ import getAllValues, {
     web3,
     SevenTOP,
     userAddress,
-    changeUser
+    changeUser,
+    loadingBlockchain
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
@@ -176,9 +177,11 @@ const OneWeek = () => {
     }, [getAllUsersAndFriends]);  
 
 
-    if (loading) {
-        return <div>Loading</div>;
-    }
+    if (!store.addressName) {
+        return <div className="holder">
+          <div className="preloader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>;
+      }
     return (
         <div className="row game">
             <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
@@ -242,6 +245,15 @@ const OneWeek = () => {
 
                 </div>
             </section>
+            {loadingBlockchain?
+            <div className="holder" style={{
+                position: 'relative',
+                top: 'initial',
+                'margin-top': '100px'
+              }}>
+              <div className="preloader">
+              <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>:
             <section className="section" id="section2">
                 <div className="container">
                     <div className="section22">
@@ -258,10 +270,12 @@ const OneWeek = () => {
                                     <div>
                                         <p className="p6">{index+1}</p>
                                         <div className="avatar">
-                                            <div className="elipse2"></div>
+                                            <div className="elipse2">
+                                                <img src={require(`../avatars/${store.members[index].id}.jpg`)}/>
+                                            </div>
                                         </div>
                                         <div className="name">
-                                            <p className="name">{shortAddress(item)}</p>
+                                            <p className="name">{item.name}</p>
                                             {/*<p className="status">Status</p>*/}
                                         </div>
                                     </div>
@@ -297,32 +311,37 @@ const OneWeek = () => {
                             </div>
 
                             {store.winners[0] ?
+                              <div className="winners_">
+                                <div className="avatar-win">
+                                  <div className="elipse4">
+                                    <img src={require(`../avatars/${store.winners[0].id}.jpg`)}/>
+                                  </div>
+                                </div>
+                                <div className="avatar-title">
+                                  <p className="p11">{store.winners[0].name}</p>
+                                  <div className="place">
+                                    <img
+                                      className="place1"
+                                      src={require("../img/place1.png")}
+                                      alt="place1"
+                                    />
+                                    <p className="p12">
+                                      1 Place <span>{store.winners ? store.winners[0].sum : ''} $</span>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                                  : ''}
+
+                            {store.winners[1] && store.winners[0].time===store.winners[1].time?
                                 <div className="winners_">
                                     <div className="avatar-win">
-                                        <div className="elipse4"></div>
-                                    </div>
-                                    <div className="avatar-title">
-                                        <p className="p11">{shortAddress(store.winners[0][0])}</p>
-                                        <div className="place">
-                                            <img
-                                                className="place1"
-                                                src={require("../img/place1.png")}
-                                                alt="place1"
-                                            />
-                                            <p className="p12">
-                                                1 Place <span>{store.winners ? store.winners[0][2] : ''} $</span>
-                                            </p>
+                                        <div className="elipse4">
+                                            <img src={require(`../avatars/${store.winners[1].id}.jpg`)}/>
                                         </div>
                                     </div>
-                                </div>
-                                : ''}
-                            {store.winners[1] && store.winners[0][1]===store.winners[1][1]?
-                                <div className="winners_">
-                                    <div className="avatar-win">
-                                        <div className="elipse4"></div>
-                                    </div>
                                     <div className="avatar-title">
-                                        <p className="p11">{shortAddress(store.winners[1][0])}</p>
+                                        <p className="p11">{store.winners[0].name}</p>
                                         <div className="place">
                                             <img
                                                 className="place2"
@@ -335,7 +354,7 @@ const OneWeek = () => {
                                                 alt="place1"
                                             />
                                             <p className="p12">
-                                                2 Place <span>{store.winners ? store.winners[1][2] : ''} $</span>
+                                                2 Place <span>{store.winners ? store.winners[1].sum : ''} $</span>
                                             </p>
                                         </div>
                                     </div>
@@ -348,6 +367,7 @@ const OneWeek = () => {
                     </div>
                 </div>
             </section>
+            }
         </div>
     );
 };

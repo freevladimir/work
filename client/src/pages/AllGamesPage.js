@@ -124,7 +124,7 @@ const AllGamesPage = () => {
                 <div className="title2">
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
-                    <p className="p4">{store.allTickets[0]?store.allTickets[0]:''}</p>
+                    <p className="p4">{store.allTickets[0]?store.allTickets[0]:0}</p>
                   </div>
                   <p className="p5">Human</p>
                 </div>

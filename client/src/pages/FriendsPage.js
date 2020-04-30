@@ -9,6 +9,8 @@ import {ImageUpload} from "../components/Upload";
 export const FriendsPage = ()=>{
     const { token } = useContext(AuthContext);
     const { loading, request } = useHttp();
+    const auth = useContext(AuthContext)
+    const history = useHistory()
     const [name, setName] = useState([]);
     const [friends, setFriends] = useState([]);
     const [img, setImg] = useState([])
@@ -60,7 +62,11 @@ export const FriendsPage = ()=>{
     useEffect(() => {
         getAllUsersAndFriends();
     }, [getAllUsersAndFriends]);  
-
+    const logoutHandler = event =>{
+        event.preventDefault()
+        auth.logout()
+        history.push('/')
+    }
     return (
         <div className="friends">
             <video id="videoBG" poster="../img/bg.png" autoPlay muted loop>
@@ -87,7 +93,7 @@ export const FriendsPage = ()=>{
                         <p className="p1">
                             {name}
                         </p>
-                        <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                        <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
                     </div>
                     <div className="info">
                         <NavLink to="/friends">{countOfFriends} My friends</NavLink>
@@ -102,7 +108,9 @@ export const FriendsPage = ()=>{
                     {friends.map((item, index) => (
                         <div className="comp">
                             <div className="elipse_">
-                                <div className="elipse3_"></div>
+                                <div className="elipse3_">
+                                    <img src={require(`../avatars/${item._id}.jpg`)}/>
+                                </div>
                             </div>
                             <div className="text">
                                 <p className="p3">

@@ -12,19 +12,15 @@ export const StartPage = ()=> {
             </video>
             <header className="header" id="header">
                 <div className="container">
-                    <a href="#">
-                        <div className="personal">
-                            <img className="men" src={require("../img/men.png")} alt="men-icon"/>
-                            <p>
-                                Personal Area
-                            </p>
-                        </div>
-                    </a>
+
                     <div className="logo">
                         <img src={require("../img/img1.png")} alt="logo"/>
                     </div>
 
                     <div className="buttons">
+                    <a className="entrance" href="/register">
+                        Register
+                    </a>
                         <a className="login" href="/login">
                             Login
                         </a>

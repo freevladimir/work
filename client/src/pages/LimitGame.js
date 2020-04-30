@@ -34,6 +34,7 @@ const LimitGame = () => {
   const auth = useContext(AuthContext)
   const history = useHistory()
   const arrayOfSlides = [
+    { value: "2 $" },
     { value: "5 $" },
     { value: "15 $" },
     { value: "50 $" }
@@ -108,7 +109,7 @@ if(userAddress){
     console.log(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
     console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
     const ethPrice  = await getEtherPrice()
-    const value = config[store.currentLotteryName].addresses[store.contractIndex].amount/ethPrice
+    const value = (config[store.currentLotteryName].addresses[store.contractIndex].amount+0.1)/ethPrice
     metamask.eth.sendTransaction(
       {
         to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
@@ -156,30 +157,29 @@ if(userAddress){
     } catch (e) {}
   }, [token, request]);
 
-  const getMembersName = useCallback(async () => {
-    let members = store.members
-    if(members==false){
-      members = store.members
-      console.log("try again")
-      setTimeout(getMembersName, 1000)
-    } else{
-      try {
-        console.log(members==false)
-        console.log(members)
-        const result = await request('/api/auth/members', 'POST', {members})
-        console.log("START3");
-        console.log("result: ", result)
+  // const getMembersName = useCallback(async () => {
+  //   let members = store.members
+  //   if(members==false){
+  //     members = store.members
+  //     console.log("try again")
+  //     setTimeout(getMembersName, 1000)
+  //   } else{
+  //     try {
+  //       console.log(members==false)
+  //       console.log(members)
+  //       const result = await request('/api/auth/members', 'POST', {members})
+  //       console.log("START3");
+  //       console.log("result: ", result)
 
-        for(let i = 0; i<result.length; i++){
-          membersStruct.push(result[i]);
-          setMembers(membersStruct)
+  //       for(let i = 0; i<result.length; i++){
+  //         membersStruct.push(result[i]);
+  //         setMembers(membersStruct)
+  //       }
+  //       console.log('membersStruct: ', membersStruct)
+  //     } catch (e) {}
+  //   }
 
-        }
-        console.log('membersStruct: ', membersStruct)
-      } catch (e) {}
-    }
-
-  }, [request]);
+  // }, [request]);
 
   const getAllUsersAndFriends = useCallback(async () =>{
     const result = await request("/api/auth/allusers", "GET", null, {
@@ -191,9 +191,9 @@ if(userAddress){
   }, [request])
 
 
-  useEffect(() => {
-    getMembersName();
-  }, [getMembersName]);
+  // useEffect(() => {
+  //   getMembersName();
+  // }, [getMembersName]);
 
   useEffect(() => {
     getUserData();
@@ -270,12 +270,12 @@ if(userAddress){
         </div>
       </section>
       {loadingBlockchain?
-        <div className="holder">
-          <div className="preloader" style={{
-            left: '50%',
-            bottom: '8%',
-            top: 'initial'
+        <div className="holder" style={{
+            position: 'relative',
+            top: 'initial',
+            'margin-top': '100px'
           }}>
+          <div className="preloader" >
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>:
         <section className="section" id="section2">
@@ -290,12 +290,12 @@ if(userAddress){
                 </p>
               </div>
               <div className="accounts">
-                {membersStruct ? membersStruct.map((item, index) =>(
+                {store.members ? store.members.map((item, index) =>(
                     <div>
                       <p className="p6">{index+1}</p>
                       <div className="avatar">
                         <div className="elipse2">
-                          <img src={require(`../avatars/${membersStruct[index].id}.jpg`)}/>
+                          <img src={require(`../avatars/${store.members[index].id}.jpg`)}/>
                         </div>
                       </div>
                       <div className="name">
@@ -337,10 +337,12 @@ if(userAddress){
               {store.winners[0] ?
               <div className="winners_">
                 <div className="avatar-win">
-                  <div className="elipse4"></div>
+                  <div className="elipse4">
+                    <img src={require(`../avatars/${store.winners[0].id}.jpg`)}/>
+                  </div>
                 </div>
                 <div className="avatar-title">
-                  <p className="p11">{shortAddress(store.winners[0][0])}</p>
+                  <p className="p11">{store.winners[0].name}</p>
                   <div className="place">
                     <img
                       className="place1"
@@ -348,7 +350,7 @@ if(userAddress){
                       alt="place1"
                     />
                     <p className="p12">
-                      1 Place <span>{store.winners ? store.winners[0][2] : ''} $</span>
+                      1 Place <span>{store.winners ? store.winners[0].sum : ''} $</span>
                     </p>
                   </div>
                 </div>

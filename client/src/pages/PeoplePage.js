@@ -8,6 +8,8 @@ import {ImageUpload} from "../components/Upload";
 export const PeoplePage = ()=>{
     const { token } = useContext(AuthContext);
     const { loading, request } = useHttp();
+    const auth = useContext(AuthContext)
+    const history = useHistory()
     const [name, setName] = useState([]);
     const [users, setUsers] = useState([]);
     const [img, setImg] = useState([])
@@ -44,7 +46,11 @@ export const PeoplePage = ()=>{
             setUsers(fetched)
         } catch (e) {}
     }, [token, request]);
-
+    const logoutHandler = event =>{
+        event.preventDefault()
+        auth.logout()
+        history.push('/')
+    }
     const getAllUsersAndFriends = useCallback(async () =>{
         const result = await request("/api/auth/allusers", "GET", null, {
           Authorization: `Bearer ${token}`,
@@ -88,7 +94,7 @@ export const PeoplePage = ()=>{
                         <p className="p1">
                             {name}
                         </p>
-                        <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                        <a href="/" onClick={logoutHandler}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
                     </div>
                     <div className="info">
                         <NavLink to="/friends">{countOfFriends} My friends</NavLink>
@@ -102,7 +108,9 @@ export const PeoplePage = ()=>{
                     {users.map((item, index) => (
                         <div className="comp">
                             <div className="elipse_">
-                                <div className="elipse3_"></div>
+                                <div className="elipse3_">
+                                    <img src={require(`../avatars/${item._id}.jpg`)}/>
+                                </div>
                             </div>
                             <div className="text">
                                 <p className="p3">

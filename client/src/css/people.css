@@ -69,6 +69,11 @@ body {
     border-radius: 50%;
     border: 1px solid #3F3F3F;
     background: #C4C4C4;
+    overflow: hidden;
+}
+
+.people .elipse3_ img{
+    height: 100%
 }
 
 
