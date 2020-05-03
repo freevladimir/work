@@ -21,14 +21,6 @@ let address = "0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5"
 let privateKey = "6FFD8A36CDC137AE3A0153201C33BC4CC334DF09F7C6ACA0C0B09308A3790F71"
 let timerId
 
-if(process.env.NODE_ENV === 'production'){
-    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
-
-    app.get('*', (req, res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
-
 let contracts = {
     fiveMinutes: {
         loterry5$: {
@@ -98,7 +90,13 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
+if(process.env.NODE_ENV === 'production'){
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
+    app.get('*', (req, res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 let storage = multer.diskStorage({
       destination: function (req, file, cb) {
