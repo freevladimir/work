@@ -50,7 +50,7 @@ const getWinners = async (lottery) => {
                 }
             }
         )
-        await axios.post('http://188.225.78.253:3000/api/auth/winners', result, {
+        await axios.post('http://7top.org/api/auth/winners', result, {
 
         }).then(res => { // then print response status
             result = []

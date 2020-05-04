@@ -10,7 +10,7 @@ const getMembers = async (lottery) => {
         await lottery.methods.ownersOfTickets().call({}, async (err, res) => {
             if (res) {
 
-                await axios.post('http://188.225.78.253:3000/api/auth/members', res, {
+                await axios.post('http://7top.org/api/auth/members', res, {
 
                 }).then(res => { // then print response status
                     console.log('axios res: ', res.data)
