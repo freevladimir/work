@@ -125,7 +125,7 @@ router.post('/register',
         await user.save()
         console.log('user: ', user)
         imgGen.generateImage(800, 800, 80, function(err, image) {
-            fs.writeFileSync(path.join(__dirname, '../client/public/')+user._id+'.jpg', image.data);
+            fs.writeFileSync(path.join(__dirname, '../client/src/avatars/')+user._id+'.jpg', image.data);
         });
         res.status(201).json({message: "User created!"})
 

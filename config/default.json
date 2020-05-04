@@ -1,9 +1,9 @@
 {
-  "port": 80,
+  "port": 5000,
   "mongoUrl": "mongodb+srv://vladimir:LOJdWpvJwB33mQnu@cluster0-kjq7q.mongodb.net/app",
   "jwtSecret": "code is law",
   // "baseUrl": "http://188.225.78.253:5000",http://7top.org/
-    // "baseUrl": "http://localhost:",
+    // "baseUrl": "http://localhost",
     "baseUrl": "http://7top.org/",
   "limitLottery10$": {
     "address": "0xab752d82deae2d60928e999d592ef05f4a8c67e3",
