@@ -90,13 +90,14 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
-if(process.env.NODE_ENV === 'production'){
-    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
-    app.get('*', (req, res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
+// if(process.env.NODE_ENV === 'production'){
+//     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+
+//     app.get('*', (req, res)=>{
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//     })
+// }
 
 let storage = multer.diskStorage({
       destination: function (req, file, cb) {
@@ -119,9 +120,9 @@ app.post('/upload', function(req, res) {
   let file = req.files.file;
   console.log('req.body: ', req.body.userId)
   // Use the mv() method to place the fixle somewhere on your server
-  console.log(path.join(__dirname, '/client/src/avatars'))
+  console.log(path.join(__dirname, '/client/public'))
   console.log(file)
-  file.mv(path.join(__dirname, '/client/src/avatars/')+req.body.userId+'.jpg', function(err) {
+  file.mv(path.join(__dirname, '/client/public/')+req.body.userId+'.jpg', function(err) {
     if (err)
       return res.status(500).send(err);
 
@@ -129,7 +130,7 @@ app.post('/upload', function(req, res) {
   });
 });
 
-const PORT = config.get('port') || 5000
+const PORT = config.get('port')
 
 const setListeners = async ()=>{
     for (const lotteryTime in contracts){
