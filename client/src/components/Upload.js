@@ -59,7 +59,7 @@ export class ImageUpload extends React.Component {
     if (imagePreviewUrl) {
       $imagePreview = (<img src={imagePreviewUrl} />);
     } else {
-      $imagePreview = (<img src={require(`../../public/${this.user}.jpg`)}/>)
+      $imagePreview = (<img src={require(`../avatars/${this.user}.jpg`)}/>)
     }
 
     return (
