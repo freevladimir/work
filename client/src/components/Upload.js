@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { AuthContext } from "../context/AuthContext";
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import {userId} from '../pages/AllGamesPage'
@@ -6,24 +7,27 @@ export let file;
 let imagePreviewUrl
     let $imagePreview 
 export class ImageUpload extends React.Component {
+
+
   constructor(props) {
     super(props);
     let reader = new FileReader();
     this.state = {file: '',imagePreviewUrl: ''};
+    this.user = userId
   }
 
   _handleSubmit() {
     // TODO: do something with -> this.state.file
     const data = new FormData()
     data.append('file', this.state.file)
-    data.append('userId', userId)
+    data.append('userId', this.user)
     // request("/api/link/upload", "POST", this.state.file);
     console.log('handle uploading-', this.state.file);
-    console.log(userId)
+    console.log(this.user)
     // for (var key of data.entries()) {
     //     console.log(key[0] + ', ' + key[1]);
     // }
-    axios.post("http://188.225.78.253:5000/upload", data, { 
+    axios.post("http://7top.org/upload", data, { 
       // receive two    parameter endpoint url ,form data
     })
     .then(res => { // then print response status
@@ -55,7 +59,7 @@ export class ImageUpload extends React.Component {
     if (imagePreviewUrl) {
       $imagePreview = (<img src={imagePreviewUrl} />);
     } else {
-      $imagePreview = (<img src={require(`../avatars/${userId}.jpg`)}/>)
+      $imagePreview = (<img src={require(`../../public/${this.user}.jpg`)}/>)
     }
 
     return (
@@ -79,7 +83,7 @@ export class ImageUpload extends React.Component {
 }
   
 
-                  //// <form action='http://localhost:3000/upload' >
+                  //// <form action='http://7top.org/upload' >
                   // <input
                   //     type="file"
                   //     name="avatar"
