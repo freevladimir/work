@@ -381,9 +381,8 @@ h2 {
 	}
 
 	.startpage .right> .p3 {
-	    width: 95%;
+		width: 390px;
 		font-size: 18px;
-	    margin: auto;
 	}
 
 	.startpage .section2 {
@@ -567,7 +566,7 @@ h2 {
 	}
 
 	.startpage .right> .p3 {
-		margin-top: 210px;
+		margin-top: 190px;
 	}
 
 	.startpage .div2 {
@@ -645,11 +644,6 @@ h2 {
 		height: 90%;
 	}
 
-/*	7top.org:639 .startpage .logo>img {
-		width: 90%;
-		height: 90%;
-	}*/
-
 	.startpage .entrance {
 		margin-right: 30px;
 	}
@@ -659,42 +653,8 @@ h2 {
 		height: 275px;
 	}
 
-	.startpage .work .left{
-		float: left !important;
-	    width: 95%;
-	}
-
-	.startpage .left> .p1{
-		text-align: center;
-	    width: 280px;
-	    padding: 25px 25px;
-	    float: left;
-	}
-
-	.startpage .left> .p2{
-		width: 280px;
-		float: left;
-	}
-
-	.startpage .left> .p3{
-		width: 280px;
-		float: left;	
-	}
-
-	.startpage .right{
-		margin-top: 50px;
-	    margin-left: -40%;
-	}
-
-	.startpage .right> .p1{
-	    width: 280px;
-	    margin-right: 0;
-	    float: left;
-	}
-
-	.startpage .right> .p2, .startpage .right> .p3{
-		width: 280px;
-		float: left;
+	.startpage .work {
+		display: none;
 	}
 
 	.startpage .work_ {
