@@ -566,7 +566,7 @@ h2 {
 	}
 
 	.startpage .right> .p3 {
-		margin-top: 190px;
+		margin-top: 210px;
 	}
 
 	.startpage .div2 {
@@ -658,8 +658,29 @@ h2 {
 		height: 275px;
 	}
 
-	.startpage .work {
-		display: none;
+	.startpage .work .left{
+		float: left !important;
+	    width: 95%;
+	}
+
+	.startpage .left> .p1{
+		text-align: center;
+	    width: 95%;
+	    padding: 25px 25px;
+	}
+
+	.startpage .left> .p2{
+		width: 95%;
+	}
+
+	.startpage .right{
+		margin-top: 50px;
+	    margin-left: -91%;
+	}
+
+	.startpage .right> .p1{
+	    width: 95%;
+	    margin-right: 0;
 	}
 
 	.startpage .work_ {
