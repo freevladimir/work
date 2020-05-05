@@ -381,8 +381,9 @@ h2 {
 	}
 
 	.startpage .right> .p3 {
-		width: 390px;
+	    width: 95%;
 		font-size: 18px;
+	    margin: auto;
 	}
 
 	.startpage .section2 {
@@ -665,22 +666,33 @@ h2 {
 
 	.startpage .left> .p1{
 		text-align: center;
-	    width: 95%;
+	    width: 280px;
 	    padding: 25px 25px;
+	    float: left;
 	}
 
 	.startpage .left> .p2{
-		width: 95%;
+		width: 280px;
+		float: left;
+	}
+
+	.startpage .left> .p3{
+		width: 280px;
+		float: left;	
 	}
 
 	.startpage .right{
 		margin-top: 50px;
-	    margin-left: -91%;
+	    margin-left: -95%;
 	}
 
 	.startpage .right> .p1{
-	    width: 95%;
+	    width: 280px;
 	    margin-right: 0;
+	}
+
+	.startpage .right> .p2, .startpage .right> .p3{
+		width: 280px
 	}
 
 	.startpage .work_ {
