@@ -644,6 +644,11 @@ h2 {
 		height: inherit;
 	}
 
+	7top.org:639 .startpage .logo>img {
+		width: 90%;
+		height: 90%;
+	}
+
 	.startpage .entrance {
 		margin-right: 30px;
 	}
