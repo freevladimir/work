@@ -385,7 +385,7 @@ router.post('/winners',
                 let user = await User.findOne({wallet: members[i][0]})
                 console.log(user)
                 if(!user){
-                    users.push({ name: members[i].substr(0, 6) + "..." + members[i].substr(38, 4), time: members[i][1], sum: members[i][2], id: 'undefined'})
+                    users.push({ name: members[i][0].substr(0, 6) + "..." + members[i][0].substr(38, 4), time: members[i][1], sum: members[i][2], id: 'undefined'})
                 } else{
                     users.push({name: user.name, time: members[i][1], sum: members[i][2], id: user._id})
                 }

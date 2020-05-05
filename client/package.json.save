@@ -22,7 +22,7 @@
     "web3": "^1.2.6"
   },
   "scripts": {
-    "start": "HOST=7top.org PORT=80 react-scripts start",
+    "start": "HOST= PORT=80 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
