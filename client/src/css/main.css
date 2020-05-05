@@ -689,10 +689,12 @@ h2 {
 	.startpage .right> .p1{
 	    width: 280px;
 	    margin-right: 0;
+	    float: left;
 	}
 
 	.startpage .right> .p2, .startpage .right> .p3{
-		width: 280px
+		width: 280px;
+		float: left;
 	}
 
 	.startpage .work_ {
