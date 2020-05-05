@@ -212,7 +212,7 @@ a {
 /* 576-768px */
 @media screen and (max-width: 768px){
     body {
-        padding: 45px 0 35px;
+/*        padding: 45px 0 35px;*/
     }
 
     .people .container {
