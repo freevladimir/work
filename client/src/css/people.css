@@ -23,6 +23,10 @@ body {
     }
 }
 
+.people {
+  padding: 45px 0 60px;
+}
+
 .people .container {
     width: 860px;
     margin: 0 auto;

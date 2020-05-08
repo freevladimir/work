@@ -309,7 +309,9 @@ body {
   }
 }
 
-
+.allgames{
+  padding: 45px 0 60px;
+}
 
 .allgames #videoBG {
     position: fixed;

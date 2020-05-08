@@ -14,7 +14,7 @@ body {
 .loginpage header {
 	width: 100%;
 	margin: 0 auto;
-	padding: 40px 0 0;
+	padding: 40px 0 70px;
 	height: 800px;
 }
 
@@ -68,6 +68,7 @@ body {
 
 .loginpage .logo-mob {
 	display: none;
+	width: 80%;
 }
 
 

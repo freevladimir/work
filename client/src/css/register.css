@@ -7,6 +7,8 @@ body {
 
 @import url('https://rsms.me/inter/inter.css');
 
+
+
 .register #videoBG {
     position: fixed;
     z-index: -1;
@@ -69,6 +71,7 @@ body {
 
 .register .logo-mob {
     display: none;
+    width: 80%;
 }
 
 .register .input-container {
