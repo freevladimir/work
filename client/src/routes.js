@@ -7,8 +7,6 @@ import load from "little-loader";
 import LimitGame from "./pages/LimitGame";
 import OneHour from "./pages/OneHour";
 import AllGamesPage from "./pages/AllGamesPage";
-import { UsersPage } from "./pages/UsersPage";
-import { CreatePage } from "./pages/CreatePage";
 import { FriendsPage } from "./pages/FriendsPage";
 import { PeoplePage } from "./pages/PeoplePage";
 import FiveMinutes from "./pages/5minutes";
@@ -54,9 +52,6 @@ export const useRoutes = (isAuthenticated) => {
         </Route>
         <Route path="/allgames" exact>
           <Redirect to="/" />
-        </Route>
-        <Route path="/detail/:id" exact>
-          <UsersPage />
         </Route>
         {/*<Redirect to="/allgames" />*/}
       </Switch>

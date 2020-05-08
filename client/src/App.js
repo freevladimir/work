@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { useRoutes } from "./routes";
 import { useAuth } from "./hooks/auth.hook";
 import { AuthContext } from "./context/AuthContext";
-import { Navbar } from "./components/Navbar";
 import "materialize-css";
 
 export const AppStoreContext = React.createContext();
