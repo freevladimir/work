@@ -15,9 +15,11 @@ import getAllValues, {
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
 import TimerGame from "../components/Timer";
+import CopyFrom from "../components/copyForm";
 import {NavLink, useHistory} from "react-router-dom";
 import Slider from "react-slick";
 import {ImageUpload} from "../components/Upload";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const OneHour = () => {
     const store = useContext(AppStoreContext)
@@ -55,7 +57,11 @@ const OneHour = () => {
     const [img, setImg] = useState([])
     const [countOfFriends, setFriends] = useState([]);
     const [countOfUsers, setUsers] = useState([]);
-
+    const [showResults, setShowResults] = useState(false)
+    const show = () => setShowResults(true)
+    const hide = () => setShowResults(false)
+    const [contractAddress, setContractAddress] = useState([]);
+    const [ticketPrice, setTicketPrice] = useState([]);
     if(userAddress){
         window.ethereum.on("accountsChanged", function (accounts) {
             changeUser(accounts[0])
@@ -109,7 +115,10 @@ const OneHour = () => {
                 }
             )
         } else {
-            alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}\n\Ticket price: ${Math.ceil((value)*10000)/10000} ETH`)
+            setTicketPrice(Math.ceil((value)*10000)/10000)
+            setContractAddress(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
+            show()
+            // alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}\n\Ticket price: ${Math.ceil((value)*10000)/10000} ETH`)
         }
     };
 
@@ -189,6 +198,29 @@ const OneHour = () => {
     }
     return (
         <div className="row game">
+        {
+            showResults?
+            <div id="dataForSend">
+                <p>Copy address of lottery:<i class="fa fa-times-circle copy-wallet" onClick={hide}></i></p>
+
+                <div class="copy">
+                    <input id="myWallet" type="text" value={contractAddress} readonly=""/>
+                <CopyToClipboard text={contractAddress}>
+                    <i class="fa fa-copy copy-wallet"></i>
+                </CopyToClipboard>
+                    
+                </div>
+                <div class="copy">
+                    <p>Ticket price:</p> 
+                    <input id="myWallet" type="text" value={ticketPrice} readonly=""/>
+                    <CopyToClipboard text={ticketPrice}>
+                        <i class="fa fa-copy copy-wallet"></i>
+                    </CopyToClipboard>
+                    
+                </div>
+
+            </div>:''
+        }
             <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
                 <source src={require("../img/background.mp4")} type="video/mp4" />
             </video>

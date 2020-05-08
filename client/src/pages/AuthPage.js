@@ -60,7 +60,7 @@ export const AuthPage = () =>{
             <header className="header" id="header">
                 <div className="container">
 
-                    <img className="logo-mob" src={require("../img/logo-mobile.png")} alt="logo-mobile"/>
+                    <img className="logo-mob" src={require("../img/img1.png")} alt="logo-mobile"/>
                         <div className="content">
                             <img className="logo2" src={require("../img/logo.png")} alt="logo"/>
                                 <form action="#">

@@ -41,12 +41,12 @@ export const LoginPage = () =>{
 
     return (
         <div className="loginpage">
-            <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
+            <video id="videoBG" autoPlay muted loop>
                 <source src={require("../img/background.mp4")} type="video/mp4"/>
             </video>
         <header className="header" id="header">
             <div className="container">
-                <img className="logo-mob" src={require("../img/logo-mobile.png")} alt="logo-mobile"/>
+                <img className="logo-mob" src={require("../img/img1.png")} alt="logo-mobile"/>
             <div className="content">
                 <img className="logo2" src={require("../img/logo.png")} alt="logo"/>
                 <form action="#">
