@@ -9,10 +9,13 @@
     "axios": "^0.19.2",
     "config": "^3.3.1",
     "history": "^4.10.1",
+    "i": "^0.3.6",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.9.6",
+    "npm": "^6.14.5",
     "react": "^16.13.1",
     "react-compound-timer": "^1.2.0",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
     "react-iframe": "^1.8.0",
     "react-router-dom": "^5.1.2",
@@ -22,7 +25,7 @@
     "web3": "^1.2.6"
   },
   "scripts": {
-    "start": "HOST=7top.org PORT=80 react-scripts start",
+    "start": "set PORT=80 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
