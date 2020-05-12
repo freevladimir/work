@@ -90,13 +90,13 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
-if(process.env.NODE_ENV === 'production'){
-    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+// if(process.env.NODE_ENV === 'production'){
+//     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
-    app.get('*', (req, res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
+//     app.get('*', (req, res)=>{
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//     })
+// }
 
 let storage = multer.diskStorage({
       destination: function (req, file, cb) {
