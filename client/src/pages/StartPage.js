@@ -7,9 +7,7 @@ import '../css/main.css'
 export const StartPage = ()=> {
     return (
         <div className="row startpage">
-                // <video id="videoBG" autoPlay muted loop>
-                //     <source src={require("../img/background.mp4")} type="video/mp4"/>
-                // </video>
+
             <header className="header" id="header">
                 <div className="container">
 

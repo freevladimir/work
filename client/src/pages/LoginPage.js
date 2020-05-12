@@ -41,9 +41,6 @@ export const LoginPage = () =>{
 
     return (
         <div className="loginpage">
-            <video id="videoBG" autoPlay muted loop>
-                <source src={require("../img/background.mp4")} type="video/mp4"/>
-            </video>
         <header className="header" id="header">
             <div className="container">
                 <img className="logo-mob" src={require("../img/img1.png")} alt="logo-mobile"/>

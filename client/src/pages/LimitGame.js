@@ -249,9 +249,6 @@ if(userAddress){
 
         </div>:''
       }
-      // <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
-      //   <source src={require("../img/background.mp4")} type="video/mp4" />
-      // </video>
       <section>
         <div className="container">
           <div className="account">

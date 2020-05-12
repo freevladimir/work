@@ -83,9 +83,6 @@ const AllGamesPage = () => {
   } else{
   return (
       <div className="allgames">
-        // <video id="videoBG" autoPlay muted loop>
-        //   <source src={require("../img/background.mp4")} type="video/mp4" />
-        // </video>
         <header className="header" id="header">
           <div className="container">
             <div className="account">
