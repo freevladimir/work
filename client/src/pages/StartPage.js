@@ -7,9 +7,9 @@ import '../css/main.css'
 export const StartPage = ()=> {
     return (
         <div className="row startpage">
-            <video id="videoBG" autoPlay muted loop>
-                <source src={require("../img/background.mp4")} type="video/mp4"/>
-            </video>
+                // <video id="videoBG" autoPlay muted loop>
+                //     <source src={require("../img/background.mp4")} type="video/mp4"/>
+                // </video>
             <header className="header" id="header">
                 <div className="container">
 
@@ -19,7 +19,7 @@ export const StartPage = ()=> {
 
                     <div className="buttons">
                     <a className="entrance" href="/register">
-                        Register
+                        Create new
                     </a>
                         <a className="login" href="/login">
                             Login
@@ -27,7 +27,7 @@ export const StartPage = ()=> {
                     </div>
                     <div className="video">
                         <iframe
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                            src="https://www.youtube.com/embed/PkkV1vLHUvQ">
                         </iframe>
                     </div>
                 </div>

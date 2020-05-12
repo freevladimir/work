@@ -4,6 +4,7 @@ const storageName = 'userData'
 export const useAuth =() => {
     const [token, setToken] = useState(null)
     const [userId, setUserId] = useState(null)
+    const [loadingBlockchain, setLoadingBlockchain] = useState(true)
 
     const login = useCallback((jwtToken, id)=>{
         setToken(jwtToken)
@@ -19,6 +20,14 @@ export const useAuth =() => {
         setUserId(null)
         localStorage.removeItem(storageName)
     }, [])
+
+    const loadTrue = useCallback(()=>{
+        setLoadingBlockchain(true)
+    })
+
+    const loadFalse = useCallback(()=>{
+        setLoadingBlockchain(false)
+    })
 
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem(storageName))

@@ -41,12 +41,18 @@ class AppStore {
   contractChange(newInd) {
     //Функция, которая вызывается пока что только из слайдера. При смене слайда, мы получаем его индекс и меняем соответствующее значение в store. Затем вызываекм апдейт данных блокчейна с новыми значениями
     this.contractIndex = newInd;
+    this.balanceOfContract = undefined
+    window.data.balanceOfContract = undefined
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("CONTRACT CHANGE")
   }
 
   changeGame(lotteryName) {
     this.currentLotteryName = lotteryName
+    if(window.data!==null){
+      this.balanceOfContract = undefined
+      window.data.balanceOfContract = undefined
+    }
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("GAME CHANGE")
   }
@@ -64,7 +70,7 @@ class AppStore {
         if(obj.hasOwnProperty('balanceOfContract')){
           this.balanceOfContract = window.data.balanceOfContract;
         } else{
-          this.balanceOfContract = 0
+          this.balanceOfContract = undefined 
         }
         if(obj.hasOwnProperty('myTickets')){
           this.myTickets = window.data.myTickets;

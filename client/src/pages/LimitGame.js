@@ -30,7 +30,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const LimitGame = () => {
   const store = useContext(AppStoreContext)
-
+  const { loadingBlockchain } = useContext(AuthContext);
   const auth = useContext(AuthContext)
   const history = useHistory()
   const arrayOfSlides = [
@@ -130,7 +130,7 @@ if(userAddress){
           }
       )
     } else {
-        setTicketPrice(Math.ceil((value)*10000)/10000)
+        setTicketPrice(String(Math.ceil((value)*10000)/10000).replace(".",","))
         setContractAddress(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
         show()
         // alert(`Copy address of lottery: ${config[store.currentLotteryName].addresses[store.contractIndex].addressValue}\n\Ticket price: ${Math.ceil((value)*10000)/10000} ETH`)
@@ -249,9 +249,9 @@ if(userAddress){
 
         </div>:''
       }
-      <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
-        <source src={require("../img/background.mp4")} type="video/mp4" />
-      </video>
+      // <video id="videoBG" poster={require("../img/bg.png")} autoPlay muted loop>
+      //   <source src={require("../img/background.mp4")} type="video/mp4" />
+      // </video>
       <section>
         <div className="container">
           <div className="account">
@@ -305,7 +305,7 @@ if(userAddress){
 
         </div>
       </section>
-      {loadingBlockchain?
+      {store.balanceOfContract===undefined?
         <div className="holder" style={{
             position: 'relative',
             top: 'initial',
@@ -345,7 +345,7 @@ if(userAddress){
             </div>
             <div className="tickets">
               <a onClick={buyTicket}>
-                <div className="btn">КУПИТЬ</div>
+                <div className="btn">BUY</div>
               </a>
               <div className="ticket-title">
                 <img src={require("../img/ticket.png")} alt="ticket" />

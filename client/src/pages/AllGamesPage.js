@@ -83,9 +83,9 @@ const AllGamesPage = () => {
   } else{
   return (
       <div className="allgames">
-        <video id="videoBG" autoPlay muted loop>
-          <source src={require("../img/background.mp4")} type="video/mp4" />
-        </video>
+        // <video id="videoBG" autoPlay muted loop>
+        //   <source src={require("../img/background.mp4")} type="video/mp4" />
+        // </video>
         <header className="header" id="header">
           <div className="container">
             <div className="account">
@@ -532,7 +532,7 @@ const AllGamesPage = () => {
           </div>
 
             <div className="video">
-              <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+              <iframe src="https://www.youtube.com/embed/PkkV1vLHUvQ"></iframe>
             </div>
           </div>
         </section>

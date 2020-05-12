@@ -53,9 +53,9 @@ export const AuthPage = () =>{
 
     return (
         <div className="row register">
-            <video id="videoBG" autoPlay muted loop>
-                <source src={require("../img/background.mp4")} type="video/mp4"/>
-            </video>
+            // <video id="videoBG" autoPlay muted loop>
+            //     <source src={require("../img/background.mp4")} type="video/mp4"/>
+            // </video>
 
             <header className="header" id="header">
                 <div className="container">

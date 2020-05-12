@@ -70,9 +70,9 @@ export const PeoplePage = ()=>{
 
     return (
         <div className="people">
-            <video id="videoBG" poster="../img/bg.png" autoPlay muted loop>
-                <source src={require("../img/background.mp4")} type="video/mp4"/>
-            </video>
+            // <video id="videoBG" poster="../img/bg.png" autoPlay muted loop>
+            //     <source src={require("../img/background.mp4")} type="video/mp4"/>
+            // </video>
             <header className="header" id="header">
                 <div className="container">
                     <div className="account">

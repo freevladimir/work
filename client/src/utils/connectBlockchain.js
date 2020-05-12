@@ -4,12 +4,13 @@ import countOfTickets from "./countOfTickets";
 import getBalanceOfContract from "./getBalanceOfContract";
 import getMyTickets from "./myTickets";
 import getMembers from "./members";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useState, useContext} from "react";
 import getWinners from "./getWinners";
 import getAllBankOfLimitGame from "./getAllBankForLimit";
 import getTimeEndGame from "./getTimeEndGame";
 import getAllCountOfTickets from "./getAllCountOfTickets";
 import getAllTimesEndGame from './getAllTimeEnds'
+import { AuthContext } from "../context/AuthContext";
 // import { useHttp } from "../hooks/http.hook";
 
 let TEST_RINKEBY =
@@ -18,7 +19,6 @@ let TEST_RINKEBY =
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
 const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
-
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
     addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
@@ -27,7 +27,7 @@ const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
     Lottery = new web3.eth.Contract(abi, addressLottery);
     SevenTOP = new web3.eth.Contract(config.SevenTOP.abi, config.SevenTOP.address)
     StorageLimitLottery = new web3.eth.Contract(config.StorageLimitLottery.abi, config.StorageLimitLottery.address)
-    loadingBlockchain = true
+    // auth.loadTrue()
     console.log('loadingBlockchain: ', loadingBlockchain)
     console.log("blockchain is connected");
     // const { loading, request } = useHttp();
@@ -42,15 +42,17 @@ const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
 
     const winners = await getWinners(Lottery)
 
-    const bankForLimit = await getAllBankOfLimitGame()
 
     const timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 1
-    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit, timeEndGame};
-    loadingBlockchain = false
+    console.log('show loto one')
+    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame};
+    await console.log('show lotto')
+    // auth.loadFalse()
     console.log('loadingBlockchain: ', loadingBlockchain)
+    const bankForLimit = await getAllBankOfLimitGame()
     const allTickets = await getAllCountOfTickets()
     const allTimesEnd = await getAllTimesEndGame()
-    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit, timeEndGame, allTickets, allTimesEnd};
+    window.data = await {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit, timeEndGame, allTickets, allTimesEnd};
     await web3.eth.subscribe('logs', {
       address: addressLottery,
       topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']
@@ -84,7 +86,6 @@ export const changeUser = (_address)=>{
   userAddress = _address
 }
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
-
   console.log("start metamask");
   let tickets;
   if (window.ethereum) {

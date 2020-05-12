@@ -7,7 +7,7 @@ export const useHttp = () => {
     const [error, setError] = useState(null)
     const auth = useContext(AuthContext)
     const history = useHistory()
-
+    const { token } = useContext(AuthContext);
     const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
         setLoading(true)
         try {
@@ -20,8 +20,12 @@ export const useHttp = () => {
             const data = await response.json()
 
             if (!response.ok) {
-                // throw new Error(data.message || 'Что-то пошло не так')
-                
+                if(token===null){
+                    throw new Error(data.message)
+                } else{
+                    auth.logout()
+                    history.push('/')
+                }
             }
 
             setLoading(false)
