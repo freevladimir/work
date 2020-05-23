@@ -72,16 +72,17 @@ router.post('/register',
         const errors = validationResult(req)
         let _friendId = ''
         if(!errors.isEmpty()){
+            console.log(errors.array())
             return res.status(400).json({
                 errors: errors.array(),
-                message: 'Incorrect data on registration'
+                message: errors.array()[0].msg
             })
         }
 
         const {name, email, password, wallet, friendId, macthPassword} = req.body
         let candidate = await User.findOne({name})
         if(candidate){
-            return res.status(400).json({message: 'This user is already exist'})
+            return res.status(400).json({message: 'This wallet is already exist'})
         }
         candidate = await User.findOne({email})
         if(candidate){
@@ -94,19 +95,23 @@ router.post('/register',
         if(!web3.utils.isAddress(wallet)) {
             return res.status(400).json({message: 'Address is not valid'})
         }
-
+        candidate = await User.findOne({wallet})
+        if(candidate){
+            return res.status(400).json({message: 'This user is already exist'})
+        }
         if(friendId!=''){
             let friend = await User.findOne({wallet: friendId})
             let friend2 = await User.findOne({name: friendId})
+            let friend3 = await User.findOne({_id: friendId})
             console.log('friend2', friend2)
-            if(!friend && !friend2){
+            if(!friend && !friend2 && !friend3){
                 return res.status(400).json({message: `This friend is not exist in system`})
             } else{
                 if(wallet===friendId || name===friendId) {
                     return res.status(400).json({message: `You can't put your data in Friend ID`})
                 }
             }
-            _friendId = friend?friend.wallet:friend2.wallet
+            _friendId = friend?friend.wallet:friend2?friend2.wallet:friend3.wallet
         }
         function generateHash(string) {
             var hash = 0;
@@ -345,7 +350,7 @@ router.post('/members',
 
     async (req, res)=>{
         try{
-            let members = req.body
+            let members = req.body[0]
             console.log('req.body: ', members)
 
             let users = []
@@ -385,7 +390,7 @@ router.post('/winners',
                 let user = await User.findOne({wallet: members[i][0]})
                 console.log(user)
                 if(!user){
-                    users.push({ name: members[i][0].substr(0, 6) + "..." + members[i][0].substr(38, 4), time: members[i][1], sum: members[i][2], id: 'undefined'})
+                    users.push({ name: members[i].substr(0, 6) + "..." + members[i].substr(38, 4), time: members[i][1], sum: members[i][2], id: 'undefined'})
                 } else{
                     users.push({name: user.name, time: members[i][1], sum: members[i][2], id: user._id})
                 }
