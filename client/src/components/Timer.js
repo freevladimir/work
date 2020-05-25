@@ -13,11 +13,12 @@ export const changeFlag = ()=>{
 const TimerGame = (time)=>{
 
     const store = useContext(AppStoreContext)
-    if(time>0){
+        // console.log("Timer time: ", time)
+    if(time>1){
         return(
         <div className="timer">
             <Timer
-            initialTime={time}
+            initialTime={store.timeEndGame}
             direction="backward"
             onReset={()=>{console.log("onReset hook")}}
             onStop={() => {console.log('onStop hook')}}
@@ -27,7 +28,7 @@ const TimerGame = (time)=>{
                 <React.Fragment>
                     {flag?setTime(store.timeEndGame):''}
                     {flag?changeFlag():''}
-
+                    {start()}
                     {(<Timer />)._owner.stateNode.state.d>0? <ul>
                         <li style={{ opacity: 0.2 }}>
                             {(<Timer />)._owner.stateNode.state.d - 2 >= 0
