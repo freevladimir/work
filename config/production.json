@@ -1,5 +1,5 @@
 {
-  "port": 443,
+  "port": 3005,
   "mongoUrl": "mongodb+srv://vladimir:LOJdWpvJwB33mQnu@cluster0-kjq7q.mongodb.net/app",
   "jwtSecret": "code is law",
   // "baseUrl": "http://188.225.78.253:5000",http://7top.org/
