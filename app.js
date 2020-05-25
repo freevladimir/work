@@ -194,6 +194,7 @@ const drawing = async (lotteryTime, lottery)=>{
     let priv = new Buffer(privateKey, 'hex')
     let Contract = new web3.eth.Contract(contracts.abi, lottery.address)
     web3.eth.getTransactionCount(address, 'pending', (err, res) => {
+        console.log('res nonce: ', res)
         let nonce,
             txData = Contract.methods.drawing().encodeABI()
         if(!err) {nonce = res}
