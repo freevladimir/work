@@ -10,7 +10,8 @@ import getAllValues, {
     SevenTOP,
     userAddress,
     changeUser,
-    loadingBlockchain
+    loadingBlockchain,
+    connectMetaMask
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
@@ -95,6 +96,7 @@ const OneYear = () => {
     }
 
     const buyTicket = async () => {
+        await connectMetaMask()
         console.log(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
         console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
         const ethPrice  = await getEtherPrice()
@@ -104,7 +106,7 @@ const OneYear = () => {
             metamask.eth.sendTransaction(
                 {
                     to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
-                    from: metamask.givenProvider.selectedAddress,
+                    from: userAddress,
                     value: web3.utils.toWei(String(value), "ether"),
                     data: referal?referal:''
                 },
@@ -145,6 +147,7 @@ const OneYear = () => {
             setName(fetched[0].name);
             setId(generateHash(fetched[0]._id));
             setReferal(fetched[0].friendId)
+            changeUser(fetched[0].wallet)
             let _img = require(`../avatars/${fetched[0]._id}.jpg`)
             setImg(_img)
             console.log("data on allgames: ", fetched);
@@ -246,7 +249,7 @@ const OneYear = () => {
                     <div className="info">
                         <NavLink to="/friends">{countOfFriends} My friends</NavLink>
                         <NavLink to="/people">{countOfUsers} All</NavLink>
-                        <a href="#">My ID: {id}</a>
+                        <a>My ID: {id}</a>
                     </div>
                     <p className="p2"></p>
 

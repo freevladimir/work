@@ -10,7 +10,8 @@ import getAllValues, {
     SevenTOP,
     userAddress,
     changeUser,
-    loadingBlockchain
+    loadingBlockchain,
+    connectMetaMask
 } from "../utils/connectBlockchain";
 import {AppStoreContext} from "../App";
 import {observer} from "mobx-react";
@@ -62,16 +63,16 @@ const OneHour = () => {
     const hide = () => setShowResults(false)
     const [contractAddress, setContractAddress] = useState([]);
     const [ticketPrice, setTicketPrice] = useState([]);
-    if(userAddress){
-        window.ethereum.on("accountsChanged", function (accounts) {
-            changeUser(accounts[0])
-            // Time to reload your interface with accounts[0]!
-            console.log("change account: ", userAddress);
-            getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
-                window.data = data;
-            });
-        });
-    }
+    // if(userAddress){
+    //     window.ethereum.on("accountsChanged", function (accounts) {
+    //         changeUser(accounts[0])
+    //         // Time to reload your interface with accounts[0]!
+    //         console.log("change account: ", userAddress);
+    //         getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
+    //             window.data = data;
+    //         });
+    //     });
+    // }
     const getLotteryName = useCallback(async ()=>{
         store.changeGame('hour')
     }, [store])
@@ -96,16 +97,18 @@ const OneHour = () => {
     }
 
     const buyTicket = async () => {
+        await connectMetaMask()
         console.log(config[store.currentLotteryName].addresses[store.contractIndex].addressValue)
         console.log(config[store.currentLotteryName].addresses[store.contractIndex].amount)
         const ethPrice  = await getEtherPrice()
         const value = config[store.currentLotteryName].addresses[store.contractIndex].amount/ethPrice
         if(metamask){
             // let referral = await request('/api/auth/ref', 'GET', {members})
+            console.log(userAddress)
             metamask.eth.sendTransaction(
                 {
                     to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
-                    from: metamask.givenProvider.selectedAddress,
+                    from: userAddress,
                     value: web3.utils.toWei(String(value), "ether"),
                     data: referal?referal:''
                 },
@@ -146,6 +149,7 @@ const OneHour = () => {
             setName(fetched[0].name);
             setId(generateHash(fetched[0]._id));
             setReferal(fetched[0].friendId)
+            changeUser(fetched[0].wallet)
             let _img = require(`../avatars/${fetched[0]._id}.jpg`)
             setImg(_img)
             console.log("data on allgames: ", fetched);
@@ -246,11 +250,11 @@ const OneHour = () => {
                     <div className="info">
                         <NavLink to="/friends">{countOfFriends} My friends</NavLink>
                         <NavLink to="/people">{countOfUsers} All</NavLink>
-                        <a href="#">My ID: {id}</a>
+                        <a>My ID: {id}</a>
                     </div>
                     <p className="p2"></p>
 
-                    {TimerGame(store.timeEndGame)}
+                    {store.timeEndGame>0?TimerGame(store.timeEndGame):''}
 
                     <div className="total">
                         <p className="p3">Sum total</p>
