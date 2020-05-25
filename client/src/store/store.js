@@ -43,6 +43,8 @@ class AppStore {
     this.contractIndex = newInd;
     this.balanceOfContract = undefined
     window.data.balanceOfContract = undefined
+    // this.timeEndGame = 1
+    // window.data.timeEndGame = 1
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("CONTRACT CHANGE")
   }
@@ -52,6 +54,8 @@ class AppStore {
     if(window.data!==null){
       this.balanceOfContract = undefined
       window.data.balanceOfContract = undefined
+      this.timeEndGame = 0
+      window.data.timeEndGame = 0
     }
     this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("GAME CHANGE")
@@ -101,8 +105,10 @@ class AppStore {
           this.bankForLimit = []
         }
         if(obj.hasOwnProperty('timeEndGame')){
-          if(this.timeEndGame!=window.data.timeEndGame) changeFlag()
-          this.timeEndGame = window.data.timeEndGame;
+          if(this.timeEndGame!=window.data.timeEndGame){
+            changeFlag()
+            this.timeEndGame = window.data.timeEndGame
+          }
         } else{
           this.timeEndGame = 0
         }
