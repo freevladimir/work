@@ -18,6 +18,7 @@ let TEST_RINKEBY =
   TEST_MAIN = 'wss://mainnet.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176';
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
+
 const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
   const currentAddress = config[lotteryKey].addresses[addressIndex]
   if(currentAddress && currentAddress.addressValue) {
@@ -43,16 +44,20 @@ const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
     const winners = await getWinners(Lottery)
 
 
-    const timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 1
+    let timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
+    // timeEndGame = timeEndGame?timeEndGame:0
     console.log('show loto one')
-    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame};
-    await console.log('show lotto')
+    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame}
+    console.log('show lotto')
     // auth.loadFalse()
     console.log('loadingBlockchain: ', loadingBlockchain)
     const bankForLimit = await getAllBankOfLimitGame()
+    // window.data['bankForLimit'] = bankForLimit
     const allTickets = await getAllCountOfTickets()
+    // window.data['allTickets'] = allTickets
     const allTimesEnd = await getAllTimesEndGame()
-    window.data = await {tickets, balanceOfContract, myTickets, addressName, members, winners, bankForLimit, timeEndGame, allTickets, allTimesEnd};
+    // window.data['allTimesEnd'] = allTimesEnd
+    window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
     await web3.eth.subscribe('logs', {
       address: addressLottery,
       topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']
@@ -88,6 +93,17 @@ export const changeUser = (_address)=>{
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
   console.log("start metamask");
   let tickets;
+  web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));
+  getAllValues(lotteryKey, addressIndex).then((data) => {
+    loadingBlockchain = false
+    // console.log('loadingBlockchain: ', loadingBlockchain)
+    // window.data = data;
+  });
+  await console.log("web3", web3);
+  await console.log("end metamask");
+}
+
+export const connectMetaMask = async ()=>{
   if (window.ethereum) {
     metamask = await new Web3(window.ethereum);
     console.log("connect MetaMask");
@@ -104,16 +120,6 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
           } else if (metamask.givenProvider.selectedAddress !== undefined) {
             userAddress = metamask.givenProvider.selectedAddress;
           }
-          web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));;
-          await console.log("web3", web3);
-          console.log("userAddress: ", userAddress);
-          getAllValues(lotteryKey, addressIndex).then((data) => {
-            loadingBlockchain = false
-            // console.log('loadingBlockchain: ', loadingBlockchain)
-            // window.data = data;
-          });
-
-
         }
       });
     } catch (e) {
@@ -134,12 +140,6 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
       } else if (metamask.givenProvider.selectedAddress !== undefined) {
         userAddress = metamask.givenProvider.selectedAddress;
       }
-      web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));;
-      await console.log("web3", web3);
-      getAllValues(lotteryKey, addressIndex).then((data) => {
-        loadingBlockchain = false
-        // window.data = data;
-      });
       console.log("userAddress: ", userAddress);
     }
     window.ethereum.on("accountsChanged", function (accounts) {
@@ -151,14 +151,6 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
   // Non-DApp Browsers
   else {
     console.log("You have to install MetaMask !");
-    web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));;
-    getAllValues(lotteryKey, addressIndex).then((data) => {
-      loadingBlockchain = false
-      // window.data = data;
-    });
-    await console.log("web3", web3);
+    web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));
   }
-  await console.log("web3", web3);
-  await console.log("end metamask");
-};
-
+}
