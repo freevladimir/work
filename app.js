@@ -327,6 +327,19 @@ async function start(){
         timerUpdate = setInterval(()=>{
             updateETH()
         }, 86400000)
+
+        connectionToWeb3 = setInterval(()=>{
+            web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/dd922baac3004e5eaa558e1a89f11942',
+                {
+                    // @ts-ignore
+                    clientConfig: {
+                        keepalive: true,
+                        keepaliveInterval: 60000    // milliseconds
+                    }
+                }))
+            setListeners()
+            console.log('reconnect web3')
+        }, 900000)
    } catch (e) {
        console.log('Server Error', e.message)
        process.exit(1)
