@@ -14,8 +14,8 @@ import { AuthContext } from "../context/AuthContext";
 // import { useHttp } from "../hooks/http.hook";
 
 let TEST_RINKEBY =
-        'wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176',
-  TEST_MAIN = 'wss://mainnet.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176';
+        'wss://rinkeby.infura.io/ws/v3/dd922baac3004e5eaa558e1a89f11942'
+  //TEST_MAIN = 'wss://mainnet.infura.io/ws/v3/6907393337314e268e6dffc4e4fc47b0';
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
 
@@ -93,7 +93,14 @@ export const changeUser = (_address)=>{
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
   console.log("start metamask");
   let tickets;
-  web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));
+  web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY,
+    {
+        // @ts-ignore
+        clientConfig: {
+            keepalive: true,
+            keepaliveInterval: 60000	// milliseconds
+        }
+    }));
   getAllValues(lotteryKey, addressIndex).then((data) => {
     loadingBlockchain = false
     // console.log('loadingBlockchain: ', loadingBlockchain)
@@ -151,6 +158,13 @@ export const connectMetaMask = async ()=>{
   // Non-DApp Browsers
   else {
     console.log("You have to install MetaMask !");
-    web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY));
+    web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY,
+    {
+        // @ts-ignore
+        clientConfig: {
+            keepalive: true,
+            keepaliveInterval: 60000	// milliseconds
+        }
+    }));
   }
 }

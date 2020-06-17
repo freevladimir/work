@@ -332,7 +332,7 @@ a {
 
     .people .btn {
         width: 120px;
-        font-size: 20px;
+        font-size: 15px;line-height: inherit;
     }
 
     .people .info {

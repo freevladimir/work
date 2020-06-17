@@ -14,16 +14,9 @@ const cors = require('cors');
 
 const Web3 = require('web3')
 const Tx = require('ethereumjs-tx');
-const RPC_URL = 'wss://rinkeby.infura.io/ws/v3/dd922baac3004e5eaa558e1a89f11942'
-//https://mainnet.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176 dd922baac3004e5eaa558e1a89f11942
-let web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/dd922baac3004e5eaa558e1a89f11942',
-    {
-        // @ts-ignore
-        clientConfig: {
-            keepalive: true,
-            keepaliveInterval: 60000	// milliseconds
-        }
-    }));
+const RPC_URL = 'https://rinkeby.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176'
+//https://mainnet.infura.io/v3/2eb6c29c7ab24b9482f7a5bce63b8176
+const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/2eb6c29c7ab24b9482f7a5bce63b8176'));
 let address = "0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5"
 let privateKey = "6FFD8A36CDC137AE3A0153201C33BC4CC334DF09F7C6ACA0C0B09308A3790F71"
 let timerId

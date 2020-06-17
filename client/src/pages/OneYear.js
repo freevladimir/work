@@ -62,16 +62,16 @@ const OneYear = () => {
     const [contractAddress, setContractAddress] = useState([]);
     const [ticketPrice, setTicketPrice] = useState([]);
 
-    if(userAddress){
-        window.ethereum.on("accountsChanged", function (accounts) {
-            changeUser(accounts[0])
-            // Time to reload your interface with accounts[0]!
-            console.log("change account: ", userAddress);
-            getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
-                window.data = data;
-            });
-        });
-    }
+//    if(userAddress){
+  //      window.ethereum.on("accountsChanged", function (accounts) {
+//            changeUser(accounts[0])
+//            // Time to reload your interface with accounts[0]!
+//            console.log("change account: ", userAddress);
+//            getAllValues(store.currentLotteryName, store.contractIndex).then((data) => {
+//                window.data = data;
+//            });
+//        });
+//    }
     const getLotteryName = useCallback(async ()=>{
         store.changeGame('year')
     }, [store])
