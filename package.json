@@ -11,7 +11,8 @@
     "client:build": "npm run build --prefix client",
     "dev": "cross-env NODE_ENV=develpoment concurrently \"npm run server\" \"npm run client\"",
     "test": "cross-env NODE_ENV=production concurrently \"npm run start\" \"npm run client\"",
-    "updateETH": "node updateETHPrice.js"
+    "updateETH": "node updateETHPrice.js",
+    "cron": "node restart.js"
   },
   "keywords": [
     "mern",
@@ -20,7 +21,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "config": "^3.3.0",
