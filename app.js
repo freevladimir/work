@@ -237,68 +237,6 @@ const drawing = async (lotteryTime, lottery)=>{
     })
 }
 
-const updateETH = async()=>{
-    let priv = new Buffer(privateKey, 'hex')
-    let Contract = new web3.eth.Contract(contractAdresses["SevenTOP"]["abi"], contractAdresses["SevenTOP"]["addressValue"])
-    let ethPrice
-    const requestOptions = {
-      method: 'GET',
-      uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=3&convert=USD',
-      qs: {
-        'start': '1',
-        'limit': '3',
-        'convert': 'USD'
-      },
-      headers: {
-        'X-CMC_PRO_API_KEY': '3946949b-d0a0-433c-86ca-4fa8c16feb0e'
-      },
-      json: true,
-      gzip: true
-    };
-
-    await rp(requestOptions).then(response => {
-      console.log('API call response:', parseInt(response.data[2].quote.USD.price*1000));
-      ethPrice = parseInt(response.data[2].quote.USD.price*1000)
-    }).catch((err) => {
-      console.log('API call error:', err.message);
-    })
-
-
-
-    web3.eth.getTransactionCount(address, 'pending', (err, res) => {
-        let nonce,
-            txData = Contract.methods.updateEtherPrice(ethPrice).encodeABI()
-        if(!err) {nonce = res}
-        console.log("nonce: ", nonce)
-        let rawTransaction = {
-            "from": address,
-            "nonce": web3.utils.toHex(nonce),
-            "gasPrice": web3.utils.toHex(2 * 1e9),
-            "gasLimit": web3.utils.toHex(3000000),
-            "to": contractAdresses["SevenTOP"]["address"],
-            "data": txData
-        }
-
-        const tx = new Tx(rawTransaction)
-        console.log("tx: ", tx)
-        tx.sign(priv)
-
-        let serializedTx = tx.serialize()
-        console.log('serializedTx : ', serializedTx)
-
-        web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function(err, hash) {
-            if (!err)
-            {
-                console.log('Txn Sent and hash is '+hash)
-            }
-            else
-            {
-                console.error(err)
-            }
-        })
-    })
-}
-
 async function start(){
     try{
         await mongoose.connect(config.get('mongoUrl'), {
@@ -323,23 +261,7 @@ async function start(){
                 }
             }
         }, 1000)
-        
-        timerUpdate = setInterval(()=>{
-            updateETH()
-        }, 86400000)
 
-        connectionToWeb3 = setInterval(()=>{
-            web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/dd922baac3004e5eaa558e1a89f11942',
-                {
-                    // @ts-ignore
-                    clientConfig: {
-                        keepalive: true,
-                        keepaliveInterval: 60000    // milliseconds
-                    }
-                }))
-            setListeners()
-            console.log('reconnect web3')
-        }, 900000)
    } catch (e) {
        console.log('Server Error', e.message)
        process.exit(1)

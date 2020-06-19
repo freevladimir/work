@@ -10,15 +10,17 @@
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
     "dev": "cross-env NODE_ENV=develpoment concurrently \"npm run server\" \"npm run client\"",
-    "test": "cross-env NODE_ENV=production concurrently \"npm run start\" \"npm run client\""
+    "test": "cross-env NODE_ENV=production concurrently \"npm run start\" \"npm run client\"",
+    "updateETH": "node updateETHPrice.js"
   },
   "keywords": [
     "mern",
     "react"
   ],
-  "author": "Smogorzhevskiy Vladimir <smagazhevskijj@gmail.com>",
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "config": "^3.3.0",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
+    "cron": "^1.8.2",
     "cross-env": "^7.0.2",
     "nodemon": "^2.0.2"
   }
