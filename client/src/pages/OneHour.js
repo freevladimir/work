@@ -109,7 +109,7 @@ const OneHour = () => {
                 {
                     to: config[store.currentLotteryName].addresses[store.contractIndex].addressValue,
                     from: userAddress,
-                    value: web3.utils.toWei(String(value), "ether"),
+                    value: web3.utils.toWei(String(Math.ceil((value)*10000)/10000), "ether"),
                     data: referal?referal:''
                 },
                 function (error, res) {
