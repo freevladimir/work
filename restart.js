@@ -25,7 +25,7 @@ function listApps() {
   });
 }
 
-new CronJob('*/15 * * * * *', function() {
+new CronJob('0 */15 * * * *', function() {
   console.log('restart App every 15 minutes');
   restartApp();
 }, null, true, 'America/Los_Angeles');

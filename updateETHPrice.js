@@ -36,8 +36,8 @@ const updateETH = async()=>{
     };
 
     await rp(requestOptions).then(response => {
-      console.log('API call response:', parseInt(response.data[2].quote.USD.price*1000));
-      ethPrice = parseInt(response.data[2].quote.USD.price*1000)
+      console.log('API call response:', parseInt(response.data[1].quote.USD.price));
+      ethPrice = parseInt(response.data[1].quote.USD.price)
     }).catch((err) => {
       console.log('API call error:', err.message);
     })
