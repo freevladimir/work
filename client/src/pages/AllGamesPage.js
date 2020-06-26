@@ -44,7 +44,7 @@ const AllGamesPage = () => {
       console.log("start3");
       userId = fetched[0]._id
       setName(fetched[0].name);
-      setId(generateHash(fetched[0]._id));
+      setId(fetched[0].wallet.substr(0, 6) + "..." + fetched[0].wallet.substr(38, 4));
       let _img = require(`../avatars/${fetched[0]._id}.jpg`)
       setImg(_img)
     } catch (e) {}

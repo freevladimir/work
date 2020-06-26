@@ -43,7 +43,8 @@ const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
 
     const winners = await getWinners(Lottery)
 
-
+    console.log('lotteryKey', lotteryKey)
+    console.log('Lottery', Lottery)
     let timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
     // timeEndGame = timeEndGame?timeEndGame:0
     console.log('show loto one')
@@ -58,6 +59,7 @@ const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
     const allTimesEnd = await getAllTimesEndGame()
     // window.data['allTimesEnd'] = allTimesEnd
     window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
+    
     await web3.eth.subscribe('logs', {
       address: addressLottery,
       topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']

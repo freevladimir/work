@@ -87,7 +87,7 @@ if(userAddress){
         Authorization: `Bearer ${token}`,
       });
       setName(fetched[0].name);
-      setId(fetched[0]._id);
+      setId(fetched[0].wallet.substr(0, 6) + "..." + fetched[0].wallet.substr(38, 4));
       console.log("data on allgames: ", fetched);
     } catch (e) {}
   }, [token, request]);
