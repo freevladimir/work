@@ -133,7 +133,7 @@ if(userAddress){
           <div className="info">
             <a href="#">100 My friends</a>
             <a href="#">1000 All</a>
-            <a>My ID: {id}</a>
+            <a>My wallet: {id}</a>
           </div>
           <p className="p2"></p>
           {/*<div className="timer">*/}

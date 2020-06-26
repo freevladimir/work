@@ -276,7 +276,7 @@ const LimitGame = () => {
           <div className="info">
             <NavLink to="/friends">{countOfFriends} My friends</NavLink>
             <NavLink to="/people">{countOfUsers} All</NavLink>
-            <a>My ID: {id}</a>
+            <a>My wallet: {id}</a>
           </div>
           <p className="p2"></p>
           <div className="total">
