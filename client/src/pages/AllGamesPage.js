@@ -272,7 +272,7 @@ const AllGamesPage = () => {
                           </li>
                           <hr />
                           <li>
-                            <Timer.Hours /> day
+                            <Timer.Hours /> hour
                           </li>
                           <hr />
                           <li style={{ color: "#979797" }}>
