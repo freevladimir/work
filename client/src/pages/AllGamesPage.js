@@ -99,7 +99,7 @@ const AllGamesPage = () => {
             <div className="info">
               <NavLink to="/friends">{countOfFriends} My friends</NavLink>
               <NavLink to="/people">{countOfUsers} All</NavLink>
-              <a href="">My wallet: {id}</a>
+              <a>My wallet: {id}</a>
             </div>
           </div>
         </header>
