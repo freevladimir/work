@@ -112,7 +112,11 @@ router.post('/register',
             let friend3
             console.log('friend2', friend2)
             if(!friend && !friend2){
-                friend3 = await User.findOne({_id: friendId})
+                if(mongoose.Types.ObjectId.isValid(friendId)){
+                    friend3 = await User.findOne({_id: friendId})
+                } else {
+                    return res.status(400).json({message: `This friend is not exist in system`})
+                }
                 if(!friend3){
                     return res.status(400).json({message: `This friend is not exist in system`})
                 }
