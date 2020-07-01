@@ -109,10 +109,13 @@ router.post('/register',
         if(friendId!=''){
             let friend = await User.findOne({wallet: friendId})
             let friend2 = await User.findOne({name: friendId})
-            let friend3 = await User.findOne({_id: friendId})
+            let friend3
             console.log('friend2', friend2)
-            if(!friend && !friend2 && !friend3){
-                return res.status(400).json({message: `This friend is not exist in system`})
+            if(!friend && !friend2){
+                friend3 = await User.findOne({_id: friendId})
+                if(!friend3){
+                    return res.status(400).json({message: `This friend is not exist in system`})
+                }
             } else{
                 if(wallet===friendId || name===friendId) {
                     return res.status(400).json({message: `You can't put your data in Friend ID`})
