@@ -809,7 +809,8 @@ body {
     }
 
     .allgames .info {
-        margin: 15px 12px;
+        margin: 15px auto;
+        text-align: center;
     }
 
 

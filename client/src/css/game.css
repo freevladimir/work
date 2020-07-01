@@ -1098,6 +1098,7 @@ body {
         margin: 0 auto;
         width: 216px;
         line-height: 2em;
+        text-align: center;
     }
 
     .game .info>a {
