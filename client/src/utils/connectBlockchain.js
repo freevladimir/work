@@ -20,71 +20,75 @@ export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, 
 
 
 const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
-  const currentAddress = config[lotteryKey].addresses[addressIndex]
-  if(currentAddress && currentAddress.addressValue) {
-    addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
-    abi = config[lotteryKey].abi;
+  try{
+    const currentAddress = config[lotteryKey].addresses[addressIndex]
+    if(currentAddress && currentAddress.addressValue) {
+      addressLottery = config[lotteryKey].addresses[addressIndex].addressValue;
+      abi = config[lotteryKey].abi;
 
-    Lottery = new web3.eth.Contract(abi, addressLottery);
-    SevenTOP = new web3.eth.Contract(config.SevenTOP.abi, config.SevenTOP.address)
-    StorageLimitLottery = new web3.eth.Contract(config.StorageLimitLottery.abi, config.StorageLimitLottery.address)
-    // auth.loadTrue()
-    console.log('loadingBlockchain: ', loadingBlockchain)
-    console.log("blockchain is connected");
-    // const { loading, request } = useHttp();
+      Lottery = new web3.eth.Contract(abi, addressLottery);
+      SevenTOP = new web3.eth.Contract(config.SevenTOP.abi, config.SevenTOP.address)
+      StorageLimitLottery = new web3.eth.Contract(config.StorageLimitLottery.abi, config.StorageLimitLottery.address)
+      // auth.loadTrue()
+      console.log('loadingBlockchain: ', loadingBlockchain)
+      console.log("blockchain is connected");
+      // const { loading, request } = useHttp();
 
 
-    const tickets = await countOfTickets(Lottery);
-    const balanceOfContract = await getBalanceOfContract(Lottery);
-    const myTickets = await getMyTickets(Lottery)
-    const addressName = currentAddress.addressName
+      const tickets = await countOfTickets(Lottery);
+      const balanceOfContract = await getBalanceOfContract(Lottery);
+      const myTickets = await getMyTickets(Lottery)
+      const addressName = currentAddress.addressName
 
-    const members = await getMembers(Lottery)
+      const members = await getMembers(Lottery)
 
-    const winners = await getWinners(Lottery)
+      const winners = await getWinners(Lottery)
 
-    console.log('lotteryKey', lotteryKey)
-    console.log('Lottery', Lottery)
-    let timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
-    // timeEndGame = timeEndGame?timeEndGame:0
-    console.log('show loto one')
-    window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame}
-    console.log('show lotto')
-    // auth.loadFalse()
-    console.log('loadingBlockchain: ', loadingBlockchain)
-    const bankForLimit = await getAllBankOfLimitGame()
-    // window.data['bankForLimit'] = bankForLimit
-    const allTickets = await getAllCountOfTickets()
-    // window.data['allTickets'] = allTickets
-    const allTimesEnd = await getAllTimesEndGame()
-    // window.data['allTimesEnd'] = allTimesEnd
-    window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
-    
-    await web3.eth.subscribe('logs', {
-      address: addressLottery,
-      topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']
-    }, (error, result) => {
-      if (!error) {
-        connectBlockChain(lotteryKey, addressIndex)
-        // drawing(lottery)
-      } else {
-        console.log(error)
-      }
-    })
+      console.log('lotteryKey', lotteryKey)
+      console.log('Lottery', Lottery)
+      let timeEndGame = lotteryKey!=='limitLottery' ? await getTimeEndGame(Lottery): 0
+      // timeEndGame = timeEndGame?timeEndGame:0
+      console.log('show loto one')
+      window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame}
+      console.log('show lotto')
+      // auth.loadFalse()
+      console.log('loadingBlockchain: ', loadingBlockchain)
+      const bankForLimit = await getAllBankOfLimitGame()
+      // window.data['bankForLimit'] = bankForLimit
+      const allTickets = await getAllCountOfTickets()
+      // window.data['allTickets'] = allTickets
+      const allTimesEnd = await getAllTimesEndGame()
+      // window.data['allTimesEnd'] = allTimesEnd
+      window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
+      
+      await web3.eth.subscribe('logs', {
+        address: addressLottery,
+        topics: ['0x6b8fe0f067804a78a12efa88b8428446c8d8a703d5604dffc63ac27fcbdcfd0d']
+      }, (error, result) => {
+        if (!error) {
+          connectBlockChain(lotteryKey, addressIndex)
+          // drawing(lottery)
+        } else {
+          console.log(error)
+        }
+      })
 
-    
-    // return {
-    //   tickets,
-    //   balanceOfContract,
-    //   myTickets,
-    //   addressName,
-    //   members,
-    //   winners,
-    //   bankForLimit,
-    //   timeEndGame,
-    //   allTickets,
-    //   allTimesEnd
-    // };
+      
+      // return {
+      //   tickets,
+      //   balanceOfContract,
+      //   myTickets,
+      //   addressName,
+      //   members,
+      //   winners,
+      //   bankForLimit,
+      //   timeEndGame,
+      //   allTickets,
+      //   allTimesEnd
+      // };
+    }
+  } catch(e){
+    console.log('getAllValues Error', e.message)
   }
 };
 
