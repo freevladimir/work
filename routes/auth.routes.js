@@ -80,25 +80,32 @@ router.post('/register',
         }
 
         const {name, email, password, wallet, friendId, macthPassword} = req.body
+        console.log('start new creating user')
         let candidate = await User.findOne({name})
         if(candidate){
-            return res.status(400).json({message: 'This wallet is already exist'})
+            return res.status(400).json({message: 'This user is already exist'})
         }
+        console.log('name is ok')
         candidate = await User.findOne({email})
         if(candidate){
             return res.status(400).json({message: 'This email is already exist'})
         }
+        console.log('email is ok')
         if(macthPassword!==password){
             return res.status(400).json({message: 'Passwords do not match'})
         }
+        console.log('password is ok')
 
         if(!web3.utils.isAddress(wallet)) {
             return res.status(400).json({message: 'Address is not valid'})
         }
+        console.log('address is valid')
         candidate = await User.findOne({wallet})
         if(candidate){
-            return res.status(400).json({message: 'This user is already exist'})
+            return res.status(400).json({message: 'This wallet is already exist'})
         }
+
+        console.log('address is ok')
         if(friendId!=''){
             let friend = await User.findOne({wallet: friendId})
             let friend2 = await User.findOne({name: friendId})
@@ -113,6 +120,7 @@ router.post('/register',
             }
             _friendId = friend?friend.wallet:friend2?friend2.wallet:friend3.wallet
         }
+        console.log('friend is ok')
         function generateHash(string) {
             var hash = 0;
             if (string.length == 0)
@@ -125,8 +133,8 @@ router.post('/register',
             return hash;
         }
         const hashedPassword = await bcrypt.hash(password, 12)
+        console.log('user creating')
         const user = new User({name, email, password: hashedPassword, wallet, friendId: _friendId})
-
         await user.save()
         console.log('user: ', user)
         imgGen.generateImage(800, 800, 80, function(err, image) {
