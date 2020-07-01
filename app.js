@@ -49,11 +49,11 @@ let contracts = {
     day: {
         loterry5$: {
             timeStamp: 0,
-            address: contractAdresses["hour"].addresses[0]["addressValue"]
+            address: contractAdresses["day"].addresses[0]["addressValue"]
         },
         loterry50$: {
             timeStamp: 0,
-            address: contractAdresses["hour"].addresses[1]["addressValue"]
+            address: contractAdresses["day"].addresses[1]["addressValue"]
         }
     },
     week: {
