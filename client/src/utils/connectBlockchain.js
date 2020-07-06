@@ -19,7 +19,7 @@ let TEST_RINKEBY =
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
 
-const getAllValues = async (lotteryKey = '5minutes', addressIndex = 1) => {
+const getAllValues = async (lotteryKey = 'week', addressIndex = 1) => {
   try{
     const currentAddress = config[lotteryKey].addresses[addressIndex]
     if(currentAddress && currentAddress.addressValue) {
