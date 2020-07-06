@@ -128,75 +128,10 @@ const AllGamesPage = () => {
               </div>
 
             </div>
+
             <div className="comp2">
               <div className="timer">
-                <Timer initialTime={store.allTimesEnd[2]} direction="backward">
-                  {() => (
-                      <React.Fragment>
-                        <ul>
-                          <li style={{ color: "#979797" }}>
-                            {(<Timer />)._owner.stateNode.state.h - 1 >= 0
-                                ? (<Timer />)._owner.stateNode.state.h - 1
-                                : 24 + (<Timer />)._owner.stateNode.state.h - 1}
-                          </li>
-                          <hr />
-                          <li>
-                            <Timer.Hours /> hour
-                          </li>
-                          <hr />
-                          <li style={{ color: "#979797" }}>
-                            {(<Timer />)._owner.stateNode.state.h + 1 <= 23
-                                ? (<Timer />)._owner.stateNode.state.h + 1
-                                : Math.abs(
-                                    24 - (<Timer />)._owner.stateNode.state.h - 1
-                                )}
-                          </li>
-                        </ul>
-                        <ul>
-                          <li style={{ color: "#979797" }}>
-                            {(<Timer />)._owner.stateNode.state.m - 1 >= 0
-                                ? (<Timer />)._owner.stateNode.state.m - 1
-                                : 60 + (<Timer />)._owner.stateNode.state.m - 1}
-                          </li>
-                          <hr />
-                          <li>
-                            <Timer.Minutes /> min
-                          </li>
-                          <hr />
-                          <li style={{ color: "#979797" }}>
-                            {(<Timer />)._owner.stateNode.state.m + 1 <= 59
-                                ? (<Timer />)._owner.stateNode.state.m + 1
-                                : Math.abs(
-                                    60 - (<Timer />)._owner.stateNode.state.m - 1
-                                )}
-                          </li>
-                        </ul>
-                      </React.Fragment>
-                  )}
-                </Timer>
-              </div>
-              <div className="blok2">
-                <div className="title3">
-                  <img src={require("../img/calendar.png")} alt="minute" />
-                  <p className="p6">Every day</p>
-                </div>
-                <NavLink to="/oneDay">
-                  <div className="btn">
-                    <p className="p3">PLAY {store.bankForLimit[3]?(store.bankForLimit[3]/1e18).toFixed(0):0 }$</p>
-                  </div>
-                </NavLink>
-              </div>
-              <div className="title2">
-                <div className="top">
-                  <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets?store.allTickets[3]:0}</p>
-                </div>
-                <p className="p5">Human</p>
-              </div>
-            </div>
-            <div className="comp2">
-              <div className="timer">
-                <Timer initialTime={store.allTimesEnd[3]} direction="backward">
+                <Timer initialTime={store.allTimesEnd[0]} direction="backward">
                   {() => (
                       <React.Fragment>
                         <ul>
@@ -244,14 +179,14 @@ const AllGamesPage = () => {
                 </div>
                 <NavLink to="/oneWeek">
                   <div className="btn">
-                    <p className="p3">PLAY {store.bankForLimit[4]?(store.bankForLimit[4]/1e18).toFixed(0):0 }$</p>
+                    <p className="p3">PLAY {store.bankForLimit[1]?(store.bankForLimit[1]/1e18).toFixed(0):0 }$</p>
                   </div>
                 </NavLink>
               </div>
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets?store.allTickets[4]:0}</p>
+                  <p className="p4">{store.allTickets?store.allTickets[1]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -259,7 +194,7 @@ const AllGamesPage = () => {
 
             <div className="comp2">
               <div className="timer">
-                <Timer initialTime={store.allTimesEnd[4]} direction="backward">
+                <Timer initialTime={store.allTimesEnd[1]} direction="backward">
                   {() => (
                       <React.Fragment>
                         <ul>
@@ -307,14 +242,14 @@ const AllGamesPage = () => {
                 </div>
                 <NavLink to="/oneMonth">
                   <div className="btn">
-                    <p className="p3">PLAY {store.bankForLimit[5]?(store.bankForLimit[5]/1e18).toFixed(0):0 }$</p>
+                    <p className="p3">PLAY {store.bankForLimit[2]?(store.bankForLimit[2]/1e18).toFixed(0):0 }$</p>
                   </div>
                 </NavLink>
               </div>
               <div className="title2">
                 <div className="top">
                   <img src={require("../img/men2.png")} alt="men" />
-                  <p className="p4">{store.allTickets?store.allTickets[5]:0}</p>
+                  <p className="p4">{store.allTickets?store.allTickets[2]:0}</p>
                 </div>
                 <p className="p5">Human</p>
               </div>
@@ -331,7 +266,7 @@ const AllGamesPage = () => {
               </p>
             </div>
             <div className="timer">
-              <Timer initialTime={store.allTimesEnd[5]} direction="backward">
+              <Timer initialTime={store.allTimesEnd[2]} direction="backward">
                 {() => (
                     <React.Fragment>
                       <ul>
@@ -384,13 +319,13 @@ const AllGamesPage = () => {
               </p>
               <div className="top">
                 <img className="men_" src={require("../img/men2.png")} alt="men"/>
-                <p className="p4">{store.allTickets?store.allTickets[6]:0}</p>
+                <p className="p4">{store.allTickets?store.allTickets[3]:0}</p>
               </div>
             </div>
             <NavLink to="/oneYear">
               <div className="btn btn-2">
                 <p className="p3">
-                  PLAY {store.bankForLimit[6]?(store.bankForLimit[6]/1e18).toFixed(0):0 }$
+                  PLAY {store.bankForLimit[3]?(store.bankForLimit[3]/1e18).toFixed(0):0 }$
                 </p>
               </div>
             </NavLink>
