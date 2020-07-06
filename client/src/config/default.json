@@ -2,11 +2,6 @@
   "limitLottery": {
     "addresses": [
       {
-        "addressName": "address2$",
-        "addressValue": "0xe18bA834D502Cbe46e137A8F778Bf99E8beA2B1A",
-        "amount": 2
-      },
-      {
         "addressName": "address5$",
         "addressValue": "0xf69FFA6Ec14447Ef31b65D2f6770A2fb291Ab0C8",
         "amount": 5
