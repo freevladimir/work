@@ -11,7 +11,7 @@ const getAllTimesEndGame = async (lottery) => {
         const addressMonth = config['month'].addresses[0].addressValue
         const addressYear = config['year'].addresses[0].addressValue
 
-        const abi = config['5Minutes'].abi;
+        const abi = config['week'].abi;
         // const FiveMinutes = new web3.eth.Contract(abi, address5Minutes);
         // await FiveMinutes.methods.getTimeEnd().call({}, (err, res) => {
         //     if (res) {
