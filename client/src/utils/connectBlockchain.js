@@ -88,6 +88,8 @@ const getAllValues = async (lotteryKey = 'week', addressIndex = 1) => {
       // };
     }
   } catch(e){
+    console.log('lotteryKey: ', lotteryKey)
+    console.log('addressIndex: ', addressIndex)
     console.log('getAllValues Error', e.message)
   }
 };
