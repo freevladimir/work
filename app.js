@@ -22,40 +22,40 @@ let privateKey = "6FFD8A36CDC137AE3A0153201C33BC4CC334DF09F7C6ACA0C0B09308A3790F
 let timerId
 
 let contracts = {
-    fiveMinutes: {
-        loterry5$: {
-            timeStamp: 0,
-            address: contractAdresses["5Minutes"].addresses[0]["addressValue"]
-        },
-        loterry15$: {
-            timeStamp: 0,
-            address: contractAdresses["5Minutes"].addresses[1]["addressValue"]
-        },
-        loterry50$: {
-            timeStamp: 0,
-            address: contractAdresses["5Minutes"].addresses[2]["addressValue"]
-        }
-    },
-    oneHour: {
-        loterry5$: {
-            timeStamp: 0,
-            address: contractAdresses["hour"].addresses[0]["addressValue"]
-        },
-        loterry50$: {
-            timeStamp: 0,
-            address: contractAdresses["hour"].addresses[1]["addressValue"]
-        }
-    },
-    day: {
-        loterry5$: {
-            timeStamp: 0,
-            address: contractAdresses["day"].addresses[0]["addressValue"]
-        },
-        loterry50$: {
-            timeStamp: 0,
-            address: contractAdresses["day"].addresses[1]["addressValue"]
-        }
-    },
+    // fiveMinutes: {
+    //     loterry5$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["5Minutes"].addresses[0]["addressValue"]
+    //     },
+    //     loterry15$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["5Minutes"].addresses[1]["addressValue"]
+    //     },
+    //     loterry50$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["5Minutes"].addresses[2]["addressValue"]
+    //     }
+    // },
+    // oneHour: {
+    //     loterry5$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["hour"].addresses[0]["addressValue"]
+    //     },
+    //     loterry50$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["hour"].addresses[1]["addressValue"]
+    //     }
+    // },
+    // day: {
+    //     loterry5$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["day"].addresses[0]["addressValue"]
+    //     },
+    //     loterry50$: {
+    //         timeStamp: 0,
+    //         address: contractAdresses["day"].addresses[1]["addressValue"]
+    //     }
+    // },
     week: {
         loterry5$: {
             timeStamp: 0,
