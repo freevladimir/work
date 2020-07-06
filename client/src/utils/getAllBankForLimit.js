@@ -65,10 +65,10 @@ const getAllBankOfLimitGame = async () => {
             const Lottery = new web3.eth.Contract(contractAdresses["week"].abi, contractAdresses["week"].addresses[i]["addressValue"]);
             await Lottery.methods.getSumOnContract().call({}, (err, res) => {
                 if (res) {
-                    if(result[4]){
-                        result[4] += parseInt(res);
+                    if(result[1]){
+                        result[1] += parseInt(res);
                     } else {
-                        result[4] = parseInt(res);
+                        result[1] = parseInt(res);
                     }
                 } else if (err) {
                     console.log("This is error: ", err);
@@ -79,10 +79,10 @@ const getAllBankOfLimitGame = async () => {
             const Lottery = new web3.eth.Contract(contractAdresses["month"].abi, contractAdresses["month"].addresses[i]["addressValue"]);
             await Lottery.methods.getSumOnContract().call({}, (err, res) => {
                 if (res) {
-                    if(result[5]){
-                        result[5] += parseInt(res);
+                    if(result[2]){
+                        result[2] += parseInt(res);
                     } else {
-                        result[5] = parseInt(res);
+                        result[2] = parseInt(res);
                     }
                 } else if (err) {
                     console.log("This is error: ", err);
@@ -93,10 +93,10 @@ const getAllBankOfLimitGame = async () => {
             const Lottery = new web3.eth.Contract(contractAdresses["year"].abi, contractAdresses["year"].addresses[i]["addressValue"]);
             await Lottery.methods.getSumOnContract().call({}, (err, res) => {
                 if (res) {
-                    if(result[6]){
-                        result[6] += parseInt(res);
+                    if(result[3]){
+                        result[3] += parseInt(res);
                     } else {
-                        result[6] = parseInt(res);
+                        result[3] = parseInt(res);
                     }
                 } else if (err) {
                     console.log("This is error: ", err);

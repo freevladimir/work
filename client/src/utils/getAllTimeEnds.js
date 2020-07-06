@@ -52,7 +52,7 @@ const getAllTimesEndGame = async (lottery) => {
         await Week.methods.getTimeEnd().call({}, (err, res) => {
             if (res) {
                 result.push(parseInt(res - Date.now()/1000)*1000)
-                if (result[3]<=0) result[3] = 0
+                if (result[0]<=0) result[0] = 0
                 console.log('TimeEnd: ', result)
             } else if (err) {
                 console.log("This is error: ", err);
@@ -64,7 +64,7 @@ const getAllTimesEndGame = async (lottery) => {
         await Month.methods.getTimeEnd().call({}, (err, res) => {
             if (res) {
                 result.push(parseInt(res - Date.now()/1000)*1000)
-                if (result[4]<=0) result[4] = 0
+                if (result[1]<=0) result[1] = 0
                 console.log('TimeEnd: ', result)
             } else if (err) {
                 console.log("This is error: ", err);
@@ -76,7 +76,7 @@ const getAllTimesEndGame = async (lottery) => {
         await Years.methods.getTimeEnd().call({}, (err, res) => {
             if (res) {
                 result.push(parseInt(res - Date.now()/1000)*1000)
-                if (result[5]<=0) result[5] = 0
+                if (result[2]<=0) result[2] = 0
                 console.log('TimeEnd: ', result)
             } else if (err) {
                 console.log("This is error: ", err);
