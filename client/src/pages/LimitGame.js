@@ -34,7 +34,6 @@ const LimitGame = () => {
   const auth = useContext(AuthContext)
   const history = useHistory()
   const arrayOfSlides = [
-    { value: "2 $" },
     { value: "5 $" },
     { value: "15 $" },
     { value: "50 $" }
