@@ -254,7 +254,7 @@ const LimitGame = () => {
       <section>
         <div className="container">
           <div className="account">
-            <NavLink to="/allgames">
+            <NavLink to="/">
                             <img className="left" src={require("../img/left.png")} alt="left"/>
                         </NavLink>
             <div className="elipse">
