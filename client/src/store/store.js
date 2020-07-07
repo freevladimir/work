@@ -49,7 +49,19 @@ class AppStore {
     console.log("CONTRACT CHANGE")
   }
 
-  changeGame(lotteryName) {
+  // changeGame(lotteryName) {
+  //   this.currentLotteryName = lotteryName
+  //   if(window.data!==null){
+  //     this.balanceOfContract = undefined
+  //     window.data.balanceOfContract = undefined
+  //     this.timeEndGame = 0
+  //     window.data.timeEndGame = 0
+  //   }
+  //   this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+  //   console.log("GAME CHANGE")
+  // }
+
+  startGame() {
     this.currentLotteryName = lotteryName
     if(window.data!==null){
       this.balanceOfContract = undefined
@@ -57,7 +69,7 @@ class AppStore {
       this.timeEndGame = 0
       window.data.timeEndGame = 0
     }
-    this.refreshBlockChainData(this.currentLotteryName, 0)
+    this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("GAME CHANGE")
   }
 

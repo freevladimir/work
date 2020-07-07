@@ -36,7 +36,7 @@ const AllGamesPage = () => {
     return Math.abs(hash);
   }
   const getUserData = useCallback(async () => {
-    // store.changeGame('limitLottery')
+    store.changeGame('')
     try {
       const fetched = await request("/api/auth/allgames", "GET", null, {
         Authorization: `Bearer ${token}`,
