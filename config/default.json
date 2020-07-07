@@ -1,6 +1,7 @@
 {
   "port": 443,
-  "mongoUrl": "mongodb+srv://vladimir:LOJdWpvJwB33mQnu@cluster0-kjq7q.mongodb.net/app",
+  "mongoUrl": "mongodb+srv://7top:TFR-U9D-Pzx-sL6@7top.kdbnh.mongodb.net/app",
+  
   "jwtSecret": "code is law",
   // "baseUrl": "http://188.225.78.253:5000",http://7top.org/
     // "baseUrl": "http://localhost",
