@@ -57,7 +57,7 @@ class AppStore {
       this.timeEndGame = 0
       window.data.timeEndGame = 0
     }
-    this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+    this.refreshBlockChainData(this.currentLotteryName, 0)
     console.log("GAME CHANGE")
   }
 
