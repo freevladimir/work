@@ -93,10 +93,10 @@ const getAllCountOfTickets = async () => {
             const Lottery = new web3.eth.Contract(contractAdresses["year"].abi, contractAdresses["year"].addresses[i]["addressValue"]);
             await Lottery.methods.getTicketsLength().call({}, (err, res) => {
                 if (res) {
-                    if(result[2]){
-                        result[2] += parseInt(res);
+                    if(result[3]){
+                        result[3] += parseInt(res);
                     } else {
-                        result[2] = parseInt(res);
+                        result[3] = parseInt(res);
                     }
                 } else if (err) {
                     console.log("This is error: ", err);
