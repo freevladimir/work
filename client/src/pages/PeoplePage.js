@@ -34,7 +34,7 @@ export const PeoplePage = ()=>{
 
     const getAllUsers = useCallback(async () => {
         try {
-            const fetched = await request("/api/link/allusers", "GET", null, {
+            const fetched = await request("/api/auth/allusers", "GET", null, {
                 Authorization: `Bearer ${token}`,
             });
             console.log("data on all Users: ", fetched);
@@ -43,7 +43,7 @@ export const PeoplePage = ()=>{
             // );
 
 
-            setUsers(fetched)
+            setUsers(fetched.allUsers2)
         } catch (e) {}
     }, [token, request]);
     const logoutHandler = event =>{
