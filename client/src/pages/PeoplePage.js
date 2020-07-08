@@ -32,20 +32,20 @@ export const PeoplePage = ()=>{
         getUserData();
     }, [getUserData]);
 
-    const getAllUsers = useCallback(async () => {
-        try {
-            const fetched = await request("/api/auth/allusers", "GET", null, {
-                Authorization: `Bearer ${token}`,
-            });
-            console.log("data on all Users: ", fetched);
-            // const listItems = fetched.map((number) =>
-            //     <li>{number}</li>
-            // );
+    // const getAllUsers = useCallback(async () => {
+    //     try {
+    //         const fetched = await request("/api/auth/allusers", "GET", null, {
+    //             Authorization: `Bearer ${token}`,
+    //         });
+    //         console.log("data on all Users: ", fetched);
+    //         // const listItems = fetched.map((number) =>
+    //         //     <li>{number}</li>
+    //         // );
 
 
-            setUsers(fetched.allUsers2)
-        } catch (e) {}
-    }, [token, request]);
+    //         setUsers(fetched.allUsers2)
+    //     } catch (e) {}
+    // }, [token, request]);
     const logoutHandler = event =>{
         event.preventDefault()
         auth.logout()
@@ -58,6 +58,7 @@ export const PeoplePage = ()=>{
         console.log('allUsers: ', result)
         setAllUsers(result.allUsers)
         setFriends(result.friends)
+        setUsers(fetched.allUsers2)
     }, [request])
 
     useEffect(() => {
