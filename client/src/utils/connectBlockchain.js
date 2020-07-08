@@ -19,7 +19,7 @@ let TEST_RINKEBY =
 export let metamask, web3, abi, Lottery, userAddress, addressLottery, SevenTOP, StorageLimitLottery, loadingBlockchain = false;
 
 
-const getAllValues = async (lotteryKey, addressIndex) => {
+const getAllValues = async (lotteryKey, addressIndex = 0) => {
   try{
     const currentAddress = config[lotteryKey].addresses[addressIndex]
     if(currentAddress && currentAddress.addressValue) {
@@ -101,14 +101,14 @@ export const changeUser = (_address)=>{
 export const connectBlockChain = async (lotteryKey, addressIndex) => {
   console.log("start metamask");
   let tickets;
-  web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY,
+  web3 = !web3?(new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY,
     {
         // @ts-ignore
         clientConfig: {
             keepalive: true,
             keepaliveInterval: 60000	// milliseconds
         }
-    }));
+    }))):web3;
   getAllValues(lotteryKey, addressIndex).then((data) => {
     loadingBlockchain = false
     // console.log('loadingBlockchain: ', loadingBlockchain)
