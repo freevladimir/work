@@ -58,7 +58,7 @@ export const PeoplePage = ()=>{
         console.log('allUsers: ', result)
         setAllUsers(result.allUsers)
         setFriends(result.friends)
-        setUsers(fetched.allUsers2)
+        setUsers(result.allUsers2)
     }, [request])
 
     useEffect(() => {
