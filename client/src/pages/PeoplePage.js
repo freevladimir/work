@@ -61,9 +61,9 @@ export const PeoplePage = ()=>{
         setUsers(result.allUsers2)
     }, [request])
 
-    useEffect(() => {
-        getAllUsers();
-    }, [getAllUsers]);
+    // useEffect(() => {
+    //     getAllUsers();
+    // }, [getAllUsers]);
 
     useEffect(() => {
         getAllUsersAndFriends();
