@@ -393,7 +393,7 @@ router.get('/allusers', auth,
                 }
             })
             const _allUsers = await User.find()
-            res.json({friends: _friends.length, allUsers: _allUsers.length, allUsers2: allusers})
+            res.json({friends: _friends.length, allUsers: _allUsers.length, allUsers2: _allusers})
             console.log("Friends")
             console.log(userData)
         } catch (e) {
