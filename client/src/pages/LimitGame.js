@@ -47,6 +47,7 @@ const LimitGame = () => {
   const goBack = event =>{
     event.preventDefault()
     store.clearGame()
+    history.push('/')
   }
 
   const setting = {
