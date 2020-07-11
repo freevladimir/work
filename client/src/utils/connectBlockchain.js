@@ -132,7 +132,7 @@ export const setCommonValue = async()=>{
   const allTickets = await getAllCountOfTickets()
   const allTimesEnd = await getAllTimesEndGame()
   window.data = await Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
-  await loadingBlockchain = false
+  loadingBlockchain = false
 }
 
 export const connectMetaMask = async ()=>{
