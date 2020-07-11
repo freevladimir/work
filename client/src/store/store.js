@@ -2,11 +2,10 @@ import { observable, action, decorate } from "mobx";
 import { createContext } from "react";
 import { useHistory } from "react-router-dom";
 import { connectBlockChain } from "../utils/connectBlockchain";
-import {changeFlag} from '../components/Timer'
-
-const history = useHistory()
+import {changeFlag} from '../components/Timer' 
 
 class AppStore {
+  history = useHistory()
   // initial state of app
   ticketsCount = ""
   balanceOfContract = 0
@@ -91,7 +90,7 @@ class AppStore {
     this.members = [] 
     this.winners = [] 
     this.timeEndGame = 0
-    history.push('/')
+    this.history.push('/')
   }
 
   // startGame() {
