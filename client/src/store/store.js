@@ -45,9 +45,14 @@ class AppStore {
     window.data.balanceOfContract = undefined
     // this.timeEndGame = 1
     // window.data.timeEndGame = 1
-    window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0})
-    this = Object.assign(this, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0})
-    this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
+    window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '', members: [], winners: [], timeEndGame: 0})
+    this.tickets= 0 
+    this.balanceOfContract = 0 
+    this.myTickets = [] 
+    this.addressName = ''
+    this.members = [] 
+    this.winners = [] 
+    this.timeEndGame = 0
     console.log("CONTRACT CHANGE")
   }
 
@@ -58,8 +63,14 @@ class AppStore {
       window.data.balanceOfContract = undefined
       this.timeEndGame = 0
       window.data.timeEndGame = 0
-      window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0})
-      this = Object.assign(this, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0})
+      window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '', members: [], winners: [], timeEndGame: 0})
+      this.tickets= 0 
+      this.balanceOfContract = 0 
+      this.myTickets = [] 
+      this.addressName = ''
+      this.members = [] 
+      this.winners = [] 
+      this.timeEndGame = 0
       // this.allTimesEnd = []
       // window.data.allTimesEnd = []
     }
