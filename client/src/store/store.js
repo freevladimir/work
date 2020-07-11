@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom";
 import { connectBlockChain } from "../utils/connectBlockchain";
 import {changeFlag} from '../components/Timer'
 
+const history = useHistory()
+
 class AppStore {
-  const history = useHistory()
   // initial state of app
   ticketsCount = ""
   balanceOfContract = 0
