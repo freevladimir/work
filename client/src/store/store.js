@@ -98,6 +98,7 @@ class AppStore {
   }
 
   setValueForAll(){
+    this.contractIndex = 0
     setCommonValue()
   }
 
