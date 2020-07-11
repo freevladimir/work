@@ -1,9 +1,11 @@
 import { observable, action, decorate } from "mobx";
 import { createContext } from "react";
+import { useHistory } from "react-router-dom";
 import { connectBlockChain } from "../utils/connectBlockchain";
 import {changeFlag} from '../components/Timer'
 
 class AppStore {
+  const history = useHistory()
   // initial state of app
   ticketsCount = ""
   balanceOfContract = 0
