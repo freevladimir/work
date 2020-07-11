@@ -88,7 +88,7 @@ class AppStore {
     this.members = [] 
     this.winners = [] 
     this.timeEndGame = 0
-    location.href = window.location.protocol +'//'+ window.location.hostname
+    history.push('/')
   }
 
   // startGame() {
