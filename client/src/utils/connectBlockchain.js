@@ -52,14 +52,14 @@ const getAllValues = async (lotteryKey, addressIndex = 0) => {
       window.data = {tickets, balanceOfContract, myTickets, addressName, members, winners, timeEndGame}
       console.log('show lotto')
       // auth.loadFalse()
-      console.log('loadingBlockchain: ', loadingBlockchain)
-      const bankForLimit = await getAllBankOfLimitGame()
-      // window.data['bankForLimit'] = bankForLimit
-      const allTickets = await getAllCountOfTickets()
-      // window.data['allTickets'] = allTickets
-      const allTimesEnd = await getAllTimesEndGame()
-      // window.data['allTimesEnd'] = allTimesEnd
-      window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
+      // console.log('loadingBlockchain: ', loadingBlockchain)
+      // const bankForLimit = await getAllBankOfLimitGame()
+      // // window.data['bankForLimit'] = bankForLimit
+      // const allTickets = await getAllCountOfTickets()
+      // // window.data['allTickets'] = allTickets
+      // const allTimesEnd = await getAllTimesEndGame()
+      // // window.data['allTimesEnd'] = allTimesEnd
+      // window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
       
       await web3.eth.subscribe('logs', {
         address: addressLottery,
