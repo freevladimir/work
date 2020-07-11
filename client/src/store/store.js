@@ -53,6 +53,7 @@ class AppStore {
     // this.members = [] 
     // this.winners = [] 
     // this.timeEndGame = 0
+    this.refreshBlockChainData(this.currentLotteryName, this.contractIndex)
     console.log("CONTRACT CHANGE")
   }
 
