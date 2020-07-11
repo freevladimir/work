@@ -166,10 +166,10 @@ class AppStore {
         } else{
           this.timeEndGame = 0
         }
-        if(obj.hasOwnProperty('timeEndGame')){
+        if(obj.hasOwnProperty('allTickets')){
           this.allTickets = window.data.allTickets;
         } else{
-          this.allTickets = 0
+          this.allTickets = []
         }
         if(obj.hasOwnProperty('allTimesEnd')){
           this.allTimesEnd = window.data.allTimesEnd;

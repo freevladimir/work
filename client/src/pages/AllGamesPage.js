@@ -122,7 +122,6 @@ const AllGamesPage = () => {
                   <div className="top">
                     <img src={require("../img/men2.png")} alt="men" />
                     <p className="p4">{store.allTickets?store.allTickets[0]:0}</p>
-                    {console.log(store.allTickets)}
                   </div>
                   <p className="p5">Human</p>
                 </div>
