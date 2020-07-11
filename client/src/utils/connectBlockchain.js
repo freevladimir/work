@@ -136,6 +136,7 @@ export const setCommonValue = async()=>{
   } else {
     window.data = await Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
   }
+  console.log('allTickets: ', allTickets)
   loadingBlockchain = false
 }
 
