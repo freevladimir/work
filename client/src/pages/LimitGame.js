@@ -43,6 +43,12 @@ const LimitGame = () => {
     auth.logout()
     history.push('/')
   }
+
+  const goBack = event =>{
+    event.preventDefault()
+    store.clearGame()
+  }
+
   const setting = {
     centerMode: true,
     slidesToShow: 1,
@@ -254,7 +260,7 @@ const LimitGame = () => {
       <section>
         <div className="container">
           <div className="account">
-            <NavLink to="/">
+            <NavLink onClick={goBack}>
                             <img className="left" src={require("../img/left.png")} alt="left"/>
                         </NavLink>
             <div className="elipse">
