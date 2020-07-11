@@ -85,7 +85,7 @@ class AppStore {
     delete this.myTickets  
     delete this.addressName 
     delete this.members  
-    delete this.winners  
+    delete this.winners
     delete this.timeEndGame 
 
     delete window.data.tickets 
