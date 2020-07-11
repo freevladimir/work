@@ -80,14 +80,21 @@ class AppStore {
   }
 
   clearGame(){
-    window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '', members: [], winners: [], timeEndGame: 0})
-    this.tickets= 0 
-    this.balanceOfContract = 0 
-    this.myTickets = [] 
-    this.addressName = ''
-    this.members = [] 
-    this.winners = [] 
-    this.timeEndGame = 0
+    delete this.tickets 
+    delete this.balanceOfContract  
+    delete this.myTickets  
+    delete this.addressName 
+    delete this.members  
+    delete this.winners  
+    delete this.timeEndGame 
+
+    delete window.data.tickets 
+    delete window.data.balanceOfContract  
+    delete window.data.myTickets  
+    delete window.data.addressName 
+    delete window.data.members  
+    delete window.data.winners  
+    delete window.data.timeEndGame 
   }
 
   // startGame() {
