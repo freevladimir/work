@@ -131,9 +131,9 @@ export const setCommonValue = async()=>{
   const bankForLimit = await getAllBankOfLimitGame()
   const allTickets = await getAllCountOfTickets()
   const allTimesEnd = await getAllTimesEndGame()
-  window.data.bankForLimit = bankForLimit
-  window.data.allTickets = allTickets
-  window.data.allTimesEnd = allTimesEnd
+  window.data['bankForLimit'] = bankForLimit
+  window.data['allTickets'] = allTickets
+  window.data['allTimesEnd'] = allTimesEnd
   loadingBlockchain = false
 }
 
