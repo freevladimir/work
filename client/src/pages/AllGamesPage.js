@@ -76,7 +76,7 @@ const AllGamesPage = () => {
   }, [getAllUsersAndFriends]);  
 
 
-  if (store.allTimesEnd[1]===undefined) {
+  if (store.allTimesEnd[1]===undefined && store.allTickets===undefined) {
     return <div className="holder">
     <div className="preloader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div>;
