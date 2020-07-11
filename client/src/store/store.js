@@ -56,6 +56,8 @@ class AppStore {
       window.data.balanceOfContract = undefined
       this.timeEndGame = 0
       window.data.timeEndGame = 0
+      window.data = {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0}
+      this = {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '0x0', members: [], winners: [], timeEndGame: 0}
       // this.allTimesEnd = []
       // window.data.allTimesEnd = []
     }
