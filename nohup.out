@@ -1,0 +1,3188 @@
+
+> mern@1.0.0 server /root/7top
+> nodemon app.js
+
+[33m[nodemon] 2.0.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node app.js`[39m
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:217:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:524:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mern@1.0.0 server: `nodemon app.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mern@1.0.0 server script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_02_12_093Z-debug.log
+
+> mern@1.0.0 client /root/7top
+> npm run start --prefix client
+
+
+> client@0.1.0 start /root/7top/client
+> export PORT=80 && export HOST=7top.org && react-scripts start
+
+Attempting to bind to HOST environment variable: 7top.org
+If this was unintentional, check that you haven't mistakenly set it in your shell.
+Learn more here: https://bit.ly/CRA-advanced-config
+
+[34mℹ[39m [90m｢wds｣[39m: Project is running at http://7top.org:80/
+[34mℹ[39m [90m｢wds｣[39m: webpack output is served from 
+[34mℹ[39m [90m｢wds｣[39m: Content not from webpack is served from /root/7top/client/public
+[34mℹ[39m [90m｢wds｣[39m: 404s will fallback to /
+Starting the development server...
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:217:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:524:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@0.1.0 start: `export PORT=80 && export HOST=7top.org && react-scripts start`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@0.1.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_02_28_500Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mern@1.0.0 client: `npm run start --prefix client`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mern@1.0.0 client script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_02_28_513Z-debug.log
+
+> mern@1.0.0 client /root/7top
+> npm run start --prefix client
+
+
+> client@0.1.0 start /root/7top/client
+> export PORT=80 && export HOST=7top.org && react-scripts start
+
+Attempting to bind to HOST environment variable: 7top.org
+If this was unintentional, check that you haven't mistakenly set it in your shell.
+Learn more here: https://bit.ly/CRA-advanced-config
+
+[34mℹ[39m [90m｢wds｣[39m: Project is running at http://7top.org:80/
+[34mℹ[39m [90m｢wds｣[39m: webpack output is served from 
+[34mℹ[39m [90m｢wds｣[39m: Content not from webpack is served from /root/7top/client/public
+[34mℹ[39m [90m｢wds｣[39m: 404s will fallback to /
+Starting the development server...
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:217:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:524:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@0.1.0 start: `export PORT=80 && export HOST=7top.org && react-scripts start`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@0.1.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_03_22_512Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mern@1.0.0 client: `npm run start --prefix client`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mern@1.0.0 client script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_03_22_525Z-debug.log
+(node:3062) Warning: Accessing non-existent property 'count' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3062) Warning: Accessing non-existent property 'findOne' of module exports inside circular dependency
+(node:3062) Warning: Accessing non-existent property 'remove' of module exports inside circular dependency
+(node:3062) Warning: Accessing non-existent property 'updateOne' of module exports inside circular dependency
+(node:3062) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3062) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+App has been started 443...
+0x3B519A440Ebf1429825FE62B178b3E696b2a84fE
+TimeEnd :  1594547889
+0x5D0cA86B8C6726E02E52bC66Af15B83b6327833B
+TimeEnd :  604800
+0x69DD5B9a7f2740cA533eD9144a918D715f7F0f88
+TimeEnd :  1594574619
+0xEA8f1516f24ECd75440E0F157D30d90Fe8a4BA77
+TimeEnd :  1619631534
+
+Event listener has been started
+
+> mern@1.0.0 server /root/7top
+> nodemon app.js
+
+[33m[nodemon] 2.0.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node app.js`[39m
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:217:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:524:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mern@1.0.0 server: `nodemon app.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mern@1.0.0 server script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_10_25_881Z-debug.log
+(node:3112) Warning: Accessing non-existent property 'count' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3112) Warning: Accessing non-existent property 'findOne' of module exports inside circular dependency
+(node:3112) Warning: Accessing non-existent property 'remove' of module exports inside circular dependency
+(node:3112) Warning: Accessing non-existent property 'updateOne' of module exports inside circular dependency
+(node:3112) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:3112) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+App has been started 443...
+0x3B519A440Ebf1429825FE62B178b3E696b2a84fE
+TimeEnd :  1594547889
+0x5D0cA86B8C6726E02E52bC66Af15B83b6327833B
+TimeEnd :  604800
+0x69DD5B9a7f2740cA533eD9144a918D715f7F0f88
+TimeEnd :  1594574619
+0xEA8f1516f24ECd75440E0F157D30d90Fe8a4BA77
+TimeEnd :  1619631534
+
+Event listener has been started
+
+> mern@1.0.0 client /root/7top
+> npm run start --prefix client
+
+
+> client@0.1.0 start /root/7top/client
+> export PORT=80 && export HOST=7top.org && react-scripts start
+
+Attempting to bind to HOST environment variable: 7top.org
+If this was unintentional, check that you haven't mistakenly set it in your shell.
+Learn more here: https://bit.ly/CRA-advanced-config
+
+[34mℹ[39m [90m｢wds｣[39m: Project is running at http://7top.org:80/
+[34mℹ[39m [90m｢wds｣[39m: webpack output is served from 
+[34mℹ[39m [90m｢wds｣[39m: Content not from webpack is served from /root/7top/client/public
+[34mℹ[39m [90m｢wds｣[39m: 404s will fallback to /
+Starting the development server...
+
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:217:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:524:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@0.1.0 start: `export PORT=80 && export HOST=7top.org && react-scripts start`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@0.1.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_12_50_381Z-debug.log
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mern@1.0.0 client: `npm run start --prefix client`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mern@1.0.0 client script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-07-11T03_12_50_394Z-debug.log
+Body: { name: 'test', password: '5555555' }
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438238,
+  exp: 1594441838
+}
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438238,
+  exp: 1594441838
+}
+allGames is ok
+5f08a667add5e0351860b5b9
+friends count:  []
+Friends
+(node:3112) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:541:11)
+    at ServerResponse.header (/root/7top/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.json (/root/7top/node_modules/express/lib/response.js:264:10)
+    at /root/7top/routes/auth.routes.js:772:19
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:3112) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:3112) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'test', password: '5555555asdasdasd' }
+Body: { name: 'test', password: '5555555' }
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438253,
+  exp: 1594441853
+}
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438253,
+  exp: 1594441853
+}
+allGames is ok
+5f08a667add5e0351860b5b9
+friends count:  []
+Friends
+(node:3112) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:541:11)
+    at ServerResponse.header (/root/7top/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.json (/root/7top/node_modules/express/lib/response.js:264:10)
+    at /root/7top/routes/auth.routes.js:772:19
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:3112) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+(node:3112) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+Body: { name: 'test', password: 'fgdfgdfg' }
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438373,
+  exp: 1594441973
+}
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594438373,
+  exp: 1594441973
+}
+allGames is ok
+5f08a667add5e0351860b5b9
+friends count:  []
+Friends
+(node:3112) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:541:11)
+    at ServerResponse.header (/root/7top/node_modules/express/lib/response.js:771:10)
+    at ServerResponse.send (/root/7top/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/root/7top/node_modules/express/lib/response.js:267:15)
+    at /root/7top/routes/auth.routes.js:772:19
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:3112) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'test', password: '5555555' }
+TokenExpiredError: jwt expired
+    at /root/7top/node_modules/jsonwebtoken/verify.js:152:21
+    at getSecret (/root/7top/node_modules/jsonwebtoken/verify.js:90:14)
+    at Object.module.exports [as verify] (/root/7top/node_modules/jsonwebtoken/verify.js:94:10)
+    at /root/7top/routes/auth.routes.js:66:26
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at next (/root/7top/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/root/7top/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at /root/7top/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/root/7top/node_modules/express/lib/router/index.js:174:3)
+    at router (/root/7top/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at methodOverride (/root/7top/node_modules/method-override/index.js:79:5)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7 {
+  expiredAt: 2020-07-11T04:34:15.000Z
+}
+TokenExpiredError: jwt expired
+    at /root/7top/node_modules/jsonwebtoken/verify.js:152:21
+    at getSecret (/root/7top/node_modules/jsonwebtoken/verify.js:90:14)
+    at Object.module.exports [as verify] (/root/7top/node_modules/jsonwebtoken/verify.js:94:10)
+    at /root/7top/routes/auth.routes.js:66:26
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at next (/root/7top/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/root/7top/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at /root/7top/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/root/7top/node_modules/express/lib/router/index.js:174:3)
+    at router (/root/7top/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at methodOverride (/root/7top/node_modules/method-override/index.js:79:5)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7 {
+  expiredAt: 2020-07-11T04:34:15.000Z
+}
+Body: { name: 'Mtx85', password: '86631326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594443812,
+  exp: 1594447412
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594443812,
+  exp: 1594447412
+}
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Body: { name: 'Mtx85', password: '86631326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594443819,
+  exp: 1594447419
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594443819,
+  exp: 1594447419
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+Body: { name: 'Mtx85', password: '86631326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594450251,
+  exp: 1594453851
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594450251,
+  exp: 1594453851
+}
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+Body: { name: 'Mtx85', password: '86631326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594456225,
+  exp: 1594459825
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594456225,
+  exp: 1594459825
+}
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'Mtx85', password: '86631326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594456643,
+  exp: 1594460243
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594456643,
+  exp: 1594460243
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+Body: { name: 'Mtx85', password: '86631326' }
+Body: { name: 'Mtx85', password: '12331326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594457027,
+  exp: 1594460627
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594457027,
+  exp: 1594460627
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+Body: { name: 'Serjo777', password: '201186' }
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594457624,
+  exp: 1594461224
+}
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594457624,
+  exp: 1594461224
+}
+allGames is ok
+5f04a84f64595e298c93cce5
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Body: { name: 'Serjo777', password: '201186' }
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594457635,
+  exp: 1594461235
+}
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594457635,
+  exp: 1594461235
+}
+allGames is ok
+5f04a84f64595e298c93cce5
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+Body: { name: '866aa', password: '86631326' }
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594457638,
+  exp: 1594461238
+}
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594457638,
+  exp: 1594461238
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+allGames is ok
+5f04aca4935f432b6247c060
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'Mtx85', password: '12331326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594458908,
+  exp: 1594462508
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594458908,
+  exp: 1594462508
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+Body: { name: 'Mtx85', password: '12331326' }
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594458952,
+  exp: 1594462552
+}
+{
+  userId: '5f04a5f39ada0127c55d4eeb',
+  iat: 1594458952,
+  exp: 1594462552
+}
+allGames is ok
+5f04a5f39ada0127c55d4eeb
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Body: { name: '866aa', password: '86631326' }
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594458967,
+  exp: 1594462567
+}
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594458967,
+  exp: 1594462567
+}
+allGames is ok
+5f04aca4935f432b6247c060
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Body: { name: 'Serjo777', password: '201186' }
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594458969,
+  exp: 1594462569
+}
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594458969,
+  exp: 1594462569
+}
+allGames is ok
+5f04a84f64595e298c93cce5
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: '866aa', password: '86631326' }
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594459016,
+  exp: 1594462616
+}
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594459016,
+  exp: 1594462616
+}
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+allGames is ok
+5f04aca4935f432b6247c060
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body {
+  name: 'MM',
+  email: 'sale@skladklinkera.ru',
+  password: '201186',
+  wallet: '0xF4dBb4fcB34234670f7478dBA3426dbFeFC83941',
+  friendId: '',
+  macthPassword: '201186'
+}
+start new creating user
+name is ok
+Body {
+  name: 'MM',
+  email: 'mm@skladklinkera.ru',
+  password: '201186',
+  wallet: '0xF4dBb4fcB34234670f7478dBA3426dbFeFC83941',
+  friendId: '',
+  macthPassword: '201186'
+}
+start new creating user
+name is ok
+email is ok
+password is ok
+address is valid
+address is ok
+friend is ok
+user creating
+user:  {
+  _id: 5f0983d4799a420c28c61087,
+  name: 'MM',
+  email: 'mm@skladklinkera.ru',
+  password: '$2a$12$9ph34l.7P365U1rTRuETq./zAI2aHllHk4xNVOkH5SsX5C9c9aR.u',
+  wallet: '0xF4dBb4fcB34234670f7478dBA3426dbFeFC83941',
+  friendId: '',
+  __v: 0
+}
+Body: {
+  name: 'MM',
+  email: 'mm@skladklinkera.ru',
+  password: '201186',
+  wallet: '0xF4dBb4fcB34234670f7478dBA3426dbFeFC83941',
+  friendId: '',
+  macthPassword: '201186'
+}
+{
+  userId: '5f0983d4799a420c28c61087',
+  iat: 1594459093,
+  exp: 1594462693
+}
+{
+  userId: '5f0983d4799a420c28c61087',
+  iat: 1594459093,
+  exp: 1594462693
+}
+allGames is ok
+5f0983d4799a420c28c61087
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+{
+  userId: '5f0983d4799a420c28c61087',
+  iat: 1594459093,
+  exp: 1594462693
+}
+{
+  userId: '5f0983d4799a420c28c61087',
+  iat: 1594459093,
+  exp: 1594462693
+}
+allGames is ok
+5f0983d4799a420c28c61087
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Body: { name: 'sale@skladklinkera.ru', password: '13071990' }
+Body: { name: 'Serjo777', password: '13071990' }
+Body: { name: 'Serjo777', password: '201186' }
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594460053,
+  exp: 1594463653
+}
+{
+  userId: '5f04a84f64595e298c93cce5',
+  iat: 1594460053,
+  exp: 1594463653
+}
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+allGames is ok
+5f04a84f64595e298c93cce5
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+TokenExpiredError: jwt expired
+    at /root/7top/node_modules/jsonwebtoken/verify.js:152:21
+    at getSecret (/root/7top/node_modules/jsonwebtoken/verify.js:90:14)
+    at Object.module.exports [as verify] (/root/7top/node_modules/jsonwebtoken/verify.js:94:10)
+    at /root/7top/routes/auth.routes.js:66:26
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at next (/root/7top/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/root/7top/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at /root/7top/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/root/7top/node_modules/express/lib/router/index.js:174:3)
+    at router (/root/7top/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/root/7top/node_modules/express/lib/router/index.js:335:12)
+    at next (/root/7top/node_modules/express/lib/router/index.js:275:10)
+    at methodOverride (/root/7top/node_modules/method-override/index.js:79:5)
+    at Layer.handle [as handle_request] (/root/7top/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/root/7top/node_modules/express/lib/router/index.js:317:13)
+    at /root/7top/node_modules/express/lib/router/index.js:284:7 {
+  expiredAt: 2020-07-11T09:41:33.000Z
+}
+Body: { name: '866aa', password: '86631326' }
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594460738,
+  exp: 1594464338
+}
+{
+  userId: '5f04aca4935f432b6247c060',
+  iat: 1594460738,
+  exp: 1594464338
+}
+allGames is ok
+5f04aca4935f432b6247c060
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+null
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'kuftirev.alex@gmail.com', password: 'hDBEymWR3H8br5w' }
+Body: { name: 'test', password: 'hDBEymWR3H8br5w' }
+Body: { name: 'test', password: '5555555' }
+Body: { name: 'test', password: '5555555' }
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594464949,
+  exp: 1594468549
+}
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594464949,
+  exp: 1594468549
+}
+allGames is ok
+5f08a667add5e0351860b5b9
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
+Body: { name: 'test', password: '5555555' }
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594464992,
+  exp: 1594468592
+}
+{
+  userId: '5f08a667add5e0351860b5b9',
+  iat: 1594464992,
+  exp: 1594468592
+}
+allGames is ok
+5f08a667add5e0351860b5b9
+connection not open on send()
+This is error:  Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Error: connection not open
+    at WebsocketProvider.send (/root/7top/node_modules/web3-providers-ws/src/index.js:282:18)
+    at RequestManager.send (/root/7top/node_modules/web3-core-requestmanager/src/index.js:132:66)
+    at sendRequest (/root/7top/node_modules/web3-core-method/src/index.js:705:42)
+    at send (/root/7top/node_modules/web3-core-method/src/index.js:726:13)
+    at Object._executeMethod (/root/7top/node_modules/web3-eth-contract/src/index.js:920:24)
+    at /root/7top/routes/auth.routes.js:758:73
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+req.body members:  [
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x5B4C61A247e146bDc3a976032C521e2D619586C7',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  '0xa2920168f96704De94FB33B5cEAB31174863C91B',
+  '0x7e74b7DC4DD27cA5a8fe8652AdC5A88ed55985D4',
+  '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5'
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+null
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+req.body:  [
+  [
+    '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+    '1594055619',
+    '43.78'
+  ]
+]
+cc
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+{
+  _id: 5f04aca4935f432b6247c060,
+  name: '866aa',
+  email: '866aa@mail.ru',
+  password: '$2a$12$NZDD4Bou9Qu4cCa28I6d5.c6BQ14PQEPbszKMZbP.5NVVdosIpr36',
+  wallet: '0x25Af3B667F7f214e9f681C36c041b6Ef4444334d',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+Winners:  [
+  {
+    name: '866aa',
+    time: '1594055619',
+    sum: '43.78',
+    id: 5f04aca4935f432b6247c060
+  }
+]
+cc
+null
+cc
+null
+cc
+{
+  _id: 5f04a84f64595e298c93cce5,
+  name: 'Serjo777',
+  email: '7955309@mail.ru',
+  password: '$2a$12$HxcIQ.IQVnVqEF1p4aS9tOFtwSAimcY0lU9cKd/X0dfkzzgzU8kwy',
+  wallet: '0x1bD67705eC3eE3e930a1966Bb238963B5cF9d92B',
+  friendId: '0x12e7B1b5dD14EcE3D880e5862737232669Ab7D0a',
+  __v: 0
+}
+cc
+{
+  _id: 5f04a36f9ada0127c55d4eea,
+  name: 'Vladimir',
+  email: 'smagazhevskijj@gmail.com',
+  password: '$2a$12$5D52MHphZvh8GVqUk7vVTeKfl.Aitla95znuTBDVpWj.XuDGBu5iC',
+  wallet: '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5',
+  friendId: '',
+  __v: 0
+}
+MembersStruct:  [
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0x5B4C...86C7' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 5f04aca4935f432b6247c060, name: '866aa' },
+  { id: 'undefined', name: '0xa292...C91B' },
+  { id: 'undefined', name: '0x7e74...85D4' },
+  { id: 5f04a84f64595e298c93cce5, name: 'Serjo777' },
+  { id: 5f04a36f9ada0127c55d4eea, name: 'Vladimir' }
+]
