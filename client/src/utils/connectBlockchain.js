@@ -118,6 +118,23 @@ export const connectBlockChain = async (lotteryKey, addressIndex) => {
   await console.log("end metamask");
 }
 
+export const setCommonValue = async()=>{
+  web3 = !web3?(new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider(TEST_RINKEBY,
+    {
+        // @ts-ignore
+        clientConfig: {
+            keepalive: true,
+            keepaliveInterval: 60000  // milliseconds
+        }
+    }))):web3;
+
+  const bankForLimit = await getAllBankOfLimitGame()
+  const allTickets = await getAllCountOfTickets()
+  const allTimesEnd = await getAllTimesEndGame()
+  await window.data = Object.assign(window.data, {bankForLimit, allTickets, allTimesEnd})
+  await loadingBlockchain = false
+}
+
 export const connectMetaMask = async ()=>{
   if (window.ethereum) {
     metamask = await new Web3(window.ethereum);

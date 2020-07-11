@@ -1,6 +1,6 @@
 import { observable, action, decorate } from "mobx";
 import { createContext } from "react";
-import { connectBlockChain } from "../utils/connectBlockchain";
+import { connectBlockChain, setCommonValue } from "../utils/connectBlockchain";
 import {changeFlag} from '../components/Timer' 
 
 class AppStore {
@@ -96,6 +96,11 @@ class AppStore {
     delete window.data.winners  
     delete window.data.timeEndGame 
   }
+
+  setValueForAll(){
+    setCommonValue()
+  }
+
 
   // startGame() {
   //   this.currentLotteryName = lotteryName
