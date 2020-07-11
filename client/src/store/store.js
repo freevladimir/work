@@ -79,6 +79,18 @@ class AppStore {
     console.log("GAME CHANGE")
   }
 
+  clearGame(){
+    window.data = Object.assign(window.data, {tickets: 0, balanceOfContract: 0, myTickets: [], addressName: '', members: [], winners: [], timeEndGame: 0})
+    this.tickets= 0 
+    this.balanceOfContract = 0 
+    this.myTickets = [] 
+    this.addressName = ''
+    this.members = [] 
+    this.winners = [] 
+    this.timeEndGame = 0
+    location.href = window.location.protocol +'//'+ window.location.hostname
+  }
+
   // startGame() {
   //   this.currentLotteryName = lotteryName
   //   if(window.data!==null){

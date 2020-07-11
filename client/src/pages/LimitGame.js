@@ -260,9 +260,9 @@ const LimitGame = () => {
       <section>
         <div className="container">
           <div className="account">
-            <NavLink onClick={goBack}>
+            <a onClick={goBack}>
                             <img className="left" src={require("../img/left.png")} alt="left"/>
-                        </NavLink>
+                        </a>
             <div className="elipse">
               {img.length>0?
                 <div className="elipse3">
