@@ -1,5 +1,3 @@
-const nodemailer = require('nodemailer');
-
 module.exports = async (email, transporter, url, userName) => {
 	try {
 		await transporter.sendMail({
@@ -7,7 +5,7 @@ module.exports = async (email, transporter, url, userName) => {
 			to: email,
 			subject: 'Reset password',
 			text: `Follow this link to reset password for ${userName} account:'\n'${url}`,
-			html: `<b>Follow this link to reset password for ${userName} account:</b><br><a href="${url}">Reset password</a>`,
+			html: `Follow this link to reset password for <b>${userName}</b> account:<br><a href="${url}">Reset password</a>`,
 		});
 		return { ok: true };
 	} catch (err) {

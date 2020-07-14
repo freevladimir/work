@@ -140,13 +140,13 @@ body {
 	opacity: 1;
 }
 
-.register .register {
+.register .links {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 50px;
 }
 
-.register .register > a {
+.register .links > a {
 	color: #565656;
 	font-size: 14px;
 	padding: 0 25px;
@@ -217,7 +217,7 @@ body {
 
 	.register .logo-mob {
 		display: block;
-		margin: 105px auto 135px;
+		margin: 115px auto 50px;
 	}
 
 	.register .logo2 {
@@ -251,7 +251,7 @@ body {
 		background: #18a0fb;
 	}
 
-	.register .register > a {
+	.register .links > a {
 		padding: 3px 19px;
 	}
 }

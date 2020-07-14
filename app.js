@@ -361,6 +361,7 @@ app.use(cors());
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api/language', require('./routes/languages'));
 // if(process.env.NODE_ENV === 'production'){
 //     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 

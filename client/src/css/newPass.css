@@ -1,0 +1,13 @@
+.newPass .content {
+	height: 420px;
+}
+
+@media screen and (max-width: 576px) {
+	.newPass .logo-mob {
+		margin: 0 auto 50px;
+	}
+
+	.newPass .content {
+		height: 275px;
+	}
+}

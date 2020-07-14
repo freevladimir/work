@@ -1,0 +1,13 @@
+.reset .content {
+	height: 360px;
+}
+
+@media screen and (max-width: 576px) {
+	.reset .logo-mob {
+		margin: 0 auto 50px;
+	}
+
+	.reset .content {
+		height: 210px;
+	}
+}

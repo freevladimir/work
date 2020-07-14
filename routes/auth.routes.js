@@ -767,46 +767,40 @@ router.get('/allusers', auth, async (req, res) => {
 		});
 		const _allUsers = await User.find();
 		res.json({ friends: _friends.length, allUsers: _allUsers.length, allUsers2: _allUsers });
-		console.log('Friends');
-		console.log(userData);
 	} catch (e) {
 		res.status(500).json({ message: 'Something went wrong, try again' });
 		console.log(e);
 	}
 });
 
-router.post(
-	'/members',
+router.post('/members', async (req, res) => {
+	try {
+		let members = req.body;
+		console.log('req.body members: ', members);
 
-	async (req, res) => {
-		try {
-			let members = req.body;
-			console.log('req.body members: ', members);
-
-			let users = [];
-			for (let i = 0; i < members.length; i++) {
-				let user = await User.findOne({ wallet: members[i] });
-				console.log('cc');
-				console.log(user);
-				if (!user) {
-					users.push({ id: 'undefined', name: members[i].substr(0, 6) + '...' + members[i].substr(38, 4) });
-				} else {
-					users.push({ id: user._id, name: user.name });
-				}
+		let users = [];
+		for (let i = 0; i < members.length; i++) {
+			let user = await User.findOne({ wallet: members[i] });
+			console.log('cc');
+			console.log(user);
+			if (!user) {
+				users.push({ id: 'undefined', name: members[i].substr(0, 6) + '...' + members[i].substr(38, 4) });
+			} else {
+				users.push({ id: user._id, name: user.name });
 			}
-
-			// console.log(users)
-			if (!users) {
-				return res.status(400).json({ message: 'User is not exist' });
-			}
-			console.log('MembersStruct: ', users);
-			res.json(users);
-		} catch (e) {
-			res.status(500).json({ message: 'Something go wrong, try again' });
-			console.log(e);
 		}
+
+		// console.log(users)
+		if (!users) {
+			return res.status(400).json({ message: 'User is not exist' });
+		}
+		console.log('MembersStruct: ', users);
+		res.json(users);
+	} catch (e) {
+		res.status(500).json({ message: 'Something go wrong, try again' });
+		console.log(e);
 	}
-);
+});
 
 router.post(
 	'/winners',

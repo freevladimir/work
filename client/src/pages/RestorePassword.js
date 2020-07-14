@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
 import '../css/register.css';
+import '../css/forgetPass.css';
 
 export default () => {
 	const [email, setEmail] = useState('');
@@ -55,11 +56,11 @@ export default () => {
 	const handleChange = (e) => setEmail(e.target.value);
 
 	return (
-		<div className="register">
+		<div className="register reset">
 			<header className="header" id="header">
 				<div className="container">
 					<img className="logo-mob" src={require('../img/img1.png')} alt="logo-mobile" />
-					<div className="content" style={{ height: '360px' }}>
+					<div className="content">
 						<img className="logo2" src={require('../img/logo.png')} alt="logo" />
 						<form>
 							<div className="input-container">
@@ -69,7 +70,7 @@ export default () => {
 							<button type="submit" className="btn" onClick={handleClick}>
 								{loading ? 'Sending you an email...' : 'Reset password'}
 							</button>
-							<div className="register">
+							<div className="links">
 								<a href="/login" className="forget">
 									Login
 								</a>

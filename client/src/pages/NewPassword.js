@@ -4,7 +4,8 @@ import { useMessage } from '../hooks/message.hook';
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import '../css/register.css';
-import '../css/allGames.css';
+import '../css/preloader.css';
+import '../css/newPass.css';
 
 export default () => {
 	const [passwords, setPasswords] = useState({
@@ -64,10 +65,11 @@ export default () => {
 			</div>
 		);
 	return (
-		<div className="register">
+		<div className="newPass register">
 			<header className="header" id="header">
 				<div className="container">
-					<div className="content" style={{ height: '420px' }}>
+					<img className="logo-mob" src={require('../img/img1.png')} alt="logo-mobile" />
+					<div className="content">
 						<img className="logo2" src={require('../img/logo.png')} alt="logo" />
 						<form>
 							<div className="input-container">
@@ -105,7 +107,7 @@ export default () => {
 							<button type="submit" className="btn" onClick={confirmPassword}>
 								Confirm password
 							</button>
-							<div className="register">
+							<div className="links">
 								<a href="/login" className="forget">
 									Login
 								</a>

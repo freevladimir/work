@@ -1,836 +1,831 @@
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-/*    padding: 45px 0 60px;*/
+	font-family: 'Inter', sans-serif;
+	margin: 0;
+	/*    padding: 45px 0 60px;*/
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 @import url('https://rsms.me/inter/inter.css');
 
 .holder {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
 }
 
 .preloader {
-  /* size */
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  animation: rotatePreloader 2s infinite ease-in;
+	/* size */
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	animation: rotatePreloader 2s infinite ease-in;
 }
 
 @keyframes rotatePreloader {
-  0% {
-    transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-50%) rotateZ(-360deg);
-  }
+	0% {
+		transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotateZ(-360deg);
+	}
 }
 .preloader div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
 }
 
 .preloader div:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  width: 10%;
-  height: 10%;
-  background-color: #ffffff;
-  transform: translateX(-50%);
-  border-radius: 50%;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	width: 10%;
+	height: 10%;
+	background-color: #ffffff;
+	transform: translateX(-50%);
+	border-radius: 50%;
 }
 
 .preloader div:nth-child(1) {
-  transform: rotateZ(0deg);
-  animation: rotateCircle1 2s infinite linear;
-  z-index: 9;
+	transform: rotateZ(0deg);
+	animation: rotateCircle1 2s infinite linear;
+	z-index: 9;
 }
 
 @keyframes rotateCircle1 {
-  0% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-    transform: rotateZ(36deg);
-  }
-  7% {
-    transform: rotateZ(0deg);
-  }
-  57% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	0% {
+		opacity: 1;
+		transform: rotateZ(36deg);
+	}
+	7% {
+		transform: rotateZ(0deg);
+	}
+	57% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(2) {
-  transform: rotateZ(36deg);
-  animation: rotateCircle2 2s infinite linear;
-  z-index: 8;
+	transform: rotateZ(36deg);
+	animation: rotateCircle2 2s infinite linear;
+	z-index: 8;
 }
 
 @keyframes rotateCircle2 {
-  5% {
-    opacity: 0;
-  }
-  5.0001% {
-    opacity: 1;
-    transform: rotateZ(0deg);
-  }
-  12% {
-    transform: rotateZ(-36deg);
-  }
-  62% {
-    transform: rotateZ(-36deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	5% {
+		opacity: 0;
+	}
+	5.0001% {
+		opacity: 1;
+		transform: rotateZ(0deg);
+	}
+	12% {
+		transform: rotateZ(-36deg);
+	}
+	62% {
+		transform: rotateZ(-36deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(3) {
-  transform: rotateZ(72deg);
-  animation: rotateCircle3 2s infinite linear;
-  z-index: 7;
+	transform: rotateZ(72deg);
+	animation: rotateCircle3 2s infinite linear;
+	z-index: 7;
 }
 
 @keyframes rotateCircle3 {
-  10% {
-    opacity: 0;
-  }
-  10.0002% {
-    opacity: 1;
-    transform: rotateZ(-36deg);
-  }
-  17% {
-    transform: rotateZ(-72deg);
-  }
-  67% {
-    transform: rotateZ(-72deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	10% {
+		opacity: 0;
+	}
+	10.0002% {
+		opacity: 1;
+		transform: rotateZ(-36deg);
+	}
+	17% {
+		transform: rotateZ(-72deg);
+	}
+	67% {
+		transform: rotateZ(-72deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(4) {
-  transform: rotateZ(108deg);
-  animation: rotateCircle4 2s infinite linear;
-  z-index: 6;
+	transform: rotateZ(108deg);
+	animation: rotateCircle4 2s infinite linear;
+	z-index: 6;
 }
 
 @keyframes rotateCircle4 {
-  15% {
-    opacity: 0;
-  }
-  15.0003% {
-    opacity: 1;
-    transform: rotateZ(-72deg);
-  }
-  22% {
-    transform: rotateZ(-108deg);
-  }
-  72% {
-    transform: rotateZ(-108deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	15% {
+		opacity: 0;
+	}
+	15.0003% {
+		opacity: 1;
+		transform: rotateZ(-72deg);
+	}
+	22% {
+		transform: rotateZ(-108deg);
+	}
+	72% {
+		transform: rotateZ(-108deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(5) {
-  transform: rotateZ(144deg);
-  animation: rotateCircle5 2s infinite linear;
-  z-index: 5;
+	transform: rotateZ(144deg);
+	animation: rotateCircle5 2s infinite linear;
+	z-index: 5;
 }
 
 @keyframes rotateCircle5 {
-  20% {
-    opacity: 0;
-  }
-  20.0004% {
-    opacity: 1;
-    transform: rotateZ(-108deg);
-  }
-  27% {
-    transform: rotateZ(-144deg);
-  }
-  77% {
-    transform: rotateZ(-144deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	20% {
+		opacity: 0;
+	}
+	20.0004% {
+		opacity: 1;
+		transform: rotateZ(-108deg);
+	}
+	27% {
+		transform: rotateZ(-144deg);
+	}
+	77% {
+		transform: rotateZ(-144deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(6) {
-  transform: rotateZ(180deg);
-  animation: rotateCircle6 2s infinite linear;
-  z-index: 4;
+	transform: rotateZ(180deg);
+	animation: rotateCircle6 2s infinite linear;
+	z-index: 4;
 }
 
 @keyframes rotateCircle6 {
-  25% {
-    opacity: 0;
-  }
-  25.0005% {
-    opacity: 1;
-    transform: rotateZ(-144deg);
-  }
-  32% {
-    transform: rotateZ(-180deg);
-  }
-  82% {
-    transform: rotateZ(-180deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	25% {
+		opacity: 0;
+	}
+	25.0005% {
+		opacity: 1;
+		transform: rotateZ(-144deg);
+	}
+	32% {
+		transform: rotateZ(-180deg);
+	}
+	82% {
+		transform: rotateZ(-180deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(7) {
-  transform: rotateZ(216deg);
-  animation: rotateCircle7 2s infinite linear;
-  z-index: 3;
+	transform: rotateZ(216deg);
+	animation: rotateCircle7 2s infinite linear;
+	z-index: 3;
 }
 
 @keyframes rotateCircle7 {
-  30% {
-    opacity: 0;
-  }
-  30.0006% {
-    opacity: 1;
-    transform: rotateZ(-180deg);
-  }
-  37% {
-    transform: rotateZ(-216deg);
-  }
-  87% {
-    transform: rotateZ(-216deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	30% {
+		opacity: 0;
+	}
+	30.0006% {
+		opacity: 1;
+		transform: rotateZ(-180deg);
+	}
+	37% {
+		transform: rotateZ(-216deg);
+	}
+	87% {
+		transform: rotateZ(-216deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(8) {
-  transform: rotateZ(252deg);
-  animation: rotateCircle8 2s infinite linear;
-  z-index: 2;
+	transform: rotateZ(252deg);
+	animation: rotateCircle8 2s infinite linear;
+	z-index: 2;
 }
 
 @keyframes rotateCircle8 {
-  35% {
-    opacity: 0;
-  }
-  35.0007% {
-    opacity: 1;
-    transform: rotateZ(-216deg);
-  }
-  42% {
-    transform: rotateZ(-252deg);
-  }
-  92% {
-    transform: rotateZ(-252deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	35% {
+		opacity: 0;
+	}
+	35.0007% {
+		opacity: 1;
+		transform: rotateZ(-216deg);
+	}
+	42% {
+		transform: rotateZ(-252deg);
+	}
+	92% {
+		transform: rotateZ(-252deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(9) {
-  transform: rotateZ(288deg);
-  animation: rotateCircle9 2s infinite linear;
-  z-index: 1;
+	transform: rotateZ(288deg);
+	animation: rotateCircle9 2s infinite linear;
+	z-index: 1;
 }
 
 @keyframes rotateCircle9 {
-  40% {
-    opacity: 0;
-  }
-  40.0008% {
-    opacity: 1;
-    transform: rotateZ(-252deg);
-  }
-  47% {
-    transform: rotateZ(-288deg);
-  }
-  97% {
-    transform: rotateZ(-288deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	40% {
+		opacity: 0;
+	}
+	40.0008% {
+		opacity: 1;
+		transform: rotateZ(-252deg);
+	}
+	47% {
+		transform: rotateZ(-288deg);
+	}
+	97% {
+		transform: rotateZ(-288deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 .preloader div:nth-child(10) {
-  transform: rotateZ(324deg);
-  animation: rotateCircle10 2s infinite linear;
-  z-index: 0;
+	transform: rotateZ(324deg);
+	animation: rotateCircle10 2s infinite linear;
+	z-index: 0;
 }
 
 @keyframes rotateCircle10 {
-  45% {
-    opacity: 0;
-  }
-  45.0009% {
-    opacity: 1;
-    transform: rotateZ(-288deg);
-  }
-  52% {
-    transform: rotateZ(-324deg);
-  }
-  102% {
-    transform: rotateZ(-324deg);
-  }
-  100% {
-    transform: rotateZ(-324deg);
-    opacity: 1;
-  }
+	45% {
+		opacity: 0;
+	}
+	45.0009% {
+		opacity: 1;
+		transform: rotateZ(-288deg);
+	}
+	52% {
+		transform: rotateZ(-324deg);
+	}
+	102% {
+		transform: rotateZ(-324deg);
+	}
+	100% {
+		transform: rotateZ(-324deg);
+		opacity: 1;
+	}
 }
 
-.allgames{
-  padding: 45px 0 60px;
+.allgames {
+	padding: 45px 0 60px;
 }
 
 .allgames #videoBG {
-    position: fixed;
-    z-index: -1;
-    margin-top: -83px;
+	position: fixed;
+	z-index: -1;
+	margin-top: -83px;
 }
 
-@media (min-aspect-ratio: 16/9){
-    .allgames #videoBG {
-        height: auto;
-        width: 100%;
-    }
+@media (min-aspect-ratio: 16/9) {
+	.allgames #videoBG {
+		height: auto;
+		width: 100%;
+	}
 }
-#fileInput{
-    width: 133px;
-    height: 133px;
-    opacity: 0.01;
-    position: absolute;
+#fileInput {
+	width: 100%;
+	height: 100%;
+	opacity: 0.01;
+	position: absolute;
 }
-#fileInput:hover{
-    cursor: pointer;
+#fileInput:hover {
+	cursor: pointer;
 }
-.imgPreview{
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
+.imgPreview {
+	height: 100%;
+	border-radius: 50%;
+	overflow: hidden;
 }
-.imgPreview img{
-    height: 100%;
-
+.imgPreview img {
+	height: 100%;
 }
 
 .allgames .container {
-    width: 860px;
-    margin: 0 auto;
+	width: 860px;
+	margin: 0 auto;
 }
 
 .allgames .account {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
 }
 
 .allgames .elipse {
-    width: 151px;
-    height: 151px;
-    border-radius: 50%;
-    background: #C4C4C4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	width: 151px;
+	height: 151px;
+	border-radius: 50%;
+	background: #c4c4c4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .allgames .elipse2 {
-    height: 133px;
-    width: 133px;
-    border-radius: 50%;
-    border: 1px solid #3F3F3F;
-    background: #C4C4C4;
+	height: 133px;
+	width: 133px;
+	border-radius: 50%;
+	border: 1px solid #3f3f3f;
+	background: #c4c4c4;
 }
 
 .allgames .elipse3 {
-    height: 133px;
-    width: 133px;
-    border-radius: 50%;
-    border: 1px solid #3F3F3F;
-    background: #C4C4C4;
-    background-size: contain;
+	height: 133px;
+	width: 133px;
+	border-radius: 50%;
+	border: 1px solid #3f3f3f;
+	background: #c4c4c4;
+	background-size: contain;
+	position: relative;
 }
 
-.allgames .avatar-exist{
-    background-image: url('../img/user.jpg');
+.allgames .avatar-exist {
+	background-image: url('../img/user.jpg');
 }
-
 
 .allgames i {
-    color: #C4C4C4;
-    float: right;
+	color: #c4c4c4;
+	float: right;
 }
 
-.allgames .p1	{
-    font-weight: 500;
-    font-size: 35px;
-    text-align: center;
-    color: #FFFFFF;
-    margin-right: 415px;
-    margin-top: 52px;
+.allgames .p1 {
+	font-weight: 500;
+	font-size: 35px;
+	text-align: center;
+	color: #ffffff;
+	margin-right: 415px;
+	margin-top: 52px;
 }
 
 .allgames .info {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 60px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 60px;
 }
 
-.allgames .info>a {
-    text-decoration: none;
-    font-size: 25px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
+.allgames .info > a {
+	text-decoration: none;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .allgames .comp1 {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-between;
-    background: #262626;
-    border-radius: 20px;
-    width: 863px;
-    height: 184px;
-    border-radius: 20px;
-    padding: 30px 60px 30px 60px;
-    align-items: center;
-    margin-bottom: 23px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	background: #262626;
+	border-radius: 20px;
+	width: 863px;
+	height: 184px;
+	border-radius: 20px;
+	padding: 30px 60px 30px 60px;
+	align-items: center;
+	margin-bottom: 23px;
 }
 
 .allgames .p2 {
-    font-weight: 600;
-    font-size: 35px;
-    color: #3897F1;
-    text-align: center;
-    margin: 0;
+	font-weight: 600;
+	font-size: 35px;
+	color: #3897f1;
+	text-align: center;
+	margin: 0;
 }
 
-.allgames .p2>span {
-    font-size: 25px;
-    color: #FFFFFF;
+.allgames .p2 > span {
+	font-size: 25px;
+	color: #ffffff;
 }
 
 .allgames a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .allgames .btn {
-    width: 321px;
-    height: 113px;
-    background: linear-gradient(90deg, #00D8FD 0%, #A25AFF 100%);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 61px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
+	width: 321px;
+	height: 113px;
+	background: linear-gradient(90deg, #00d8fd 0%, #a25aff 100%);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 61px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
 }
 
-.allgames .p4	{
-    font-weight: 600;
-    font-size: 35px;
-    color: #FFFFFF;
-    margin: 0;
+.allgames .p4 {
+	font-weight: 600;
+	font-size: 35px;
+	color: #ffffff;
+	margin: 0;
 }
 
-.allgames .title2> .top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.allgames .title2 > .top {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.allgames .title2> .top>img {
-    width: 24px;
-    height: 32px;
-    margin-right: 9px;
+.allgames .title2 > .top > img {
+	width: 24px;
+	height: 32px;
+	margin-right: 9px;
 }
 
 .allgames .p5 {
-    font-size: 25px;
-    color: #555555;
-    margin: 0;
+	font-size: 25px;
+	color: #555555;
+	margin: 0;
 }
 
-
 .allgames .comp2 {
-    display: flex;
-    justify-content: space-between;
-    background: #262626;
-    border-radius: 20px;
-    width: 863px;
-    height: 215px;
-    border-radius: 20px;
-    padding: 30px 60px 30px 30px;
-    align-items: center;
-    margin-bottom: 23px;
+	display: flex;
+	justify-content: space-between;
+	background: #262626;
+	border-radius: 20px;
+	width: 863px;
+	height: 215px;
+	border-radius: 20px;
+	padding: 30px 60px 30px 30px;
+	align-items: center;
+	margin-bottom: 23px;
 }
 
 .allgames .comp3 {
-    padding: 30px 50px;
+	padding: 30px 50px;
 }
 
 .allgames .timer {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-    box-sizing: border-box;
-    width: 200px;
-    height: 133px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	box-sizing: border-box;
+	width: 200px;
+	height: 133px;
 }
 
 .allgames ul {
-    padding: 0px;
-    height: 120px;
-    /*width: 43%;*/
-    margin: 0;
+	padding: 0px;
+	height: 120px;
+	/*width: 43%;*/
+	margin: 0;
 }
 
 .allgames hr {
-    width: 100%;
+	width: 100%;
 }
 
 .allgames li {
-    font-size: 25px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-    list-style: none;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	color: #ffffff;
+	list-style: none;
 }
 
 .allgames .blok2 {
-    margin-right: 37px;
+	margin-right: 37px;
 }
 
 .allgames .title3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
-.allgames .title3>img {
-
-    margin-right: 6px;
+.allgames .title3 > img {
+	margin-right: 6px;
 }
 
 .allgames .blok3 {
-    width: 520px;
+	width: 520px;
 }
 
 .allgames .title_ {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .allgames .men_ {
-    width: 24px;
-    height: 32px;
-    margin-right: 9px;
+	width: 24px;
+	height: 32px;
+	margin-right: 9px;
 }
 
 .allgames .btn-2 {
-    width: 100%;
+	width: 100%;
 }
 
 .allgames .p5_ {
-    margin-right: 15px;
+	margin-right: 15px;
 }
 
 .allgames .p6 {
-    font-size: 21px;
-    color: #FFFFFF;
-    margin: 0;
-    margin-right: 28px;
+	font-size: 21px;
+	color: #ffffff;
+	margin: 0;
+	margin-right: 28px;
 }
 
 .allgames .top {
-    display: flex;
+	display: flex;
+	align-items: center;
 }
 
 .allgames iframe {
-    width: 70%;
-    height: 366px;
-    margin: 0 auto;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
+	width: 70%;
+	height: 366px;
+	margin: 0 auto;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 }
-.allgames #file{
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
-
-.allgames #file:hover{
-    cursor: pointer;
-}
-.allgames #userimg{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+.allgames #file {
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
 }
 
+.allgames #file:hover {
+	cursor: pointer;
+}
+.allgames #userimg {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
 
 /* 992-1200px */
-@media screen and (max-width: 1200px){
-    .allgames .container {
-        width: 860px;
-    }
+@media screen and (max-width: 1200px) {
+	.allgames .container {
+		width: 860px;
+	}
 }
 
 /* 768-992px */
-@media screen and (max-width: 992px){
-    .allgames .container {
-        width: 720px;
-    }
+@media screen and (max-width: 992px) {
+	.allgames .container {
+		width: 720px;
+	}
 
-    .allgames .p1 {
-        margin-right: 265px;
-    }
+	.allgames .p1 {
+		margin-right: 265px;
+	}
 
-    .allgames .comp1, .allgames .comp2 {
-        width: 100%;
-    }
+	.allgames .comp1,
+	.allgames .comp2 {
+		width: 100%;
+	}
 }
 
 /* 576-768px */
-@media screen and (max-width: 768px){
-    .allgames .container {
-        width: 540px;
-    }
+@media screen and (max-width: 768px) {
+	.allgames .container {
+		width: 540px;
+	}
 
-    .allgames .comp1 {
-        padding: 30px 15px;
-    }
+	.allgames .comp1 {
+		padding: 30px 15px;
+	}
 
-    .allgames .elipse {
-        width: 133px;
-        height: 133px;
-    }
+	.allgames .elipse {
+		width: 133px;
+		height: 133px;
+	}
 
-    .allgames .elipse3 {
-        height: 120px;
-        width: 120px;
-    }
+	.allgames .elipse3 {
+		height: 120px;
+		width: 120px;
+	}
 
-    .allgames .p1 {
-        margin-right: 130px;
-        font-size: 32px;
-    }
+	.allgames .p1 {
+		margin-right: 130px;
+		font-size: 32px;
+	}
 
-    .allgames .info>a {
-        font-size: 23px;
-    }
+	.allgames .info > a {
+		font-size: 23px;
+	}
 
-    .allgames .p2 {
-        font-size: 32px;
-    }
+	.allgames .p2 {
+		font-size: 32px;
+	}
 
-    .allgames .p2>span {
-        font-size: 23px;
-    }
+	.allgames .p2 > span {
+		font-size: 23px;
+	}
 
-    .allgames .title>img {
-        width: 100px;
-        height: 23.2px;
-    }
+	.allgames .title > img {
+		width: 100px;
+		height: 23.2px;
+	}
 
-    .allgames .btn {
-        width: 265px;
-        font-size: 45px;
-    }
+	.allgames .btn {
+		width: 265px;
+		font-size: 45px;
+	}
 
-    .allgames .p4 {
-        font-size: 32px;
-    }
+	.allgames .p4 {
+		font-size: 32px;
+	}
 
-    .allgames .p5 {
-        font-size: 23px;
-    }
+	.allgames .p5 {
+		font-size: 23px;
+	}
 
-    .allgames .comp2 {
-        padding: 30px 15px;
-    }
+	.allgames .comp2 {
+		padding: 30px 15px;
+	}
 
-    .allgames li {
-        font-size: 23px;
-    }
+	.allgames li {
+		font-size: 23px;
+	}
 
-    .allgames .blok2 {
-        margin-right: 12px;
-    }
+	.allgames .blok2 {
+		margin-right: 12px;
+	}
 
-    .allgames .btn-2 {
-        width: 100%;
-        margin-right: 0;
-    }
+	.allgames .btn-2 {
+		width: 100%;
+		margin-right: 0;
+	}
 }
 
 /* 320-576px */
-@media screen and (max-width: 576px){
-    .allgames .container {
-        width: 310px;
-    }
+@media screen and (max-width: 576px) {
+	.allgames .container {
+		width: 310px;
+	}
 
-    .allgames .elipse {
-        width: 100px;
-        height: 100px;
-    }
+	.allgames .elipse {
+		width: 100px;
+		height: 100px;
+	}
 
-    .allgames .elipse3 {
-        height: 85px;
-        width: 85px;
-    }
+	.allgames .elipse3 {
+		height: 85px;
+		width: 85px;
+	}
 
-    .allgames .p1 {
-        margin-right: 21px;
-        font-size: 25px;
-        margin-top: 40px;
-    }
+	.allgames .p1 {
+		margin-right: 21px;
+		font-size: 25px;
+		margin-top: 40px;
+	}
 
-    .allgames .info {
-        display: block;
-        margin: 0 auto;
-        width: 216px;
-        line-height: 2em;
-    }
+	.allgames .info {
+		flex-direction: column;
+		margin: 0 auto;
+		width: 216px;
+		line-height: 2em;
+	}
 
-    .allgames .info>a {
-        font-size: 20px;
-        margin: 0 5px;
-    }
+	.allgames .info > a {
+		font-size: 20px;
+		margin: 0 5px;
+	}
 
-    .allgames .comp1 {
-        display: block;
-        padding: 0 15px;
-        height: 238px;
-    }
+	.allgames .comp1 {
+		display: block;
+		padding: 0 15px;
+		height: 238px;
+	}
 
-    .allgames .comp2 {
-        display: block;
-        height: 400px;
-    }
+	.allgames .comp2 {
+		display: block;
+		height: 400px;
+	}
 
-    .allgames .timer {
-        margin: 0 auto;
-        width: 225px;
-    }
+	.allgames .timer {
+		margin: 0 auto;
+		width: 225px;
+	}
 
-    .allgames .title2 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	.allgames .title2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-    .allgames .top {
-        margin-right: 10px;
-    }
+	.allgames .top {
+		margin-right: 10px;
+	}
 
-    .allgames .btn {
-        margin: 10px auto 10px;
-        height: 100px;
-        font-size: 39px;
-    }
+	.allgames .btn {
+		margin: 10px auto 10px;
+		height: 100px;
+		font-size: 39px;
+	}
 
-    .allgames .title3 {
-        margin-left: 17px;
-    }
+	.allgames .title3 {
+		margin-left: 17px;
+	}
 
-    .allgames .blok2 {
-        margin: 0 auto;
-    }
+	.allgames .blok2 {
+		margin: 0 auto;
+	}
 
-    .allgames .title3 {
-        margin-left: 17px;
-    }
+	.allgames .title3 {
+		margin-left: 17px;
+	}
 
-    .allgames .title3>img {
-        width: 37px;
-    }
+	.allgames .title3 > img {
+		width: 37px;
+	}
 
-    .allgames .p6 {
-        font-size: 20px;
-    }
+	.allgames .p6 {
+		font-size: 20px;
+	}
 
-    .allgames .p5_ {
-        font-size: 21px;
-    }
+	.allgames .p5_ {
+		font-size: 21px;
+	}
 
-    .allgames .blok3 {
-        width: 100%;
-    }
+	.allgames .blok3 {
+		width: 100%;
+	}
 
-    .allgames .info {
-        margin: 15px auto;
-        text-align: center;
-    }
+	.allgames .info {
+		margin: 15px auto;
+		text-align: center;
+	}
 
+	.allgames .title2 > .top > img {
+		width: 22px;
+		height: 30px;
+	}
 
-    .allgames .title2> .top>img {
-        width: 22px;
-        height: 30px;
-    }
+	.allgames .p4 {
+		font-size: 30px;
+	}
 
-    .allgames .p4 {
-        font-size: 30px;
-    }
-
-    .allgames .title>img {
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        margin: 0 auto;
-    }
+	.allgames .title > img {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		margin: 0 auto;
+	}
 }
-
-

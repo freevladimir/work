@@ -98,7 +98,7 @@ export const AuthPage = () => {
 							<button type="submit" className="btn" onClick={registerHandler} disabled={loading}>
 								Sign in
 							</button>
-							<div className="register">
+							<div className="links">
 								<a href="/restore-password" className="forget">
 									Forget Password
 								</a>

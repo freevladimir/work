@@ -1,163 +1,166 @@
-import React, {useContext, useEffect, useState} from 'react'
-import {useHttp} from "../hooks/http.hook"
-import {useMessage} from "../hooks/message.hook"
-import {AuthContext} from "../context/AuthContext"
-import '../css/main.css'
+import React, { useEffect, useState } from 'react';
+import { useHttp } from '../hooks/http.hook';
+import '../css/main.css';
+import '../css/preloader.css';
 
-export const StartPage = ()=> {
-    return (
-        <div className="row startpage">
+export const StartPage = () => {
+	const languages = [
+		{ lang: 'german', margin: 205 },
+		{ lang: 'russian', margin: 185 },
+		{ lang: 'spanish', margin: 205 },
+		{ lang: 'english', margin: 245 },
+		{ lang: 'chinese', margin: 160 },
+	];
+	const [currentLanguage, setCurrentLanguage] = useState(null);
+	const { request } = useHttp();
+	const changeLanguage = async (lang) => {
+		if (currentLanguage === null || lang !== currentLanguage.language) {
+			try {
+				const data = await request(`/api/language/${lang}`);
+				if (data.ok) setCurrentLanguage(data.result);
+			} catch (err) {
+				console.error(err);
+			}
+		}
+	};
+	useEffect(() => {
+		changeLanguage('russian');
+	}, []);
+	if (currentLanguage === null)
+		return (
+			<div className="holder">
+				<div className="preloader">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		);
+	return (
+		<div className="row startpage">
+			<header className="header" id="header">
+				<div className="container">
+					<div className="logo">
+						<img src={require('../img/img1.png')} alt="logo" />
+					</div>
 
-            <header className="header" id="header">
-                <div className="container">
+					<div className="buttons">
+						<a className="entrance" href="/register">
+							Create new
+						</a>
+						<a className="login" href="/login">
+							Login
+						</a>
+					</div>
+					<div className="video">
+						<iframe src="https://www.youtube.com/embed/PkkV1vLHUvQ"></iframe>
+					</div>
+				</div>
+			</header>
 
-                    <div className="logo">
-                        <img src={require("../img/img1.png")} alt="logo"/>
-                    </div>
-
-                    <div className="buttons">
-                    <a className="entrance" href="/register">
-                        Create new
-                    </a>
-                        <a className="login" href="/login">
-                            Login
-                        </a>
-                    </div>
-                    <div className="video">
-                        <iframe
-                            src="https://www.youtube.com/embed/PkkV1vLHUvQ">
-                        </iframe>
-                    </div>
-                </div>
-            </header>
-
-            <section className="section1" id="section1">
-                <div className="container">
-                    <div className="div"></div>
-                    <h2>
-                        КАК ЭТО РАБОТАЕТ
-                    </h2>
-                    <div className="work">
-                        <div className="left">
-                            <p className="p1">
-                                Децентрализованная блок чейн лотерея На смарт контракте с гарантированными большими
-                                выигрышами
-                            </p>
-                            <p className="p2">
-                                Суперигра будет проходить каждый месяц и каждый год <br/>Где сумма выигрыша могут превысить
-                                более
-                                500 000$
-                            </p>
-                            <p className="p3">
-                                Рандомным образом смарт контракт выберет одного если участников менее 10 или двух
-                                победителей если участников более 10 и автоматически распределит средства победителям
-                            </p>
-                        </div>
-                        <img src={require("../img/section1.png")} alt="work"/>
-                        <div className="right">
-                            <p className="p1">
-                                Розыгрыши проводятся каждые 5 мин каждый час каждые три часа и так далее
-                            </p>
-                            <p className="p2">
-                                Приобретая билет вы получаете номер в списке участников из таких же участников как и вы
-                            </p>
-                            <p className="p3">
-                                В 7top вы можете собрать множество реферальных друзей и получать 5 % от выигрыша вашего
-                                реферального друга
-                            </p>
-                        </div>
-                    </div>
-                    <div className="work_">
-                        <p className="p1">
-                            Децентрализованная блок чейн лотерея<br/> На смарт контракте с гарантированными<br/> большими выигрышами
-                        </p>
-                        <p className="p2">
-                            Розыгрыши проводятся каждые 5 мин каждый<br/> час каждые три часа и так далее
-                        </p>
-                        <p className="p1">
-                            Суперигра будет проходить каждый месяц и<br/> каждый год Где сумма выигрыша могут<br/> превысить более 500 000$
-                        </p>
-                        <p className="p2">
-                            Приобретая билет вы получаете номер в списке<br/> участников из таких же участников как и вы
-                        </p>
-                        <p className="p1">
-                            Рандомным образом смарт контракт выберет<br/> одного если участников менее 10 или двух<br/> победителей если участников более 10 и<br/> автоматически распределит средства<br/> победителям
-                        </p>            
-                        <p className="p2">
-                            В 7top вы можете собрать множество реферальных друзей и получать 5 % от выигрыша вашего реферального друга
-                        </p>
-                    </div>
-                    <div className="div2"></div>
-                </div>
-            </section>
-            <section className="section2" id="section2">
-                <div className="container">
-                    <h2>
-                        ПРЕИМУЩЕСТВА
-                    </h2>
-                    <div className="priem">
-                        <div className="top">
-                            <p className="p1">
-                                Абсолютно нет рисков
-                            </p>
-
-                            <p className="p2">
-                                Открытый код смарт-контракта выложен на блокчейн Ethereum. Криптовалюта − международна и
-                                децентрализована
-                            </p>
-
-                            <p className="p3">
-                                Моментальные выплаты, обман исключен
-                            </p>
-                        </div>
-                        <div className="bottom">
-                            <p className="p1">
-                                Кошельки анонимны Все транзакции 100% с кошельков участников.
-                            </p>
-
-                            <p className="p2">
-                                Невозможно изменить алгоритм или удалить кабинеты участников.
-                            </p>
-                            <p className="p3">
-                                Смарт-контракт простой
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="section3" id="section3">
-                <div className="container">
-                    <div className="icon">
-                        <a href="#" className="telegram">
-                            <i className="fa fa-telegram" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" className="fb">
-                            <i className="fa fa-facebook-official" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" className="tube">
-                            <i className="fa fa-youtube-play" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div className="nav">
-                        <a href="#">
-                            Условия использования
-                        </a>
-                        <a href="#">
-                            Адрес
-                        </a>
-                        <a href="#">
-                            Открытый источник
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <footer className="footer" id="footer">
-                <div className="container">
-                    <p className="footer-text">
-                        Адрес смарт-контракта: 7top
-                    </p>
-                </div>
-            </footer>
-        </div>
-    )
-}
+			<section className="section1" id="section1">
+				<div className="container">
+					<div className="languages">
+						<ul>
+							{languages.map((obj, i) => (
+								<li key={i} onClick={() => changeLanguage(obj.lang)}></li>
+							))}
+						</ul>
+					</div>
+					<div className="div"></div>
+					<h2>{currentLanguage.translation.header.text}</h2>
+					<div className="work">
+						<div className="left">
+							{currentLanguage.translation.header.left.map((text, i) => (
+								<p key={i} className={'p' + (i + 1)}>
+									{text}
+								</p>
+							))}
+						</div>
+						<img
+							src={currentLanguage.language === 'chinese' ? require('../img/section2.png') : require('../img/section1.png')}
+							alt="work"
+						/>
+						<div className="right">
+							{currentLanguage.translation.header.right.map((text, i) => (
+								<p
+									key={i}
+									className={'p' + (i + 1)}
+									style={i === 2 ? { marginTop: languages.filter((o) => o.lang === currentLanguage.language)[0].margin } : {}}
+								>
+									{text}
+								</p>
+							))}
+						</div>
+					</div>
+					<div className="work_">
+						{currentLanguage.translation.header.left.map((text, i) => {
+							return [
+								<p key={i} className="p1">
+									{text}
+								</p>,
+								<p key={i + 1} className="p2">
+									{currentLanguage.translation.header.right[i]}
+								</p>,
+							];
+						})}
+					</div>
+					<div className="div2"></div>
+				</div>
+			</section>
+			<section className="section2" id="section2">
+				<div className="container">
+					<h2>{currentLanguage.translation.guarantee.text}</h2>
+					<div className="priem">
+						<div className="top">
+							{currentLanguage.translation.guarantee.left.map((text, i) => (
+								<div key={i}>
+									<p className={'p' + (i + 1)}>{text}</p>
+								</div>
+							))}
+						</div>
+						<div className="bottom">
+							{currentLanguage.translation.guarantee.right.map((text, i) => (
+								<div key={i}>
+									<p className={'p' + (i + 1)}>{text}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+			<section className="section3" id="section3">
+				<div className="container">
+					<div className="icon">
+						<a href="#" className="telegram">
+							<i className="fa fa-telegram" aria-hidden="true"></i>
+						</a>
+						<a href="#" className="fb">
+							<i className="fa fa-facebook-official" aria-hidden="true"></i>
+						</a>
+						<a href="#" className="tube">
+							<i className="fa fa-youtube-play" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div className="nav">
+						<a href="#">Условия использования</a>
+						<a href="#">Адрес</a>
+						<a href="#">Открытый источник</a>
+					</div>
+				</div>
+			</section>
+			<footer className="footer" id="footer">
+				<div className="container">
+					<p className="footer-text">Адрес смарт-контракта: 7top</p>
+				</div>
+			</footer>
+		</div>
+	);
+};
