@@ -1,5 +1,4 @@
-import React, { createContext } from 'react';
-import { observer, Provider } from 'mobx-react';
+import React from 'react';
 import { store } from './store/store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useRoutes } from './routes';
@@ -24,10 +23,7 @@ function App() {
 			}}
 		>
 			<AppStoreContext.Provider value={store}>
-				<Router>
-					{isAuthenticated}
-					{routes}
-				</Router>
+				<Router>{routes}</Router>
 			</AppStoreContext.Provider>
 		</AuthContext.Provider>
 	);

@@ -4,6 +4,8 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hook';
 import { ImageUpload } from '../components/Upload';
+import { getProfilePic } from '../utils/functions';
+import { userImg } from './AllGamesPage';
 
 export const FriendsPage = () => {
 	const { token } = useContext(AuthContext);
@@ -12,7 +14,6 @@ export const FriendsPage = () => {
 	const history = useHistory();
 	const [name, setName] = useState([]);
 	const [friends, setFriends] = useState([]);
-	const [img, setImg] = useState([]);
 	const [countOfFriends, setAllFriends] = useState([]);
 	const [countOfUsers, setUsers] = useState([]);
 
@@ -23,8 +24,6 @@ export const FriendsPage = () => {
 			});
 			setName(fetched[0].name);
 			console.log('data on allgames: ', fetched);
-			let _img = require(`../avatars/${fetched[0]._id}.jpg`);
-			setImg(_img);
 		} catch (e) {}
 	}, [token, request]);
 
@@ -68,23 +67,14 @@ export const FriendsPage = () => {
 	};
 	return (
 		<div className="friends">
-			<header className="hedaer" id="header">
+			<header className="header" id="header">
 				<div className="container">
 					<div className="account">
 						<NavLink to="/allgames">
 							<img className="left" src={require('../img/left.png')} alt="left" />
 						</NavLink>
 						<div className="elipse">
-							{img.length > 0 ? (
-								<div className="elipse3">
-									<input className="fileInput" name="avatar" id="fileInput" />
-									<div className="imgPreview">
-										<img src={img} />
-									</div>
-								</div>
-							) : (
-								<ImageUpload />
-							)}
+							<ImageUpload profilePic={userImg.img} token={token} />
 						</div>
 						<p className="p1">{name}</p>
 						<a href="/" onClick={logoutHandler}>
@@ -92,9 +82,15 @@ export const FriendsPage = () => {
 						</a>
 					</div>
 					<div className="info">
-						<NavLink to="/friends">{countOfFriends} My friends</NavLink>
-						<NavLink to="/people">{countOfUsers} All</NavLink>
-						<input type="text" id="myInput" placeholder="Search for names.." title="Type in a name" />
+						<div className="links">
+							<NavLink to="/friends">{countOfFriends} My friends</NavLink>
+							<NavLink to="/people">{countOfUsers} All</NavLink>
+						</div>
+						<a href="https://t.me/joinchat/HSApdhx_OO301lltbkyfhw" className="chat" target="_blank">
+							<i className="fa fa-telegram" aria-hidden="true"></i>
+							<span>Telegram chat</span>
+						</a>
+						{/* <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name" /> */}
 					</div>
 				</div>
 			</header>
@@ -102,10 +98,10 @@ export const FriendsPage = () => {
 			<section>
 				<div className="container">
 					{friends.map((item, index) => (
-						<div className="comp">
+						<div className="comp" key={index}>
 							<div className="elipse_">
 								<div className="elipse3_">
-									<img src={require(`../avatars/${item._id}.jpg`)} />
+									<img src={getProfilePic(item._id)} />
 								</div>
 							</div>
 							<div className="text">

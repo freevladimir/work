@@ -50,12 +50,37 @@ body {
 }
 
 .people .elipse3 {
-	height: 133px;
-	width: 133px;
+	height: 138px;
+	width: 138px;
 	border-radius: 50%;
 	border: 1px solid #3f3f3f;
 	background: #c4c4c4;
 	position: relative;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+.people .elipse3 img {
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
+}
+
+.people .info .chat {
+	background: transparent;
+	padding: 10px 20px;
+	border-radius: 10px;
+	width: 240px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.people .info .chat i {
+	float: none;
+	color: #fff;
 }
 
 .people .elipse_ {
@@ -69,16 +94,22 @@ body {
 }
 
 .people .elipse3_ {
-	height: 133px;
-	width: 133px;
+	height: 138px;
+	width: 138px;
 	border-radius: 50%;
 	border: 1px solid #3f3f3f;
 	background: #c4c4c4;
 	overflow: hidden;
+	display: flex;
+	align-content: stretch;
+	align-items: stretch;
 }
 
 .people .elipse3_ img {
-	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 .people i {
@@ -102,6 +133,12 @@ body {
 	align-items: center;
 }
 
+.people .links {
+	display: flex;
+	justify-content: space-between;
+	width: 45%;
+}
+
 .people .info a {
 	text-decoration: none;
 	font-size: 25px;
@@ -120,7 +157,7 @@ body {
 	background-position: 8px 7px;
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
-	margin-bottom: 12px;
+	margin: 0;
 	font-size: 20px;
 	line-height: 24px;
 	color: #555555;
@@ -209,10 +246,6 @@ a {
 
 /* 576-768px */
 @media screen and (max-width: 768px) {
-	body {
-		/*        padding: 45px 0 35px;*/
-	}
-
 	.people .container {
 		width: 540px;
 	}
@@ -227,8 +260,8 @@ a {
 	}
 
 	.people .elipse3 {
-		height: 120px;
-		width: 120px;
+		height: 125px;
+		width: 125px;
 	}
 
 	.people .elipse_ {
@@ -237,8 +270,8 @@ a {
 	}
 
 	.people .elipse3_ {
-		width: 85px;
-		height: 85px;
+		width: 93px;
+		height: 93px;
 	}
 
 	.people .p1 {
@@ -275,14 +308,20 @@ a {
 		width: 310px;
 	}
 
+	.people .info .chat {
+		width: 100%;
+		padding: 0 20px;
+		justify-content: space-around;
+	}
+
 	.people .elipse {
 		width: 90px;
 		height: 90px;
 	}
 
 	.people .elipse3 {
-		height: 75px;
-		width: 75px;
+		height: 82px;
+		width: 82px;
 	}
 
 	.people .elipse_ {
@@ -291,8 +330,8 @@ a {
 	}
 
 	.people .elipse3_ {
-		width: 60px;
-		height: 60px;
+		width: 70px;
+		height: 70px;
 	}
 
 	.people .account {
@@ -325,9 +364,13 @@ a {
 	}
 
 	.people .info {
-		flex-direction: column;
 		padding: 0 37px;
 		margin-bottom: 25px;
+		flex-direction: column;
+	}
+
+	.people .info .links {
+		width: 100%;
 	}
 
 	.people .info a {

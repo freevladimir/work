@@ -4,6 +4,8 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hook';
 import { ImageUpload } from '../components/Upload';
+import { getProfilePic } from '../utils/functions';
+import { userImg } from './AllGamesPage';
 
 export const PeoplePage = () => {
 	const { token } = useContext(AuthContext);
@@ -12,9 +14,10 @@ export const PeoplePage = () => {
 	const history = useHistory();
 	const [name, setName] = useState([]);
 	const [users, setUsers] = useState([]);
-	const [img, setImg] = useState([]);
 	const [countOfFriends, setFriends] = useState([]);
 	const [countOfUsers, setAllUsers] = useState([]);
+	const [avatars, setAvatars] = useState([]);
+	const reader = new FileReader();
 
 	const getUserData = useCallback(async () => {
 		try {
@@ -22,8 +25,6 @@ export const PeoplePage = () => {
 				Authorization: `Bearer ${token}`,
 			});
 			setName(fetched[0].name);
-			let _img = require(`../avatars/${fetched[0]._id}.jpg`);
-			setImg(_img);
 			console.log('data on allgames: ', fetched);
 		} catch (e) {}
 	}, [token, request]);
@@ -58,6 +59,14 @@ export const PeoplePage = () => {
 		setAllUsers(result.allUsers);
 		setFriends(result.friends);
 		setUsers(result.allUsers2);
+		for (const user of result.allUsers2) {
+			const blob = await getProfilePic(user._id);
+			reader.onload = function () {
+				const avatar = this.result;
+				setAvatars((avatars) => [...avatars, avatar]);
+			};
+			reader.readAsDataURL(blob);
+		}
 	}, [request]);
 
 	// useEffect(() => {
@@ -77,16 +86,7 @@ export const PeoplePage = () => {
 							<img className="left" src={require('../img/left.png')} alt="left" />
 						</NavLink>
 						<div className="elipse">
-							{img.length > 0 ? (
-								<div className="elipse3">
-									<input className="fileInput" name="avatar" id="fileInput" />
-									<div className="imgPreview">
-										<img src={img} />
-									</div>
-								</div>
-							) : (
-								<ImageUpload />
-							)}
+							<ImageUpload profilePic={userImg.img} token={token} />
 						</div>
 						<p className="p1">{name}</p>
 						<a href="/" onClick={logoutHandler}>
@@ -94,9 +94,15 @@ export const PeoplePage = () => {
 						</a>
 					</div>
 					<div className="info">
-						<NavLink to="/friends">{countOfFriends} My friends</NavLink>
-						<NavLink to="/people">{countOfUsers} All</NavLink>
-						<input type="text" id="myInput" placeholder="Search for names.." title="Type in a name" />
+						<div className="links">
+							<NavLink to="/friends">{countOfFriends} My friends</NavLink>
+							<NavLink to="/people">{countOfUsers} All</NavLink>
+						</div>
+						<a href="https://t.me/joinchat/HSApdhx_OO301lltbkyfhw" className="chat" target="_blank">
+							<i className="fa fa-telegram" aria-hidden="true"></i>
+							<span>Telegram chat</span>
+						</a>
+						{/* <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name" /> */}
 					</div>
 				</div>
 			</header>
@@ -106,7 +112,7 @@ export const PeoplePage = () => {
 						<div className="comp" key={index}>
 							<div className="elipse_">
 								<div className="elipse3_">
-									<img src={require(`../avatars/${item._id}.jpg`)} />
+									<img src={avatars[index]} />
 								</div>
 							</div>
 							<div className="text">

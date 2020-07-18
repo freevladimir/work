@@ -8,8 +8,8 @@ body {
 	/*    padding: 83px 0;*/
 }
 .game .slider {
-	height: 120px;
-	margin-bottom: 40px;
+	height: 12em;
+	margin-bottom: 4em;
 }
 .game #videoBG {
 	position: fixed;
@@ -323,7 +323,8 @@ body {
 }
 
 .game {
-	padding: 45px 0 60px;
+	padding: 4.5em 0 0;
+	font-size: 10px;
 }
 
 .game #dataForSend {
@@ -338,10 +339,11 @@ body {
 	border-radius: 20px;
 	color: #fff;
 	z-index: 1;
+	font-size: 15px;
 }
 
 #dataForSend input {
-	padding-right: 15px;
+	padding-right: 1.5em;
 }
 
 #dataForSend p {
@@ -360,19 +362,23 @@ body {
 }
 
 .game .container {
-	width: 860px;
+	width: 86em;
 	margin: 0 auto;
 }
 
 .game .account {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 10px;
+	margin-bottom: 1em;
+}
+
+.game .account > a {
+	font-size: 2em;
 }
 
 .game .elipse {
-	width: 151px;
-	height: 151px;
+	width: 15.1em;
+	height: 15.1em;
 	border-radius: 50%;
 	background: #c4c4c4;
 	display: flex;
@@ -380,127 +386,140 @@ body {
 	align-items: center;
 }
 
-.game .elipse2 {
-	height: 133px;
-	width: 133px;
-	border-radius: 50%;
-	border: 1px solid #3f3f3f;
-	background: #c4c4c4;
-	overflow: hidden;
-}
-
 .game .avatar img {
-	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 .game .elipse3 {
-	height: 133px;
-	width: 133px;
+	height: 13.8em;
+	width: 13.8em;
 	border-radius: 50%;
 	border: 1px solid #3f3f3f;
 	background: #c4c4c4;
 	position: relative;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+.game .elipse3 img {
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 .game i {
 	color: #c4c4c4;
 	float: right;
-	margin-top: 15px;
+	font-size: 2em;
 }
 
-.game .fa-times-circle {
+.game #dataForSend .fa-times-circle {
 	margin-top: initial;
 }
 
 #dataForSend i {
 	font-size: 1.2em;
+	margin-top: 15px;
 }
 
 .game i:hover {
 	cursor: pointer;
 }
 
+.game .profile {
+	display: flex;
+	width: 80%;
+	align-items: center;
+}
+
 .game .p1 {
 	font-weight: 500;
-	font-size: 35px;
+	font-size: 3.5em;
 	text-align: center;
 	color: #ffffff;
-	margin-right: 415px;
-	margin-top: 52px;
+	margin-left: 1.5em;
 }
 
 .game .info {
 	display: flex;
 	justify-content: space-around;
+	font-size: 1em;
+	margin: 2.5em 0;
 }
 
 .game .info > a {
 	text-decoration: none;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
 }
 
 .game .p2 {
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
 }
 
 .game .timer {
 	width: 100%;
-	height: 339px;
+	height: 33.9em;
 	background: #262626;
-	border-radius: 20px;
+	border-radius: 2em;
 }
 
 .game .timer {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: space-around;
-	padding: 19px 33px;
+	padding: 1.9em 3.3em;
 	box-sizing: border-box;
 }
 
 .game ul {
 	padding: 0px;
-	height: 320px;
+	height: 32em;
 }
 
 .game li {
 	list-style: none;
 	font-weight: 600;
-	font-size: 35px;
-	line-height: 42px;
+	font-size: 3.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
 	width: 100%;
 }
 
 .game hr {
-	width: 263px;
+	width: 26.3em;
 }
 
 .game .p3 {
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
 	margin-bottom: 2px;
 }
 
+.game .title > p {
+	display: flex;
+	flex-direction: column;
+}
+
 .game .sum-total {
 	background: #262626;
-	border: 4px solid #555555;
+	border: 0.4em solid #555555;
 	box-sizing: border-box;
-	border-radius: 20px;
-	width: 861px;
-	height: 127px;
+	border-radius: 2em;
+	width: 100%;
+	height: 12.7em;
 	text-align: center;
 }
 
@@ -517,54 +536,55 @@ body {
 }
 
 .game .total-info > img {
-	margin-left: 88px;
+	margin-left: 8.8em;
 	position: absolute;
 }
 
 .game .p4 {
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #555555;
 	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
 }
 
 .game .p4 > span {
 	font-weight: 600;
-	font-size: 50px;
-	line-height: 61px;
+	font-size: 2em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #3897f1;
 }
 
 .game .p5 {
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
-	margin: 10px 0;
-	margin-left: 20px;
-	padding-right: 125px;
+	margin: 0.4em 0;
+	margin-left: 0.8em;
+	padding-right: 5em;
 }
 
 .game .slider-title {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 3em;
 }
 
 .game .item {
-	width: 257px;
-	height: 123px;
+	width: 7.34em;
+	height: 3.51em;
 	background: linear-gradient(90deg, #00d8fd 0%, #a25aff 100%);
-	border-radius: 20px;
+	border-radius: 0.57em;
 	font-weight: 600;
-	font-size: 35px;
-	line-height: 42px;
+	font-size: 3.5em;
+	line-height: 1.2em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -578,7 +598,7 @@ body {
 }
 
 .game .slick-slide {
-	padding: 30px 15px;
+	padding: 3em 1.5em;
 }
 
 /*.game .slick-next, .game .slick-prev {*/
@@ -588,39 +608,35 @@ body {
 .game .section22 {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 20px;
+	margin-top: 2em;
 }
 
 .game .participants {
-	width: 454px;
-	height: 719px;
+	width: 45.4em;
+	height: 71.9em;
 	background: #262626;
-	border-radius: 20px;
-	padding: 20px 0 10px;
+	border-radius: 2em;
+	padding: 2em 0 1em;
 }
 
 .game .title {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: center;
 	text-align: center;
 	align-items: center;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	text-align: center;
 	color: #ffffff;
 }
 
 .game .title > img {
-	margin-right: 35px;
+	margin-right: 1.4em;
 }
 
 .game .title > p {
 	border-bottom: 1px solid #e5e5e5;
-	padding-bottom: 15px;
+	padding-bottom: 0.6em;
 }
 
 .game .title span {
@@ -629,28 +645,28 @@ body {
 
 .game .accounts {
 	overflow: scroll;
-	height: 550px;
+	height: 55em;
 	margin: 0 auto;
-	width: 380px;
+	width: 38em;
 	overflow-x: hidden;
 }
 
 .game .accounts > div {
 	display: flex;
 	justify-content: flex-start;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	color: #ffffff;
-	margin-bottom: 25px;
+	margin-bottom: 1em;
 }
 
 .game .p6 {
-	margin-right: 25px;
+	margin-right: 1em;
 }
 
 .game .status {
-	font-size: 20px;
-	line-height: 24px;
+	font-size: 2em;
+	line-height: 1.2em;
 	color: #555555;
 	margin: 5px 0;
 }
@@ -660,32 +676,33 @@ body {
 }
 
 .game .avatar {
-	width: 89.44px;
-	height: 89.44px;
+	width: 3.5776em;
+	height: 3.5776em;
 	background: #c4c4c4;
 	border-radius: 50%;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 15px;
+	margin-right: 0.6em;
 }
 
 .game .elipse2 {
 	border: 1px solid #3f3f3f;
 	border-radius: 50%;
-	width: 79.41px;
-	height: 79.41px;
+	width: 3.1764em;
+	height: 3.1764em;
+	background: #c4c4c4;
+	overflow: hidden;
+	display: flex;
+	align-content: stretch;
+	align-items: stretch;
 }
 
 .game .tickets {
-	height: 719px;
-	width: 361px;
+	height: 71.9em;
+	width: 36.1em;
 	background: #262626;
-	border-radius: 20px;
+	border-radius: 2em;
 }
 
 .game .tickets > a {
@@ -693,44 +710,40 @@ body {
 }
 
 .game .btn {
-	height: 123px;
+	height: 3.51em;
 	width: 100%;
 	background: linear-gradient(90deg, #00d8fd 0%, #a25aff 100%);
-	border-radius: 20px;
+	border-radius: 0.57em;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
-	font-size: 35px;
-	line-height: 42px;
+	font-size: 3.5em;
+	line-height: 1.2em;
 	color: #ffffff;
 }
 
 .game .ticket-title {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-left: 20px;
-	width: 222px;
+	margin-left: 2em;
+	width: 22.2em;
 	border-bottom: 2px solid #555555;
-	margin-bottom: 15px;
+	margin-bottom: 1.5em;
 }
 
 .game .ticket-title > img {
-	margin-right: 14px;
+	margin-right: 1.4em;
 }
 
 .game .tickets_ {
-	padding: 0 20px 15px;
+	padding: 0 2em;
 	overflow: scroll;
 	overflow-x: hidden;
-	height: 165px;
-	margin: 0 auto 15px;
+	height: 16.5em;
+	margin: 0 auto;
 }
 
 .game hr {
@@ -740,23 +753,26 @@ body {
 
 .game .p8 {
 	font-weight: 600;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	color: #ffffff;
-	margin-right: 15px;
+	margin-right: 0.6em;
 }
 
 .game .p9 {
 	font-weight: 600;
-	font-size: 35px;
-	line-height: 42px;
+	font-size: 3.5em;
+	line-height: 1.2em;
 	color: #3897f1;
+	display: flex;
+	align-items: center;
 }
 
 .game .p9 > span {
-	font-size: 20px;
-	line-height: 24px;
+	font-size: 0.57em;
+	line-height: 1.2em;
 	color: #555555;
+	margin-left: 0.6em;
 }
 
 .game .tickets_ > div > p {
@@ -765,121 +781,112 @@ body {
 }
 
 .game .tickets_ > div {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 2em;
 }
 
 .game .p7 {
 	font-weight: 600;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	color: #ffffff;
-	margin: 20px 0;
+	margin: 0.8em 0;
 }
 
 .game .winners {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-left: 20px;
+	margin-left: 2em;
 	border-bottom: 2px solid #555555;
-	width: 240px;
-	margin-bottom: 20px;
+	width: 24em;
+	margin-bottom: 2em;
 }
 
 .game .winners > img {
-	margin-right: 15px;
+	margin-right: 1.5em;
+}
+
+.game .account > a {
+	display: flex;
+	align-items: center;
 }
 
 .game .p10 {
 	font-weight: 600;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	color: #ffffff;
 }
 
 .game .winners_ {
-	padding: 0 20px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
+	padding: 0 2em;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-bottom: 10px;
+	margin-bottom: 1em;
 }
 
 .game .p11 {
 	font-weight: 600;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	color: #ffffff;
 	margin: 0 auto;
 }
 
 .game .p12 {
-	font-size: 20px;
-	line-height: 24px;
+	font-size: 2em;
+	line-height: 1.2em;
 	color: #555555;
 	margin: 0;
 }
 
 .game .p12 > span {
 	font-weight: 600;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 1.25em;
+	line-height: 0.6em;
 	color: #18a0fb;
 	margin: 0;
 }
 
 .game .place {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
 
 .game .avatar-win {
-	width: 53px;
-	height: 53px;
+	width: 5.3em;
+	height: 5.3em;
 	border-radius: 50%;
 	background: #c4c4c4;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 10px;
+	margin-right: 1em;
 }
 
 .game .elipse4 {
-	width: 47.06px;
-	height: 47.06px;
+	width: 4.706em;
+	height: 4.706em;
 	background: #c4c4c4;
 	border: 2px solid #3f3f3f;
 	box-sizing: border-box;
 	border-radius: 50%;
 	overflow: hidden;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
 }
 
 .game .elipse4 img {
-	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -898,367 +905,97 @@ body {
 
 /* 992-1200px */
 @media screen and (max-width: 1200px) {
-	.game .container {
-		width: 860px;
-	}
-
-	.game .slider {
-		margin-bottom: 50px;
+	.game {
+		font-size: 9px;
 	}
 }
 
 /* 768-992px */
 @media screen and (max-width: 992px) {
-	.game .container {
-		width: 720px;
-	}
-
-	.game .body {
-		/*        padding: 45px 0;*/
-	}
-
-	.game .p1 {
-		margin-right: 265px;
-	}
-
-	.game .sum-total {
-		width: 100%;
-	}
-
-	.game .p4 {
-		padding: 0 100px;
-	}
-
-	.game .item {
-		width: 205px;
-	}
-
-	.game .participants {
-		width: 390px;
-		margin-right: 20px;
-		padding: 20px 12px 10px;
-	}
-
-	.game .tickets {
-		width: 375px;
-	}
-
-	.game .winners_ {
-		padding: 0 11px;
-		margin-bottom: 15px;
+	.game {
+		font-size: 8px;
 	}
 }
 
 /* 576-768px */
 @media screen and (max-width: 768px) {
-	.game .slick-slide {
-		padding: 30px 5px;
-	}
-	.game .item {
-		line-height: inherit;
-	}
-	.game .container {
-		width: 540px;
+	.game {
+		font-size: 7px;
 	}
 
-	.game .slick-title {
-		width: 1000px;
+	.game img.left {
+		width: 4.5em;
 	}
 
-	body {
-		padding: 65px 0;
-	}
-
-	.game .elipse {
-		width: 133px;
-		height: 133px;
-	}
-
-	.game .elipse3 {
-		height: 120px;
-		width: 120px;
-	}
-
-	.game .p1 {
-		margin-right: 130px;
-		font-size: 32px;
-	}
-
-	.game .info > a {
-		font-size: 23px;
-	}
-
-	.game .p2 {
-		font-size: 24px;
-		margin: 15px 0;
-	}
-
-	.game .timer {
-		padding: 13px 25px;
-	}
-
-	.game li {
-		font-size: 33px;
-	}
-
-	.game .p3 {
-		font-size: 24px;
-		margin: 15px 0 5px;
-	}
-
-	.game .p4 {
-		padding: 0 54px;
-		font-size: 23px;
-	}
-
-	.game .p4 > span {
-		font-size: 46px;
+	.game .slider-title > img {
+		width: 18em;
 	}
 
 	.game .total-info > img {
-		margin-left: 55px;
+		width: 6.5em;
 	}
 
-	.game .p5 {
-		font-size: 24px;
+	.game .title > img {
+		width: 1.5em;
 	}
 
-	.game .slider {
-		margin-bottom: 10px;
+	.game .ticket-title > img {
+		width: 4.5em;
 	}
 
-	.game .item {
-		width: 165px;
-		height: 100px;
-		font-size: 33px;
+	.game .winners > img {
+		width: 4.5em;
 	}
 
-	.game .section22 {
-		display: block;
-	}
-
-	.game .participants {
-		width: 475px;
-		margin: 0 auto 50px;
-	}
-
-	.game .tickets {
-		margin: 0 auto;
-		width: 350px;
-	}
-
-	.game .winners_ {
-		padding: 0 32px;
+	.game .place > img {
+		width: 5.5em;
 	}
 }
 
 /* 320-576px */
 @media screen and (max-width: 576px) {
+	.game {
+		font-size: 5.5px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.game {
+		font-size: 4.68px;
+	}
+
 	.game .container {
-		width: 310px;
-	}
-
-	.game .slick-title {
-		width: 1000px;
-	}
-
-	body {
-		padding: 45px 0;
-	}
-
-	.game .elipse {
-		width: 100px;
-		height: 100px;
-	}
-
-	.game .elipse3 {
-		height: 85px;
-		width: 85px;
-	}
-
-	.game .p1 {
-		margin-right: 21px;
-		font-size: 25px;
-		margin-top: 40px;
+		width: 78em;
 	}
 
 	.game .info {
-		flex-direction: column;
-		margin: 0 auto;
-		width: 216px;
-		line-height: 2em;
-		text-align: center;
-	}
-
-	.game .info > a {
-		font-size: 20px;
-		margin: 0 5px;
-	}
-
-	.game .p2 {
-		font-size: 22px;
-		margin: 13px 0;
-	}
-
-	.game .timer {
-		padding: 13px 0;
-		height: 305px;
-	}
-
-	.game .p3 {
-		font-size: 22px;
-		margin: 13px 0 10px;
-	}
-
-	.game .total-info > img {
-		width: 50px;
-		height: 60px;
-		margin-left: 30px;
-		position: relative;
-	}
-
-	.game .p4 {
-		padding: 0 20px;
-		font-size: 22px;
-	}
-
-	.game .p4 > span {
-		font-size: 28px;
-	}
-
-	.game li {
-		font-size: 25px;
-		line-height: 37px;
-	}
-
-	.game .item {
-		width: 65px;
-		height: 75px;
-		font-size: 23px;
-	}
-
-	.game .p5 {
-		font-size: 22px;
-		padding-right: 0;
+		font-size: 1.2em;
 	}
 
 	.game .participants {
-		width: 100%;
-		margin: 0px auto 45px;
-		padding: 10px 17px;
-		height: 645px;
-	}
-
-	.game .title {
-		font-size: 22px;
-	}
-
-	.game .title > img {
-		width: 34px;
-		height: 44.4px;
-		margin-right: 15px;
-	}
-
-	.game .accounts > div {
-		font-size: 22px;
-	}
-
-	.game .p6 {
-		margin-right: 20px;
-	}
-
-	.game .avatar {
-		width: 80px;
-		height: 80px;
-	}
-
-	.game .elipse2 {
-		width: 70px;
-		height: 70px;
-	}
-
-	.game .accounts {
-		height: 500px;
-		width: 100%;
+		width: 40em;
 	}
 
 	.game .tickets {
-		width: 100%;
-		height: 665px;
+		width: 34em;
 	}
 
-	.game .btn {
-		height: 105px;
-		font-size: 26px;
+	.game .p6 {
+		margin-left: 0.5em;
 	}
 
-	.game .ticket-title > img {
-		width: 40px;
-		height: 33px;
+	.game .slick-arrow {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.game {
+		font-size: 3.8px;
 	}
 
-	.game .p7 {
-		font-size: 22px;
-	}
-
-	.game .p8 {
-		font-size: 23px;
-	}
-
-	.game .p9 {
-		font-size: 30px;
-	}
-
-	.game .p9 > span {
-		font-size: 18px;
-	}
-
-	.game .winners > img {
-		width: 40px;
-		height: 40px;
-	}
-
-	.game .p10 {
-		font-size: 22px;
-	}
-
-	.game .winners_ {
-		padding: 0 20px;
-	}
-
-	.game .avatar-win {
-		width: 50px;
-		height: 50px;
-	}
-
-	.game .elipse4 {
-		width: 44px;
-		height: 44px;
-	}
-
-	.game .slider {
-		/*display: none;*/
-	}
-
-	.game .p11 {
-		font-size: 22px;
-	}
-
-	.game .place1 {
-		width: 45px;
-		height: 45px;
-	}
-
-	.game .p12 {
-		font-size: 18px;
-	}
-
-	.game .p12 > span {
-		font-size: 23px;
-	}
-
-	.game .place2 {
-		width: 35px;
-		height: 35px;
+	.game #dataForSend {
+		width: 280px;
+		margin-left: -140px;
 	}
 }

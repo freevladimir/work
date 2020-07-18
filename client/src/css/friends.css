@@ -50,12 +50,51 @@ body {
 }
 
 .friends .elipse3 {
-	height: 133px;
-	width: 133px;
+	height: 138px;
+	width: 138px;
 	border-radius: 50%;
 	border: 1px solid #3f3f3f;
 	background: #c4c4c4;
 	position: relative;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+.friends .links {
+	display: flex;
+	justify-content: space-between;
+	width: 45%;
+}
+
+.friends .info a {
+	text-decoration: none;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.friends .info .chat {
+	background: transparent;
+	padding: 10px;
+	border-radius: 10px;
+	width: 240px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.friends .info .chat i {
+	float: none;
+	color: #fff;
+}
+
+.friends .elipse3 img {
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 .friends .elipse_ {
@@ -69,16 +108,22 @@ body {
 }
 
 .friends .elipse3_ {
-	height: 133px;
-	width: 133px;
+	height: 138px;
+	width: 138px;
 	border-radius: 50%;
 	border: 1px solid #3f3f3f;
 	background: #c4c4c4;
 	overflow: hidden;
+	display: flex;
+	align-content: stretch;
+	align-items: stretch;
 }
 
-.people .elipse3_ img {
-	height: 100%;
+.friends .elipse3_ img {
+	width: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
 }
 
 .friends i {
@@ -214,12 +259,12 @@ a {
 
 /* 576-768px */
 @media screen and (max-width: 768px) {
-	body {
-		/*        padding: 45px 0 35px;*/
-	}
-
 	.friends .container {
 		width: 540px;
+	}
+
+	.friends .info a {
+		font-size: 23px;
 	}
 
 	.friends .comp1 {
@@ -232,8 +277,8 @@ a {
 	}
 
 	.friends .elipse3 {
-		height: 120px;
-		width: 120px;
+		height: 125px;
+		width: 125px;
 		position: relative;
 	}
 
@@ -243,8 +288,8 @@ a {
 	}
 
 	.friends .elipse3_ {
-		width: 85px;
-		height: 85px;
+		width: 93px;
+		height: 93px;
 	}
 
 	.friends .p1 {
@@ -281,14 +326,20 @@ a {
 		width: 310px;
 	}
 
+	.friends .info .chat {
+		width: 100%;
+		padding: 0 20px;
+		justify-content: space-around;
+	}
+
 	.friends .elipse {
 		width: 90px;
 		height: 90px;
 	}
 
 	.friends .elipse3 {
-		height: 75px;
-		width: 75px;
+		height: 82px;
+		width: 82px;
 	}
 
 	.friends .elipse_ {
@@ -297,8 +348,8 @@ a {
 	}
 
 	.friends .elipse3_ {
-		width: 60px;
-		height: 60px;
+		width: 70px;
+		height: 70px;
 	}
 
 	.friends .account {
@@ -349,5 +400,15 @@ a {
 
 	.friends .p5 {
 		text-align: center;
+	}
+
+	.friends .info .links {
+		width: 100%;
+	}
+
+	.friends .info a {
+		font-size: 20px;
+		margin: 0 5px;
+		line-height: 45px;
 	}
 }

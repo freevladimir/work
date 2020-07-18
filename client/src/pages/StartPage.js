@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHttp } from '../hooks/http.hook';
+import Languages from '../components/Languages';
 import '../css/main.css';
 import '../css/preloader.css';
 
@@ -24,7 +25,7 @@ export const StartPage = () => {
 		}
 	};
 	useEffect(() => {
-		changeLanguage('russian');
+		changeLanguage('english');
 	}, []);
 	if (currentLanguage === null)
 		return (
@@ -67,13 +68,7 @@ export const StartPage = () => {
 
 			<section className="section1" id="section1">
 				<div className="container">
-					<div className="languages">
-						<ul>
-							{languages.map((obj, i) => (
-								<li key={i} onClick={() => changeLanguage(obj.lang)}></li>
-							))}
-						</ul>
-					</div>
+					<Languages changeLanguage={changeLanguage} languages={languages} />
 					<div className="div"></div>
 					<h2>{currentLanguage.translation.header.text}</h2>
 					<div className="work">
@@ -149,11 +144,14 @@ export const StartPage = () => {
 							<i className="fa fa-youtube-play" aria-hidden="true"></i>
 						</a>
 					</div>
-					<div className="nav">
+					<a href="https://prostocash.com/obmen-sberbank-na-ethereum.html?R=15947311895867" className="banner" target="_blank">
+						<img src={require('../img/banner.jpeg')} alt="banner" />
+					</a>
+					{/* <div className="nav">
 						<a href="#">Условия использования</a>
 						<a href="#">Адрес</a>
 						<a href="#">Открытый источник</a>
-					</div>
+					</div> */}
 				</div>
 			</section>
 			<footer className="footer" id="footer">

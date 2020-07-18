@@ -35,7 +35,7 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
-	"proxy": "http://7top.org:443",
+	"proxy": "https://7top.org:443",
 	"browserslist": {
 		"production": [
 			">0.2%",

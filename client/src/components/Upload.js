@@ -1,93 +1,126 @@
-import React, {useContext} from "react";
-import { AuthContext } from "../context/AuthContext";
-import ReactDOM from 'react-dom'
-import axios from 'axios'
-import {userId} from '../pages/AllGamesPage'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { userId, userImg } from '../pages/AllGamesPage';
+import { useMessage } from '../hooks/message.hook';
+import { useHistory } from 'react-router-dom';
+import AvatarEditor from 'react-avatar-editor';
+import { getProfilePic } from '../utils/functions';
 export let file;
-let imagePreviewUrl
-    let $imagePreview 
-export class ImageUpload extends React.Component {
 
+export const ImageUpload = React.memo(({ token, profilePic }) => {
+	const [state, setState] = useState({ imagePreviewUrl: profilePic });
+	let user = userId;
+	const message = useMessage();
+	const history = useHistory();
+	const maxSize = 4194304;
+	let $imagePreview = null;
+	const reader = new FileReader();
 
-  constructor(props) {
-    super(props);
-    let reader = new FileReader();
-    this.state = {file: '',imagePreviewUrl: ''};
-    this.user = userId
-  }
+	const getExtension = (filename) => {
+		var parts = filename.split('.');
+		return parts[parts.length - 1];
+	};
 
-  _handleSubmit() {
-    // TODO: do something with -> this.state.file
-    const data = new FormData()
-    data.append('file', this.state.file)
-    data.append('userId', this.user)
-    // request("/api/link/upload", "POST", this.state.file);
-    console.log('handle uploading-', this.state.file);
-    console.log(this.user)
-    // for (var key of data.entries()) {
-    //     console.log(key[0] + ', ' + key[1]);
-    // }
-    axios.post("http://7top.org/upload", data, { 
-      // receive two    parameter endpoint url ,form data
-    })
-    .then(res => { // then print response status
-      console.log(res.statusText)
-    })
-  }
+	const isImage = (filename) => {
+		var ext = getExtension(filename);
+		switch (ext.toLowerCase()) {
+			case 'jpg':
+			case 'jpeg':
+			case 'heic':
+			case 'png':
+			case 'bmp':
+			case 'gif':
+				//etc
+				return true;
+		}
+		return false;
+	};
 
-  _handleImageChange(e) {
-    e.preventDefault();
+	const getUserId = async (token) => {
+		const data = await fetch('/api/avatar/id/' + token);
+		const res = await data.json();
+		console.log(res);
+		if (res.ok) {
+			return res.userId;
+		} else {
+			throw new Error(res.message);
+		}
+	};
 
-    let reader = new FileReader();
-    file = e.target.files[0];
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-      this._handleSubmit(e)
-    }
-    console.log('file', file)
+	if (!state.imagePreviewUrl) {
+		(async () => {
+			try {
+				console.log(user);
+				if (!user) user = await getUserId(token);
+				const blob = await getProfilePic(user);
+				reader.onload = function () {
+					setState({ imagePreviewUrl: this.result });
+					userImg.img = this.result;
+				};
+				reader.readAsDataURL(blob);
+			} catch (err) {
+				console.error(err);
+				history.push('/');
+			}
+		})();
+	}
 
-    
-    reader.readAsDataURL(e.target.files[0])
-  }
+	const _handleSubmit = async (file) => {
+		try {
+			if (!user) user = await getUserId(token);
+		} catch (err) {
+			console.error(err);
+		}
+		const data = new FormData();
+		data.append('file', file);
+		data.append('userId', user);
+		console.log('handle uploading-', file);
+		console.log(user);
+		axios
+			.post('/api/avatar/upload', data, { headers: { 'auth-token': token } })
+			.then((res) => {
+				console.log(res.statusText);
+			})
+			.catch((err) => {
+				console.error(err);
+				message('Something went wrong, try again later');
+			});
+	};
 
-  render() {
-    imagePreviewUrl = this.state.imagePreviewUrl;
-    $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
-    } else {
-      $imagePreview = (<img src={require(`../avatars/${this.user}.jpg`)}/>)
-    }
+	const _handleImageChange = (e) => {
+		e.preventDefault();
+		file = e.target.files[0];
+		if (isImage(file.name)) {
+			if (file.size < maxSize) {
+				reader.onloadend = () => {
+					setState({
+						imagePreviewUrl: reader.result,
+					});
+					userImg.img = reader.result;
+					_handleSubmit(file);
+				};
+				reader.readAsDataURL(e.target.files[0]);
+			} else {
+				message('Maximum file size is 4mb');
+			}
+		} else {
+			message('Supported formats: jpg, png, bmp, gif, jpeg');
+		}
+	};
 
-    return (
-    
+	// const { imagePreviewUrl } = state;
+	// $imagePreview = null;
+	// if (imagePreviewUrl) $imagePreview =
+	// else $imagePreview = <img src={getProfilePic(user)} />;
 
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
-        <div className="elipse3">
-          <input className="fileInput" name="avatar" id="fileInput"
-            type="file" 
-            onChange={(e)=>this._handleImageChange(e)} />
-            <div className="imgPreview">
-              {$imagePreview}
-            </div>
-            </div>
-        </form>
-        
-
-      
-    )
-  }
-}
-  
-
-                  //// <form action='http://7top.org/upload' >
-                  // <input
-                  //     type="file"
-                  //     name="avatar"
-                  //     id="file"
-                  //     onChange={changeHandler}
-                  // />
-                  // </form>
+	return (
+		<form onSubmit={(e) => _handleSubmit(e)}>
+			<div className="elipse3">
+				<input className="fileInput" name="avatar" id="fileInput" type="file" onChange={(e) => _handleImageChange(e)} />
+				<div className="imgPreview">
+					<img src={state.imagePreviewUrl} />
+				</div>
+			</div>
+		</form>
+	);
+});

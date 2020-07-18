@@ -8,9 +8,10 @@ import { AuthContext } from '../context/AuthContext';
 import Timer from 'react-compound-timer';
 import countOfTickets from '../utils/countOfTickets';
 import { getAllValues, userAddress, loadingBlockchain } from '../utils/connectBlockchain';
-import path from 'path';
 import { ImageUpload } from '../components/Upload';
+import { getProfilePic } from '../utils/functions';
 export let userId;
+export let userImg = { img: '' };
 
 const AllGamesPage = () => {
 	const store = useContext(AppStoreContext);
@@ -18,11 +19,12 @@ const AllGamesPage = () => {
 	const history = useHistory();
 	const [name, setName] = useState([]);
 	const [id, setId] = useState([]);
-	const [img, setImg] = useState([]);
 	const { token } = useContext(AuthContext);
 	const { loading, request } = useHttp();
 	const [countOfFriends, setFriends] = useState([]);
 	const [countOfUsers, setUsers] = useState([]);
+	const reader = new FileReader();
+	const [avatar, setAvatar] = useState('');
 
 	const generateHash = (string) => {
 		let hash = 0;
@@ -44,8 +46,6 @@ const AllGamesPage = () => {
 			userId = fetched[0]._id;
 			setName(fetched[0].name);
 			setId(fetched[0].wallet.substr(0, 6) + '...' + fetched[0].wallet.substr(38, 4));
-			let _img = require(`../avatars/${fetched[0]._id}.jpg`);
-			setImg(_img);
 		} catch (e) {}
 	}, [token, request]);
 
@@ -72,6 +72,17 @@ const AllGamesPage = () => {
 		getAllUsersAndFriends();
 	}, [getAllUsersAndFriends]);
 
+	useEffect(() => {
+		(async () => {
+			const blob = await getProfilePic(userId);
+			reader.onload = function () {
+				setAvatar(this.result);
+				userImg.img = this.result;
+			};
+			reader.readAsDataURL(blob);
+		})();
+	}, [userId, userImg.img]);
+
 	if (store.allTimesEnd[1] === undefined) {
 		return (
 			<div className="holder">
@@ -95,7 +106,7 @@ const AllGamesPage = () => {
 				<header className="header" id="header">
 					<div className="container">
 						<div className="account">
-							<div className="elipse">{<ImageUpload />}</div>
+							<div className="elipse">{<ImageUpload token={token} profilePic={avatar} />}</div>
 							<p className="p1">{name}</p>
 							<a href="/" onClick={logoutHandler}>
 								<i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
@@ -229,7 +240,7 @@ const AllGamesPage = () => {
 							</div>
 							<div className="blok2">
 								<div className="title3">
-									<img src={require('../img/calendar2.png')} alt="minute" />
+									<img src={require('../img/calendar3.png')} alt="minute" />
 									<p className="p6">Every month</p>
 								</div>
 								<NavLink to="/oneMonth">

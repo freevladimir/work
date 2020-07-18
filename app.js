@@ -5,12 +5,16 @@ const mongoose = require('mongoose');
 const gridFS = require('mongo-gridfs');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const contractAdresses = require('./client/src/config/default');
+const contractAdresses = require('./config/contract');
 const fileUpload = require('express-fileupload');
 const path = require('path');
 const multer = require('multer');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const {redirectToHTTPS} = require('express-http-to-https');
 
 const Web3 = require('web3');
 const Tx = require('ethereumjs-tx');
@@ -20,6 +24,17 @@ const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider
 let address = '0x2778C6F33A0C9a20866Cce84beb3e78b9dD26AE5';
 let privateKey = '6FFD8A36CDC137AE3A0153201C33BC4CC334DF09F7C6ACA0C0B09308A3790F71';
 let timerId;
+
+const privKey = fs.readFileSync('/etc/letsencrypt/live/7top.org/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/7top.org/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/7top.org/chain.pem', 'utf8');
+
+const credentials = {
+	key: privKey,
+	cert: certificate,
+	ca: ca
+};
+
 
 let contracts = {
 	// fiveMinutes: {
@@ -359,9 +374,16 @@ app.use(bodyParser.json());
 app.use(fileUpload());
 app.use(cors());
 app.use(methodOverride('_method'));
+app.use(redirectToHTTPS());
 app.set('view engine', 'ejs');
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/language', require('./routes/languages'));
+app.use('/api/avatar', require('./routes/avatar'));
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+
+
 // if(process.env.NODE_ENV === 'production'){
 //     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
@@ -503,6 +525,9 @@ const drawing = async (lotteryTime, lottery) => {
 	});
 };
 
+app.use(express.static(__dirname + '/build'));
+app.get('/*', (req, res) => res.sendFile('index.html', { root: path.join(__dirname, '/build') }));
+
 async function start() {
 	try {
 		await mongoose.connect(config.get('mongoUrl'), {
@@ -520,7 +545,13 @@ async function start() {
 			},
 		});
 		app.set('transporter', transporter);
-		app.listen(PORT, () => console.log(`App has been started ${PORT}...`));
+        httpsServer.listen(443, () => {
+            console.log('HTTPS Server running on port 443');
+        });
+        httpServer.listen(80, () => {
+            console.log('HTTPS Server running on port 80');
+        });
+//		app.listen(PORT, () => console.log(`App has been started ${PORT}...`));
 		await getTimeValues();
 		await setListeners();
 		timerId = setInterval(() => {

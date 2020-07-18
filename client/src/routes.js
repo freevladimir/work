@@ -55,7 +55,7 @@ export const useRoutes = (isAuthenticated) => {
 				<Route path="/allgames" exact>
 					<Redirect to="/" />
 				</Route>
-				{/*<Redirect to="/allgames" />*/}
+				<Redirect to="/" />
 			</Switch>
 		);
 	}
@@ -76,7 +76,7 @@ export const useRoutes = (isAuthenticated) => {
 			<Route path="/restore-password" exact>
 				<RestorePassword />
 			</Route>
-			{/*<Redirect to="/" />*/}
+			{/* <Redirect to="/" /> */}
 		</Switch>
 	);
 };
