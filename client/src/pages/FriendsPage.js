@@ -16,6 +16,8 @@ export const FriendsPage = () => {
 	const [friends, setFriends] = useState([]);
 	const [countOfFriends, setAllFriends] = useState([]);
 	const [countOfUsers, setUsers] = useState([]);
+	const [avatars, setAvatars] = useState([]);
+	const reader = new FileReader();
 
 	const getUserData = useCallback(async () => {
 		try {
@@ -51,6 +53,14 @@ export const FriendsPage = () => {
 		console.log('allUsers: ', result);
 		setUsers(result.allUsers);
 		setAllFriends(result.friends);
+		for (const user of result.allUsers2) {
+			const blob = await getProfilePic(user._id);
+			reader.onload = function () {
+				const avatar = this.result;
+				setAvatars((avatars) => [...avatars, avatar]);
+			};
+			reader.readAsDataURL(blob);
+		}
 	}, [request]);
 
 	useEffect(() => {
@@ -101,7 +111,7 @@ export const FriendsPage = () => {
 						<div className="comp" key={index}>
 							<div className="elipse_">
 								<div className="elipse3_">
-									<img src={getProfilePic(item._id)} />
+									<img src={avatars[index]} />
 								</div>
 							</div>
 							<div className="text">

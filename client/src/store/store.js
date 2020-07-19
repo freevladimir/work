@@ -126,7 +126,6 @@ class AppStore {
 		// Чекер проверяет значения window data и если условие соблюдено, то поменяет локальное значение ticketCount, и вызовет ре-рендер зависящих от этого значения компонентов
 		setInterval(() => {
 			if (window.data !== null) {
-				console.log(window.data);
 				let obj = new Object(window.data);
 				if (obj.hasOwnProperty('tickets')) {
 					if (obj.tickets !== undefined && this.ticketsCount !== obj.tickets) this.ticketsCount = window.data.tickets;

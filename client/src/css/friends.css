@@ -183,13 +183,13 @@ body {
 .friends .comp {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 22px;
 }
 
-.friends .text {
-	margin-right: 70px;
+.friends .comp .text {
+	margin-left: 40px;
+	max-width: 200px;
 }
 
 .friends .p3 {
@@ -365,10 +365,6 @@ a {
 	.friends .left {
 		width: 40px;
 		height: 40px;
-	}
-
-	.friends .text {
-		width: 30%;
 	}
 
 	.friends .p3 {

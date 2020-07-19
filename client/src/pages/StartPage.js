@@ -61,7 +61,7 @@ export const StartPage = () => {
 						</a>
 					</div>
 					<div className="video">
-						<iframe src="https://www.youtube.com/embed/PkkV1vLHUvQ"></iframe>
+						<iframe src="https://youtu.be/VsmoQ3K76fE"></iframe>
 					</div>
 				</div>
 			</header>
@@ -140,7 +140,7 @@ export const StartPage = () => {
 						<a href="#" className="fb">
 							<i className="fa fa-facebook-official" aria-hidden="true"></i>
 						</a>
-						<a href="#" className="tube">
+						<a href="https://www.youtube.com/channel/UCnCfdRrnlF8LZWNe0N44uog/" target="_blank" className="tube">
 							<i className="fa fa-youtube-play" aria-hidden="true"></i>
 						</a>
 					</div>
