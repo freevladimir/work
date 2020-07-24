@@ -17,6 +17,7 @@ const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider
 const fs = require('fs');
 const imgGen = require('js-image-generator');
 const sendMail = require('../middleware/sendMail');
+const contractAdresses = require('./client/src/config/default')
 
 const conn = mongoose.createConnection(config.get('mongoUrl'));
 let gfs;
@@ -387,7 +388,7 @@ router.get('/friends', auth, async (req, res) => {
 		console.log('start getting friends');
 		const userAddress = await User.find({ _id: req.user.userId });
 		console.log('userAddress: ', userAddress[0].wallet);
-		let refContract = '0x6E712549EFE403866BCd2D405f66672DD59a90D4';
+		let refContract = contractAdresses["RefStorage"]["address"];
 		let refAbi = [
 			{
 				constant: false,
@@ -588,7 +589,7 @@ router.get('/allusers', auth, async (req, res) => {
 	try {
 		const user = await User.find({ _id: req.user.userId });
 		// const _friends = await User.find({friendId: user[0].wallet})
-		let refContract = '0x6E712549EFE403866BCd2D405f66672DD59a90D4';
+		let refContract = contractAdresses["RefStorage"]["address"];
 		let refAbi = [
 			{
 				constant: false,
