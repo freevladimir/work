@@ -367,7 +367,7 @@ h2 {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
-	width: 160px;
+	width: 110px;
 	margin-bottom: 15px;
 	align-items: center;
 }
@@ -823,10 +823,6 @@ h2 {
 		width: 280px;
 		box-sizing: border-box;
 		font-size: 17px;
-	}
-
-	.startpage .icon {
-		width: 142px;
 	}
 
 	.startpage .telegram > img {

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { userId, userImg } from '../pages/AllGamesPage';
 import { useMessage } from '../hooks/message.hook';
 import { useHistory } from 'react-router-dom';
-import AvatarEditor from 'react-avatar-editor';
 import { getProfilePic } from '../utils/functions';
 export let file;
 

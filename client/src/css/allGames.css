@@ -320,6 +320,24 @@ body {
 	margin-top: -8.3em;
 }
 
+.allgames .container .banner-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 2em;
+}
+
+.allgames .container .banner {
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+	width: 400px;
+}
+
+.allgames .container .banner img {
+	object-fit: cover;
+	width: 100%;
+}
+
 @media (min-aspect-ratio: 16/9) {
 	.allgames #videoBG {
 		height: auto;
@@ -659,6 +677,10 @@ body {
 @media screen and (max-width: 576px) {
 	.allgames {
 		font-size: 5.5px;
+	}
+
+	.startpage .container .banner {
+		width: 300px;
 	}
 }
 

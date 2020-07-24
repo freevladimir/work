@@ -13,6 +13,10 @@ export const StartPage = () => {
 		{ lang: 'chinese', margin: 160 },
 	];
 	const [currentLanguage, setCurrentLanguage] = useState(null);
+	const videos = {
+		english: 'https://www.youtube.com/embed/1Ht2k1DvV_8?rel=0',
+		russian: 'https://www.youtube.com/embed/VsmoQ3K76fE?rel=0',
+	};
 	const { request } = useHttp();
 	const changeLanguage = async (lang) => {
 		if (currentLanguage === null || lang !== currentLanguage.language) {
@@ -61,7 +65,10 @@ export const StartPage = () => {
 						</a>
 					</div>
 					<div className="video">
-						<iframe src="https://youtu.be/VsmoQ3K76fE"></iframe>
+						<iframe
+							allowFullScreen={true}
+							src={Object.keys(videos).indexOf(currentLanguage.language) > -1 ? videos[currentLanguage.language] : videos['english']}
+						></iframe>
 					</div>
 				</div>
 			</header>
@@ -134,12 +141,12 @@ export const StartPage = () => {
 			<section className="section3" id="section3">
 				<div className="container">
 					<div className="icon">
-						<a href="#" className="telegram">
+						<a href="https://t.me/joinchat/HSApdhx_OO301lltbkyfhw" target="_blank" className="telegram">
 							<i className="fa fa-telegram" aria-hidden="true"></i>
 						</a>
-						<a href="#" className="fb">
+						{/* <a href="#" className="fb">
 							<i className="fa fa-facebook-official" aria-hidden="true"></i>
-						</a>
+						</a> */}
 						<a href="https://www.youtube.com/channel/UCnCfdRrnlF8LZWNe0N44uog/" target="_blank" className="tube">
 							<i className="fa fa-youtube-play" aria-hidden="true"></i>
 						</a>

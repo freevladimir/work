@@ -143,7 +143,6 @@ const AllGamesPage = () => {
 								</div>
 							</div>
 						</div>
-
 						<div className="comp2">
 							<div className="timer">
 								<Timer initialTime={store.allTimesEnd[0]} direction="backward">
@@ -200,7 +199,6 @@ const AllGamesPage = () => {
 								<p className="p5">Human</p>
 							</div>
 						</div>
-
 						<div className="comp2">
 							<div className="timer">
 								<Timer initialTime={store.allTimesEnd[1]} direction="backward">
@@ -257,7 +255,6 @@ const AllGamesPage = () => {
 								<p className="p5">Human</p>
 							</div>
 						</div>
-
 						<div className="comp2 comp3">
 							<div className="blok2">
 								<div className="title3 title_">
@@ -318,9 +315,13 @@ const AllGamesPage = () => {
 								</NavLink>
 							</div>
 						</div>
-
 						<div className="video">
-							<iframe src="https://www.youtube.com/embed/PkkV1vLHUvQ"></iframe>
+							<iframe src="https://www.youtube.com/embed/1Ht2k1DvV_8?rel=0" allowFullScreen={true}></iframe>
+						</div>
+						<div className="banner-wrapper">
+							<a href="https://prostocash.com/obmen-sberbank-na-ethereum.html?R=15947311895867" className="banner" target="_blank">
+								<img src={require('../img/banner.jpeg')} alt="banner" />
+							</a>
 						</div>
 					</div>
 				</section>
