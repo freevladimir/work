@@ -17,7 +17,7 @@ const web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider
 const fs = require('fs');
 const imgGen = require('js-image-generator');
 const sendMail = require('../middleware/sendMail');
-const contractAdresses = require('./client/src/config/default')
+const contractAdresses = require(path.resolve('client', 'src/config', 'default.json'));
 
 const conn = mongoose.createConnection(config.get('mongoUrl'));
 let gfs;
